@@ -2,9 +2,13 @@ package services
 
 import (
 	"context"
+	"time"
 
 	"healthai/engine/internal/core/domain"
 	"healthai/engine/internal/core/ports"
+
+	"github.com/google/uuid"
+	"github.com/lib/pq"
 )
 
 type UserService struct {
@@ -27,9 +31,33 @@ func (s *UserService) UpdateBiometrics(ctx context.Context, id string, weight, h
 
 	user.Weight = weight
 	user.Height = height
-	
+
 	// Example of business logic potentially using CanAccessAdvancedFeatures check here if needed in future
 	// if !s.CanAccessAdvancedFeatures(user) { ... }
+
+	return s.repo.Update(ctx, user)
+}
+
+func (s *UserService) UpdateHealthProfile(ctx context.Context, id string, dob *time.Time, goals, allergies []string, weight float64) error {
+	user, err := s.repo.GetByID(ctx, id)
+	if err != nil {
+		return err
+	}
+
+	user.DateOfBirth = dob
+	user.Weight = weight
+
+	if user.HealthProfile == nil {
+		user.HealthProfile = &domain.HealthProfile{
+			ID:        uuid.NewString(),
+			UserID:    user.ID,
+			Goals:     pq.StringArray(goals),
+			Allergies: pq.StringArray(allergies),
+		}
+	} else {
+		user.HealthProfile.Goals = pq.StringArray(goals)
+		user.HealthProfile.Allergies = pq.StringArray(allergies)
+	}
 
 	return s.repo.Update(ctx, user)
 }

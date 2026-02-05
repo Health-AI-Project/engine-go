@@ -20,7 +20,7 @@ func NewUserRepository(db *gorm.DB) ports.UserRepository {
 
 func (r *UserRepository) GetByID(ctx context.Context, id string) (*domain.User, error) {
 	var user domain.User
-	if err := r.db.WithContext(ctx).First(&user, "id = ?", id).Error; err != nil {
+	if err := r.db.WithContext(ctx).Preload("HealthProfile").First(&user, "id = ?", id).Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, errors.New("user not found")
 		}

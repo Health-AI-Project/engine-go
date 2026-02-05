@@ -10,47 +10,85 @@ import (
 	"healthai/engine/internal/adapters/repositories/postgres"
 	"healthai/engine/internal/core/domain"
 	"healthai/engine/internal/core/services"
+
 	// "healthai/engine/internal/core/ports" // Not strictly needed if fx uses type inference, but good for clarity if referenced. Use implicit matching.
 
+	"github.com/joho/godotenv"
 	"go.uber.org/fx"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	gormpg "gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"gorm.io/gorm/schema"
 )
 
 func NewDatabase() (*gorm.DB, error) {
-	dsn := fmt.Sprintf(
-		"host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
-		os.Getenv("DB_HOST"),
-		os.Getenv("DB_USER"),
-		os.Getenv("DB_PASSWORD"),
-		os.Getenv("DB_NAME"),
-		os.Getenv("DB_PORT"),
-	)
-	db, err := gorm.Open(gormpg.Open(dsn), &gorm.Config{})
+	var dsn string
+	dbURL := os.Getenv("DATABASE_URL")
+	if dbURL != "" {
+		dsn = dbURL
+	} else {
+		dsn = fmt.Sprintf(
+			"host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
+			os.Getenv("DB_HOST"),
+			os.Getenv("DB_USER"),
+			os.Getenv("DB_PASSWORD"),
+			os.Getenv("DB_NAME"),
+			os.Getenv("DB_PORT"),
+		)
+	}
+
+	db, err := gorm.Open(gormpg.Open(dsn), &gorm.Config{
+		NamingStrategy: schema.NamingStrategy{
+			SingularTable: true,
+		},
+		PrepareStmt: false, // Disable prepared statements to fix array binding
+	})
 	if err != nil {
 		return nil, err
 	}
-	
+
 	// AutoMigrate
 	if err := db.AutoMigrate(
-		&domain.User{},
+		// &domain.User{}, // Migrated manually to avoid conflicts with Drizzle
 		&domain.DailyLog{},
 		&domain.Workout{},
+		&domain.HealthProfile{},
 	); err != nil {
 		return nil, err
 	}
-	
+
+	// DEBUG: Print actual connection info
+	sqlDB, _ := db.DB()
+	var currentDB string
+	var serverAddr string
+	sqlDB.QueryRow("SELECT current_database()").Scan(&currentDB)
+	sqlDB.QueryRow("SELECT inet_server_addr()").Scan(&serverAddr)
+	fmt.Printf("[DEBUG] Connected to Database: %s at %s (Configured Host: %s)\n", currentDB, serverAddr, os.Getenv("DB_HOST"))
+
+	// DEBUG: Check columns in user table
+	rows, err := sqlDB.Query("SELECT column_name FROM information_schema.columns WHERE table_name = 'user'")
+	if err == nil {
+		defer rows.Close()
+		fmt.Println("[DEBUG] Columns in 'user' table:")
+		for rows.Next() {
+			var colName string
+			rows.Scan(&colName)
+			fmt.Printf(" - %s\n", colName)
+		}
+	} else {
+		fmt.Printf("[DEBUG] Failed to list columns: %v\n", err)
+	}
+
 	return db, nil
 }
 
 func NewGRPCServer(lc fx.Lifecycle, userHandler *usergrpc.UserHandler) *grpc.Server {
 	server := grpc.NewServer()
 
-	// TODO: Register the UserServiceServer here once code is generated.
-	// pb.RegisterUserServiceServer(server, userHandler)
-	
+	// Register the UserServiceServer manually since code is not generated.
+	usergrpc.RegisterUserService(server, userHandler)
+
 	// Enable reflection for debugging (e.g. with grpcurl)
 	reflection.Register(server)
 
@@ -83,10 +121,14 @@ func NewGRPCServer(lc fx.Lifecycle, userHandler *usergrpc.UserHandler) *grpc.Ser
 
 // Retrying imports for clarity in the file content below.
 func main() {
+	if err := godotenv.Load(); err != nil {
+		fmt.Println("Warning: .env file not found, using system environment variables")
+	}
+
 	fx.New(
 		fx.Provide(
 			NewDatabase,
-			postgres.NewUserRepository, // Returns ports.UserRepository
+			postgres.NewUserRepository,     // Returns ports.UserRepository
 			postgres.NewActivityRepository, // Returns ports.ActivityRepository
 			services.NewUserService,
 			services.NewActivityService,
