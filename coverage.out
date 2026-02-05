@@ -1,0 +1,17 @@
+mode: set
+healthai/engine/internal/core/services/activity_service.go:15.73,17.2 1 1
+healthai/engine/internal/core/services/activity_service.go:21.121,25.16 3 1
+healthai/engine/internal/core/services/activity_service.go:25.16,27.3 1 0
+healthai/engine/internal/core/services/activity_service.go:29.2,29.16 1 1
+healthai/engine/internal/core/services/activity_service.go:29.16,37.3 6 1
+healthai/engine/internal/core/services/activity_service.go:40.2,46.40 6 1
+healthai/engine/internal/core/services/activity_service.go:49.126,52.2 2 1
+healthai/engine/internal/core/services/activity_service.go:58.83,59.21 1 1
+healthai/engine/internal/core/services/activity_service.go:59.21,61.3 1 1
+healthai/engine/internal/core/services/activity_service.go:63.2,63.36 1 0
+healthai/engine/internal/core/services/user_service.go:14.61,16.2 1 1
+healthai/engine/internal/core/services/user_service.go:18.85,20.2 1 1
+healthai/engine/internal/core/services/user_service.go:22.102,24.16 2 1
+healthai/engine/internal/core/services/user_service.go:24.16,26.3 1 0
+healthai/engine/internal/core/services/user_service.go:28.2,34.33 3 1
+healthai/engine/internal/core/services/user_service.go:39.73,41.2 1 1

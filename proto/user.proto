@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "healthai/engine/proto/user";
+
+service UserService {
+  rpc GetUserProfile(UserIdRequest) returns (UserProfileResponse);
+  rpc UpdateBiometrics(BiometricsRequest) returns (Empty);
+  
+  // Feature B: Activity Logging
+  rpc LogNutrition(NutritionRequest) returns (Ack);
+  rpc LogWorkout(WorkoutRequest) returns (Ack);
+}
+
+message UserIdRequest {
+  string user_id = 1;
+}
+
+message UserProfileResponse {
+  string id = 1;
+  string email = 2;
+  string subscription_status = 3;
+  double weight = 4;
+  double height = 5;
+  bool is_premium = 6;
+}
+
+message BiometricsRequest {
+  string user_id = 1;
+  double weight = 2;
+  double height = 3;
+}
+
+message Empty {}
+
+message NutritionRequest {
+  string user_id = 1;
+  double calories = 2; // Optional, can be calculated
+  double protein = 3;
+  double carbs = 4;
+  double fat = 5;
+}
+
+message WorkoutRequest {
+  string user_id = 1;
+  string type = 2; // CARDIO, STRENGTH
+  int32 duration_minutes = 3;
+  double calories_burned = 4;
+}
+
+message Ack {
+  bool success = 1;
+  string message = 2;
+}
