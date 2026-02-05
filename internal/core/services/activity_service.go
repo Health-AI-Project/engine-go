@@ -51,6 +51,12 @@ func (s *ActivityService) LogWorkout(ctx context.Context, userID string, wType s
 	return s.repo.CreateWorkout(ctx, workout)
 }
 
+func (s *ActivityService) GetDailyStats(ctx context.Context, userID string) (*domain.DailyLog, error) {
+	today := time.Now().Truncate(24 * time.Hour)
+	return s.repo.GetDailyLogByDate(ctx, userID, today)
+}
+
+
 // calculateCalories helper: prefers specific calorie input, else estimates from macros
 // However, task says "Recalcule automatiquement le total calorique après chaque ajout."
 // This implies aggregation.

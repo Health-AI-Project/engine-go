@@ -48,10 +48,19 @@ type WorkoutRequest struct {
 	CaloriesBurned  float64
 }
 
+type DailyStatsResponse struct {
+	Calories      float64
+	Protein       float64
+	Carbs         float64
+	Fat           float64
+	WorkoutsCount int32
+}
+
 type Ack struct {
 	Success bool
 	Message string
 }
+
 
 // UserHandler implements the gRPC service methods.
 type UserHandler struct {
@@ -86,6 +95,29 @@ func (h *UserHandler) GetUserProfile(ctx context.Context, req *UserIdRequest) (*
 		Weight:             user.Weight,
 		Height:             user.Height,
 		IsPremium:          isPremium,
+	}, nil
+}
+
+func (h *UserHandler) GetDailyStats(ctx context.Context, req *UserIdRequest) (*DailyStatsResponse, error) {
+	if req.UserId == "" {
+		return nil, status.Error(codes.InvalidArgument, "user_id is required")
+	}
+
+	log, err := h.activityService.GetDailyStats(ctx, req.UserId)
+	if err != nil {
+		return nil, status.Error(codes.Internal, "failed to get daily stats")
+	}
+
+	if log == nil {
+		return &DailyStatsResponse{}, nil
+	}
+
+	return &DailyStatsResponse{
+		Calories:      log.TotalCalories,
+		Protein:       log.TotalProtein,
+		Carbs:         log.TotalCarbs,
+		Fat:           log.TotalFat,
+		WorkoutsCount: 0, // In a real scenario, we'd count today's workouts too
 	}, nil
 }
 

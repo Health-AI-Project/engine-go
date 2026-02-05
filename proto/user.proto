@@ -6,6 +6,7 @@ option go_package = "healthai/engine/proto/user";
 
 service UserService {
   rpc GetUserProfile(UserIdRequest) returns (UserProfileResponse);
+  rpc GetDailyStats(UserIdRequest) returns (DailyStatsResponse);
   rpc UpdateBiometrics(BiometricsRequest) returns (Empty);
   
   // Feature B: Activity Logging
@@ -24,6 +25,13 @@ message UserProfileResponse {
   double weight = 4;
   double height = 5;
   bool is_premium = 6;
+}
+message DailyStatsResponse {
+  double calories = 1;
+  double protein = 2;
+  double carbs = 3;
+  double fat = 4;
+  int32 workouts_count = 5;
 }
 
 message BiometricsRequest {
