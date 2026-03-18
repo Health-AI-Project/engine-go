@@ -1,0 +1,2791 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage line-rate="0.17692308" branch-rate="0" lines-covered="138" lines-valid="780" branches-covered="0" branches-valid="0" complexity="0" version="" timestamp="1773842151033">
+	<packages>
+		<package name="healthai/engine" line-rate="0" branch-rate="0" complexity="0" line-count="5" line-hits="0">
+			<classes>
+				<class name="-" filename="main.go" line-rate="0" branch-rate="0" complexity="0" line-count="5" line-hits="0">
+					<methods>
+						<method name="main" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="11" hits="0"></line>
+								<line number="14" hits="0"></line>
+								<line number="15" hits="0"></line>
+								<line number="17" hits="0"></line>
+								<line number="18" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="11" hits="0"></line>
+						<line number="14" hits="0"></line>
+						<line number="15" hits="0"></line>
+						<line number="17" hits="0"></line>
+						<line number="18" hits="0"></line>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="healthai/engine/cmd/client" line-rate="0" branch-rate="0" complexity="0" line-count="30" line-hits="0">
+			<classes>
+				<class name="-" filename="cmd/client/main.go" line-rate="0" branch-rate="0" complexity="0" line-count="30" line-hits="0">
+					<methods>
+						<method name="main" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="55" hits="0"></line>
+								<line number="58" hits="0"></line>
+								<line number="59" hits="0"></line>
+								<line number="60" hits="0"></line>
+								<line number="62" hits="0"></line>
+								<line number="70" hits="0"></line>
+								<line number="72" hits="0"></line>
+								<line number="73" hits="0"></line>
+								<line number="76" hits="0"></line>
+								<line number="77" hits="0"></line>
+								<line number="84" hits="0"></line>
+								<line number="90" hits="0"></line>
+								<line number="91" hits="0"></line>
+								<line number="92" hits="0"></line>
+								<line number="94" hits="0"></line>
+								<line number="98" hits="0"></line>
+								<line number="99" hits="0"></line>
+								<line number="106" hits="0"></line>
+								<line number="107" hits="0"></line>
+								<line number="108" hits="0"></line>
+								<line number="109" hits="0"></line>
+								<line number="111" hits="0"></line>
+								<line number="115" hits="0"></line>
+								<line number="116" hits="0"></line>
+								<line number="117" hits="0"></line>
+								<line number="119" hits="0"></line>
+								<line number="120" hits="0"></line>
+								<line number="121" hits="0"></line>
+								<line number="122" hits="0"></line>
+								<line number="124" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="55" hits="0"></line>
+						<line number="58" hits="0"></line>
+						<line number="59" hits="0"></line>
+						<line number="60" hits="0"></line>
+						<line number="62" hits="0"></line>
+						<line number="70" hits="0"></line>
+						<line number="72" hits="0"></line>
+						<line number="73" hits="0"></line>
+						<line number="76" hits="0"></line>
+						<line number="77" hits="0"></line>
+						<line number="84" hits="0"></line>
+						<line number="90" hits="0"></line>
+						<line number="91" hits="0"></line>
+						<line number="92" hits="0"></line>
+						<line number="94" hits="0"></line>
+						<line number="98" hits="0"></line>
+						<line number="99" hits="0"></line>
+						<line number="106" hits="0"></line>
+						<line number="107" hits="0"></line>
+						<line number="108" hits="0"></line>
+						<line number="109" hits="0"></line>
+						<line number="111" hits="0"></line>
+						<line number="115" hits="0"></line>
+						<line number="116" hits="0"></line>
+						<line number="117" hits="0"></line>
+						<line number="119" hits="0"></line>
+						<line number="120" hits="0"></line>
+						<line number="121" hits="0"></line>
+						<line number="122" hits="0"></line>
+						<line number="124" hits="0"></line>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="healthai/engine/cmd/server" line-rate="0" branch-rate="0" complexity="0" line-count="47" line-hits="0">
+			<classes>
+				<class name="-" filename="cmd/server/main.go" line-rate="0" branch-rate="0" complexity="0" line-count="47" line-hits="0">
+					<methods>
+						<method name="@111:12" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="112" hits="0"></line>
+								<line number="113" hits="0"></line>
+								<line number="114" hits="0"></line>
+								<line number="116" hits="0"></line>
+								<line number="117" hits="0"></line>
+								<line number="118" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@120:11" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="121" hits="0"></line>
+								<line number="122" hits="0"></line>
+								<line number="123" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@160:13" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="NewDatabase" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="26" hits="0"></line>
+								<line number="27" hits="0"></line>
+								<line number="28" hits="0"></line>
+								<line number="29" hits="0"></line>
+								<line number="31" hits="0"></line>
+								<line number="41" hits="0"></line>
+								<line number="47" hits="0"></line>
+								<line number="48" hits="0"></line>
+								<line number="52" hits="0"></line>
+								<line number="53" hits="0"></line>
+								<line number="68" hits="0"></line>
+								<line number="72" hits="0"></line>
+								<line number="73" hits="0"></line>
+								<line number="74" hits="0"></line>
+								<line number="75" hits="0"></line>
+								<line number="76" hits="0"></line>
+								<line number="77" hits="0"></line>
+								<line number="80" hits="0"></line>
+								<line number="81" hits="0"></line>
+								<line number="82" hits="0"></line>
+								<line number="83" hits="0"></line>
+								<line number="84" hits="0"></line>
+								<line number="85" hits="0"></line>
+								<line number="86" hits="0"></line>
+								<line number="87" hits="0"></line>
+								<line number="90" hits="0"></line>
+								<line number="93" hits="0"></line>
+							</lines>
+						</method>
+						<method name="NewGRPCServer" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="97" hits="0"></line>
+								<line number="100" hits="0"></line>
+								<line number="103" hits="0"></line>
+								<line number="104" hits="0"></line>
+								<line number="105" hits="0"></line>
+								<line number="108" hits="0"></line>
+								<line number="110" hits="0"></line>
+								<line number="127" hits="0"></line>
+							</lines>
+						</method>
+						<method name="main" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="139" hits="0"></line>
+								<line number="140" hits="0"></line>
+								<line number="143" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="26" hits="0"></line>
+						<line number="27" hits="0"></line>
+						<line number="28" hits="0"></line>
+						<line number="29" hits="0"></line>
+						<line number="31" hits="0"></line>
+						<line number="41" hits="0"></line>
+						<line number="47" hits="0"></line>
+						<line number="48" hits="0"></line>
+						<line number="52" hits="0"></line>
+						<line number="53" hits="0"></line>
+						<line number="68" hits="0"></line>
+						<line number="72" hits="0"></line>
+						<line number="73" hits="0"></line>
+						<line number="74" hits="0"></line>
+						<line number="75" hits="0"></line>
+						<line number="76" hits="0"></line>
+						<line number="77" hits="0"></line>
+						<line number="80" hits="0"></line>
+						<line number="81" hits="0"></line>
+						<line number="82" hits="0"></line>
+						<line number="83" hits="0"></line>
+						<line number="84" hits="0"></line>
+						<line number="85" hits="0"></line>
+						<line number="86" hits="0"></line>
+						<line number="87" hits="0"></line>
+						<line number="90" hits="0"></line>
+						<line number="93" hits="0"></line>
+						<line number="97" hits="0"></line>
+						<line number="100" hits="0"></line>
+						<line number="103" hits="0"></line>
+						<line number="104" hits="0"></line>
+						<line number="105" hits="0"></line>
+						<line number="108" hits="0"></line>
+						<line number="110" hits="0"></line>
+						<line number="112" hits="0"></line>
+						<line number="113" hits="0"></line>
+						<line number="114" hits="0"></line>
+						<line number="116" hits="0"></line>
+						<line number="117" hits="0"></line>
+						<line number="118" hits="0"></line>
+						<line number="121" hits="0"></line>
+						<line number="122" hits="0"></line>
+						<line number="123" hits="0"></line>
+						<line number="127" hits="0"></line>
+						<line number="139" hits="0"></line>
+						<line number="140" hits="0"></line>
+						<line number="143" hits="0"></line>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="healthai/engine/internal/adapters/handlers/grpc" line-rate="0" branch-rate="0" complexity="0" line-count="406" line-hits="0">
+			<classes>
+				<class name="-" filename="internal/adapters/handlers/grpc/core_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="77" line-hits="0">
+					<methods>
+						<method name="@251:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="252" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@269:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="270" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@284:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="285" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@299:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="300" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@314:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="315" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@339:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="340" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@353:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="354" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@367:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="368" hits="0"></line>
+							</lines>
+						</method>
+						<method name="NewCoreHandler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="53" hits="0"></line>
+							</lines>
+						</method>
+						<method name="RegisterCoreService" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="219" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_Core_AnalyzeMeal_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="331" hits="0"></line>
+								<line number="332" hits="0"></line>
+								<line number="333" hits="0"></line>
+								<line number="335" hits="0"></line>
+								<line number="336" hits="0"></line>
+								<line number="338" hits="0"></line>
+								<line number="339" hits="0"></line>
+								<line number="342" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_Core_GetDailyStats_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="261" hits="0"></line>
+								<line number="262" hits="0"></line>
+								<line number="263" hits="0"></line>
+								<line number="265" hits="0"></line>
+								<line number="266" hits="0"></line>
+								<line number="268" hits="0"></line>
+								<line number="269" hits="0"></line>
+								<line number="272" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_Core_GetFoodPreferences_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="276" hits="0"></line>
+								<line number="277" hits="0"></line>
+								<line number="278" hits="0"></line>
+								<line number="280" hits="0"></line>
+								<line number="281" hits="0"></line>
+								<line number="283" hits="0"></line>
+								<line number="284" hits="0"></line>
+								<line number="287" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_Core_GetMealPlan_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="345" hits="0"></line>
+								<line number="346" hits="0"></line>
+								<line number="347" hits="0"></line>
+								<line number="349" hits="0"></line>
+								<line number="350" hits="0"></line>
+								<line number="352" hits="0"></line>
+								<line number="353" hits="0"></line>
+								<line number="356" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_Core_GetUserProfile_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="243" hits="0"></line>
+								<line number="244" hits="0"></line>
+								<line number="245" hits="0"></line>
+								<line number="247" hits="0"></line>
+								<line number="248" hits="0"></line>
+								<line number="250" hits="0"></line>
+								<line number="251" hits="0"></line>
+								<line number="254" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_Core_GetWorkoutRecommendation_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="359" hits="0"></line>
+								<line number="360" hits="0"></line>
+								<line number="361" hits="0"></line>
+								<line number="363" hits="0"></line>
+								<line number="364" hits="0"></line>
+								<line number="366" hits="0"></line>
+								<line number="367" hits="0"></line>
+								<line number="370" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_Core_LogNutrition_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="325" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_Core_LogWorkout_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="328" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_Core_UpdateBiometrics_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="322" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_Core_UpdateFoodPreferences_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="306" hits="0"></line>
+								<line number="307" hits="0"></line>
+								<line number="308" hits="0"></line>
+								<line number="310" hits="0"></line>
+								<line number="311" hits="0"></line>
+								<line number="313" hits="0"></line>
+								<line number="314" hits="0"></line>
+								<line number="317" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_Core_UpdateHealthProfile_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="291" hits="0"></line>
+								<line number="292" hits="0"></line>
+								<line number="293" hits="0"></line>
+								<line number="295" hits="0"></line>
+								<line number="296" hits="0"></line>
+								<line number="298" hits="0"></line>
+								<line number="299" hits="0"></line>
+								<line number="302" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="53" hits="0"></line>
+						<line number="219" hits="0"></line>
+						<line number="243" hits="0"></line>
+						<line number="244" hits="0"></line>
+						<line number="245" hits="0"></line>
+						<line number="247" hits="0"></line>
+						<line number="248" hits="0"></line>
+						<line number="250" hits="0"></line>
+						<line number="251" hits="0"></line>
+						<line number="252" hits="0"></line>
+						<line number="254" hits="0"></line>
+						<line number="261" hits="0"></line>
+						<line number="262" hits="0"></line>
+						<line number="263" hits="0"></line>
+						<line number="265" hits="0"></line>
+						<line number="266" hits="0"></line>
+						<line number="268" hits="0"></line>
+						<line number="269" hits="0"></line>
+						<line number="270" hits="0"></line>
+						<line number="272" hits="0"></line>
+						<line number="276" hits="0"></line>
+						<line number="277" hits="0"></line>
+						<line number="278" hits="0"></line>
+						<line number="280" hits="0"></line>
+						<line number="281" hits="0"></line>
+						<line number="283" hits="0"></line>
+						<line number="284" hits="0"></line>
+						<line number="285" hits="0"></line>
+						<line number="287" hits="0"></line>
+						<line number="291" hits="0"></line>
+						<line number="292" hits="0"></line>
+						<line number="293" hits="0"></line>
+						<line number="295" hits="0"></line>
+						<line number="296" hits="0"></line>
+						<line number="298" hits="0"></line>
+						<line number="299" hits="0"></line>
+						<line number="300" hits="0"></line>
+						<line number="302" hits="0"></line>
+						<line number="306" hits="0"></line>
+						<line number="307" hits="0"></line>
+						<line number="308" hits="0"></line>
+						<line number="310" hits="0"></line>
+						<line number="311" hits="0"></line>
+						<line number="313" hits="0"></line>
+						<line number="314" hits="0"></line>
+						<line number="315" hits="0"></line>
+						<line number="317" hits="0"></line>
+						<line number="322" hits="0"></line>
+						<line number="325" hits="0"></line>
+						<line number="328" hits="0"></line>
+						<line number="331" hits="0"></line>
+						<line number="332" hits="0"></line>
+						<line number="333" hits="0"></line>
+						<line number="335" hits="0"></line>
+						<line number="336" hits="0"></line>
+						<line number="338" hits="0"></line>
+						<line number="339" hits="0"></line>
+						<line number="340" hits="0"></line>
+						<line number="342" hits="0"></line>
+						<line number="345" hits="0"></line>
+						<line number="346" hits="0"></line>
+						<line number="347" hits="0"></line>
+						<line number="349" hits="0"></line>
+						<line number="350" hits="0"></line>
+						<line number="352" hits="0"></line>
+						<line number="353" hits="0"></line>
+						<line number="354" hits="0"></line>
+						<line number="356" hits="0"></line>
+						<line number="359" hits="0"></line>
+						<line number="360" hits="0"></line>
+						<line number="361" hits="0"></line>
+						<line number="363" hits="0"></line>
+						<line number="364" hits="0"></line>
+						<line number="366" hits="0"></line>
+						<line number="367" hits="0"></line>
+						<line number="368" hits="0"></line>
+						<line number="370" hits="0"></line>
+					</lines>
+				</class>
+				<class name="CoreHandler" filename="internal/adapters/handlers/grpc/core_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="76" line-hits="0">
+					<methods>
+						<method name="AnalyzeMeal" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="186" hits="0"></line>
+								<line number="187" hits="0"></line>
+								<line number="188" hits="0"></line>
+								<line number="190" hits="0"></line>
+								<line number="191" hits="0"></line>
+								<line number="193" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetDailyStats" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="106" hits="0"></line>
+								<line number="107" hits="0"></line>
+								<line number="109" hits="0"></line>
+								<line number="110" hits="0"></line>
+								<line number="111" hits="0"></line>
+								<line number="113" hits="0"></line>
+								<line number="114" hits="0"></line>
+								<line number="116" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetFoodPreferences" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="167" hits="0"></line>
+								<line number="168" hits="0"></line>
+								<line number="170" hits="0"></line>
+								<line number="171" hits="0"></line>
+								<line number="172" hits="0"></line>
+								<line number="174" hits="0"></line>
+								<line number="175" hits="0"></line>
+								<line number="177" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetMealPlan" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="196" hits="0"></line>
+								<line number="197" hits="0"></line>
+								<line number="198" hits="0"></line>
+								<line number="200" hits="0"></line>
+								<line number="201" hits="0"></line>
+								<line number="203" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetUserProfile" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="63" hits="0"></line>
+								<line number="64" hits="0"></line>
+								<line number="66" hits="0"></line>
+								<line number="67" hits="0"></line>
+								<line number="68" hits="0"></line>
+								<line number="71" hits="0"></line>
+								<line number="72" hits="0"></line>
+								<line number="73" hits="0"></line>
+								<line number="74" hits="0"></line>
+								<line number="75" hits="0"></line>
+								<line number="77" hits="0"></line>
+								<line number="78" hits="0"></line>
+								<line number="79" hits="0"></line>
+								<line number="80" hits="0"></line>
+								<line number="81" hits="0"></line>
+								<line number="82" hits="0"></line>
+								<line number="85" hits="0"></line>
+								<line number="86" hits="0"></line>
+								<line number="87" hits="0"></line>
+								<line number="90" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetWorkoutRecommendation" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="206" hits="0"></line>
+								<line number="207" hits="0"></line>
+								<line number="208" hits="0"></line>
+								<line number="210" hits="0"></line>
+								<line number="211" hits="0"></line>
+								<line number="213" hits="0"></line>
+							</lines>
+						</method>
+						<method name="LogNutrition" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="148" hits="0"></line>
+								<line number="149" hits="0"></line>
+							</lines>
+						</method>
+						<method name="LogWorkout" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="154" hits="0"></line>
+								<line number="155" hits="0"></line>
+							</lines>
+						</method>
+						<method name="UpdateBiometrics" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="122" hits="0"></line>
+								<line number="123" hits="0"></line>
+								<line number="125" hits="0"></line>
+								<line number="126" hits="0"></line>
+							</lines>
+						</method>
+						<method name="UpdateFoodPreferences" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="159" hits="0"></line>
+								<line number="160" hits="0"></line>
+								<line number="161" hits="0"></line>
+								<line number="163" hits="0"></line>
+							</lines>
+						</method>
+						<method name="UpdateHealthProfile" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="131" hits="0"></line>
+								<line number="132" hits="0"></line>
+								<line number="134" hits="0"></line>
+								<line number="135" hits="0"></line>
+								<line number="136" hits="0"></line>
+								<line number="137" hits="0"></line>
+								<line number="139" hits="0"></line>
+								<line number="140" hits="0"></line>
+								<line number="141" hits="0"></line>
+								<line number="143" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="63" hits="0"></line>
+						<line number="64" hits="0"></line>
+						<line number="66" hits="0"></line>
+						<line number="67" hits="0"></line>
+						<line number="68" hits="0"></line>
+						<line number="71" hits="0"></line>
+						<line number="72" hits="0"></line>
+						<line number="73" hits="0"></line>
+						<line number="74" hits="0"></line>
+						<line number="75" hits="0"></line>
+						<line number="77" hits="0"></line>
+						<line number="78" hits="0"></line>
+						<line number="79" hits="0"></line>
+						<line number="80" hits="0"></line>
+						<line number="81" hits="0"></line>
+						<line number="82" hits="0"></line>
+						<line number="85" hits="0"></line>
+						<line number="86" hits="0"></line>
+						<line number="87" hits="0"></line>
+						<line number="90" hits="0"></line>
+						<line number="106" hits="0"></line>
+						<line number="107" hits="0"></line>
+						<line number="109" hits="0"></line>
+						<line number="110" hits="0"></line>
+						<line number="111" hits="0"></line>
+						<line number="113" hits="0"></line>
+						<line number="114" hits="0"></line>
+						<line number="116" hits="0"></line>
+						<line number="122" hits="0"></line>
+						<line number="123" hits="0"></line>
+						<line number="125" hits="0"></line>
+						<line number="126" hits="0"></line>
+						<line number="131" hits="0"></line>
+						<line number="132" hits="0"></line>
+						<line number="134" hits="0"></line>
+						<line number="135" hits="0"></line>
+						<line number="136" hits="0"></line>
+						<line number="137" hits="0"></line>
+						<line number="139" hits="0"></line>
+						<line number="140" hits="0"></line>
+						<line number="141" hits="0"></line>
+						<line number="143" hits="0"></line>
+						<line number="148" hits="0"></line>
+						<line number="149" hits="0"></line>
+						<line number="154" hits="0"></line>
+						<line number="155" hits="0"></line>
+						<line number="159" hits="0"></line>
+						<line number="160" hits="0"></line>
+						<line number="161" hits="0"></line>
+						<line number="163" hits="0"></line>
+						<line number="167" hits="0"></line>
+						<line number="168" hits="0"></line>
+						<line number="170" hits="0"></line>
+						<line number="171" hits="0"></line>
+						<line number="172" hits="0"></line>
+						<line number="174" hits="0"></line>
+						<line number="175" hits="0"></line>
+						<line number="177" hits="0"></line>
+						<line number="186" hits="0"></line>
+						<line number="187" hits="0"></line>
+						<line number="188" hits="0"></line>
+						<line number="190" hits="0"></line>
+						<line number="191" hits="0"></line>
+						<line number="193" hits="0"></line>
+						<line number="196" hits="0"></line>
+						<line number="197" hits="0"></line>
+						<line number="198" hits="0"></line>
+						<line number="200" hits="0"></line>
+						<line number="201" hits="0"></line>
+						<line number="203" hits="0"></line>
+						<line number="206" hits="0"></line>
+						<line number="207" hits="0"></line>
+						<line number="208" hits="0"></line>
+						<line number="210" hits="0"></line>
+						<line number="211" hits="0"></line>
+						<line number="213" hits="0"></line>
+					</lines>
+				</class>
+				<class name="-" filename="internal/adapters/handlers/grpc/nutrition_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="38" line-hits="0">
+					<methods>
+						<method name="@254:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="255" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@269:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="270" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@284:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="285" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@299:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="300" hits="0"></line>
+							</lines>
+						</method>
+						<method name="NewNutritionHandler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="114" hits="0"></line>
+							</lines>
+						</method>
+						<method name="RegisterNutritionService" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="231" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_NutritionService_AnalyzeMeal_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="261" hits="0"></line>
+								<line number="262" hits="0"></line>
+								<line number="263" hits="0"></line>
+								<line number="265" hits="0"></line>
+								<line number="266" hits="0"></line>
+								<line number="268" hits="0"></line>
+								<line number="269" hits="0"></line>
+								<line number="272" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_NutritionService_GetFoodPreferences_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="291" hits="0"></line>
+								<line number="292" hits="0"></line>
+								<line number="293" hits="0"></line>
+								<line number="295" hits="0"></line>
+								<line number="296" hits="0"></line>
+								<line number="298" hits="0"></line>
+								<line number="299" hits="0"></line>
+								<line number="302" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_NutritionService_GetMealPlan_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="276" hits="0"></line>
+								<line number="277" hits="0"></line>
+								<line number="278" hits="0"></line>
+								<line number="280" hits="0"></line>
+								<line number="281" hits="0"></line>
+								<line number="283" hits="0"></line>
+								<line number="284" hits="0"></line>
+								<line number="287" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_NutritionService_UpdateFoodPreferences_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="246" hits="0"></line>
+								<line number="247" hits="0"></line>
+								<line number="248" hits="0"></line>
+								<line number="250" hits="0"></line>
+								<line number="251" hits="0"></line>
+								<line number="253" hits="0"></line>
+								<line number="254" hits="0"></line>
+								<line number="257" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="114" hits="0"></line>
+						<line number="231" hits="0"></line>
+						<line number="246" hits="0"></line>
+						<line number="247" hits="0"></line>
+						<line number="248" hits="0"></line>
+						<line number="250" hits="0"></line>
+						<line number="251" hits="0"></line>
+						<line number="253" hits="0"></line>
+						<line number="254" hits="0"></line>
+						<line number="255" hits="0"></line>
+						<line number="257" hits="0"></line>
+						<line number="261" hits="0"></line>
+						<line number="262" hits="0"></line>
+						<line number="263" hits="0"></line>
+						<line number="265" hits="0"></line>
+						<line number="266" hits="0"></line>
+						<line number="268" hits="0"></line>
+						<line number="269" hits="0"></line>
+						<line number="270" hits="0"></line>
+						<line number="272" hits="0"></line>
+						<line number="276" hits="0"></line>
+						<line number="277" hits="0"></line>
+						<line number="278" hits="0"></line>
+						<line number="280" hits="0"></line>
+						<line number="281" hits="0"></line>
+						<line number="283" hits="0"></line>
+						<line number="284" hits="0"></line>
+						<line number="285" hits="0"></line>
+						<line number="287" hits="0"></line>
+						<line number="291" hits="0"></line>
+						<line number="292" hits="0"></line>
+						<line number="293" hits="0"></line>
+						<line number="295" hits="0"></line>
+						<line number="296" hits="0"></line>
+						<line number="298" hits="0"></line>
+						<line number="299" hits="0"></line>
+						<line number="300" hits="0"></line>
+						<line number="302" hits="0"></line>
+					</lines>
+				</class>
+				<class name="AnalyzeMealRequest" filename="internal/adapters/handlers/grpc/nutrition_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="34" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="35" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="34" hits="0"></line>
+						<line number="35" hits="0"></line>
+					</lines>
+				</class>
+				<class name="AnalyzeMealResponse" filename="internal/adapters/handlers/grpc/nutrition_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="59" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="60" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="59" hits="0"></line>
+						<line number="60" hits="0"></line>
+					</lines>
+				</class>
+				<class name="FoodPreferencesResponse" filename="internal/adapters/handlers/grpc/nutrition_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="103" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="104" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="103" hits="0"></line>
+						<line number="104" hits="0"></line>
+					</lines>
+				</class>
+				<class name="GetFoodPreferencesRequest" filename="internal/adapters/handlers/grpc/nutrition_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="93" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="94" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="93" hits="0"></line>
+						<line number="94" hits="0"></line>
+					</lines>
+				</class>
+				<class name="GetMealPlanRequest" filename="internal/adapters/handlers/grpc/nutrition_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="68" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="69" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="68" hits="0"></line>
+						<line number="69" hits="0"></line>
+					</lines>
+				</class>
+				<class name="MealPlanResponse" filename="internal/adapters/handlers/grpc/nutrition_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="79" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="80" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="79" hits="0"></line>
+						<line number="80" hits="0"></line>
+					</lines>
+				</class>
+				<class name="NutritionHandler" filename="internal/adapters/handlers/grpc/nutrition_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="29" line-hits="0">
+					<methods>
+						<method name="AnalyzeMeal" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="153" hits="0"></line>
+								<line number="154" hits="0"></line>
+								<line number="157" hits="0"></line>
+								<line number="168" hits="0"></line>
+								<line number="169" hits="0"></line>
+								<line number="170" hits="0"></line>
+								<line number="173" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetFoodPreferences" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="127" hits="0"></line>
+								<line number="128" hits="0"></line>
+								<line number="131" hits="0"></line>
+								<line number="132" hits="0"></line>
+								<line number="133" hits="0"></line>
+								<line number="136" hits="0"></line>
+								<line number="138" hits="0"></line>
+								<line number="145" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetMealPlan" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="181" hits="0"></line>
+								<line number="182" hits="0"></line>
+								<line number="183" hits="0"></line>
+								<line number="184" hits="0"></line>
+								<line number="185" hits="0"></line>
+								<line number="189" hits="0"></line>
+								<line number="190" hits="0"></line>
+								<line number="191" hits="0"></line>
+								<line number="194" hits="0"></line>
+								<line number="201" hits="0"></line>
+								<line number="202" hits="0"></line>
+								<line number="218" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetService" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="118" hits="0"></line>
+							</lines>
+						</method>
+						<method name="UpdateFoodPreferences" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="123" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="118" hits="0"></line>
+						<line number="123" hits="0"></line>
+						<line number="127" hits="0"></line>
+						<line number="128" hits="0"></line>
+						<line number="131" hits="0"></line>
+						<line number="132" hits="0"></line>
+						<line number="133" hits="0"></line>
+						<line number="136" hits="0"></line>
+						<line number="138" hits="0"></line>
+						<line number="145" hits="0"></line>
+						<line number="153" hits="0"></line>
+						<line number="154" hits="0"></line>
+						<line number="157" hits="0"></line>
+						<line number="168" hits="0"></line>
+						<line number="169" hits="0"></line>
+						<line number="170" hits="0"></line>
+						<line number="173" hits="0"></line>
+						<line number="181" hits="0"></line>
+						<line number="182" hits="0"></line>
+						<line number="183" hits="0"></line>
+						<line number="184" hits="0"></line>
+						<line number="185" hits="0"></line>
+						<line number="189" hits="0"></line>
+						<line number="190" hits="0"></line>
+						<line number="191" hits="0"></line>
+						<line number="194" hits="0"></line>
+						<line number="201" hits="0"></line>
+						<line number="202" hits="0"></line>
+						<line number="218" hits="0"></line>
+					</lines>
+				</class>
+				<class name="ProtoMealSuggestion" filename="internal/adapters/handlers/grpc/nutrition_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="49" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="50" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="49" hits="0"></line>
+						<line number="50" hits="0"></line>
+					</lines>
+				</class>
+				<class name="UpdateFoodPreferencesRequest" filename="internal/adapters/handlers/grpc/nutrition_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="25" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="26" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="25" hits="0"></line>
+						<line number="26" hits="0"></line>
+					</lines>
+				</class>
+				<class name="-" filename="internal/adapters/handlers/grpc/user_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="56" line-hits="0">
+					<methods>
+						<method name="@338:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="339" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@356:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="357" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@374:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="375" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@392:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="393" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@410:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="411" hits="0"></line>
+							</lines>
+						</method>
+						<method name="@428:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="429" hits="0"></line>
+							</lines>
+						</method>
+						<method name="NewUserHandler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="133" hits="0"></line>
+							</lines>
+						</method>
+						<method name="RegisterUserService" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="292" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_UserService_GetDailyStats_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="345" hits="0"></line>
+								<line number="346" hits="0"></line>
+								<line number="347" hits="0"></line>
+								<line number="349" hits="0"></line>
+								<line number="350" hits="0"></line>
+								<line number="352" hits="0"></line>
+								<line number="356" hits="0"></line>
+								<line number="359" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_UserService_GetUserProfile_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="327" hits="0"></line>
+								<line number="328" hits="0"></line>
+								<line number="329" hits="0"></line>
+								<line number="331" hits="0"></line>
+								<line number="332" hits="0"></line>
+								<line number="334" hits="0"></line>
+								<line number="338" hits="0"></line>
+								<line number="341" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_UserService_LogNutrition_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="399" hits="0"></line>
+								<line number="400" hits="0"></line>
+								<line number="401" hits="0"></line>
+								<line number="403" hits="0"></line>
+								<line number="404" hits="0"></line>
+								<line number="406" hits="0"></line>
+								<line number="410" hits="0"></line>
+								<line number="413" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_UserService_LogWorkout_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="417" hits="0"></line>
+								<line number="418" hits="0"></line>
+								<line number="419" hits="0"></line>
+								<line number="421" hits="0"></line>
+								<line number="422" hits="0"></line>
+								<line number="424" hits="0"></line>
+								<line number="428" hits="0"></line>
+								<line number="431" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_UserService_UpdateBiometrics_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="363" hits="0"></line>
+								<line number="364" hits="0"></line>
+								<line number="365" hits="0"></line>
+								<line number="367" hits="0"></line>
+								<line number="368" hits="0"></line>
+								<line number="370" hits="0"></line>
+								<line number="374" hits="0"></line>
+								<line number="377" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_UserService_UpdateHealthProfile_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="381" hits="0"></line>
+								<line number="382" hits="0"></line>
+								<line number="383" hits="0"></line>
+								<line number="385" hits="0"></line>
+								<line number="386" hits="0"></line>
+								<line number="388" hits="0"></line>
+								<line number="392" hits="0"></line>
+								<line number="395" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="133" hits="0"></line>
+						<line number="292" hits="0"></line>
+						<line number="327" hits="0"></line>
+						<line number="328" hits="0"></line>
+						<line number="329" hits="0"></line>
+						<line number="331" hits="0"></line>
+						<line number="332" hits="0"></line>
+						<line number="334" hits="0"></line>
+						<line number="338" hits="0"></line>
+						<line number="339" hits="0"></line>
+						<line number="341" hits="0"></line>
+						<line number="345" hits="0"></line>
+						<line number="346" hits="0"></line>
+						<line number="347" hits="0"></line>
+						<line number="349" hits="0"></line>
+						<line number="350" hits="0"></line>
+						<line number="352" hits="0"></line>
+						<line number="356" hits="0"></line>
+						<line number="357" hits="0"></line>
+						<line number="359" hits="0"></line>
+						<line number="363" hits="0"></line>
+						<line number="364" hits="0"></line>
+						<line number="365" hits="0"></line>
+						<line number="367" hits="0"></line>
+						<line number="368" hits="0"></line>
+						<line number="370" hits="0"></line>
+						<line number="374" hits="0"></line>
+						<line number="375" hits="0"></line>
+						<line number="377" hits="0"></line>
+						<line number="381" hits="0"></line>
+						<line number="382" hits="0"></line>
+						<line number="383" hits="0"></line>
+						<line number="385" hits="0"></line>
+						<line number="386" hits="0"></line>
+						<line number="388" hits="0"></line>
+						<line number="392" hits="0"></line>
+						<line number="393" hits="0"></line>
+						<line number="395" hits="0"></line>
+						<line number="399" hits="0"></line>
+						<line number="400" hits="0"></line>
+						<line number="401" hits="0"></line>
+						<line number="403" hits="0"></line>
+						<line number="404" hits="0"></line>
+						<line number="406" hits="0"></line>
+						<line number="410" hits="0"></line>
+						<line number="411" hits="0"></line>
+						<line number="413" hits="0"></line>
+						<line number="417" hits="0"></line>
+						<line number="418" hits="0"></line>
+						<line number="419" hits="0"></line>
+						<line number="421" hits="0"></line>
+						<line number="422" hits="0"></line>
+						<line number="424" hits="0"></line>
+						<line number="428" hits="0"></line>
+						<line number="429" hits="0"></line>
+						<line number="431" hits="0"></line>
+					</lines>
+				</class>
+				<class name="Ack" filename="internal/adapters/handlers/grpc/user_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="111" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="112" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="111" hits="0"></line>
+						<line number="112" hits="0"></line>
+					</lines>
+				</class>
+				<class name="BiometricsRequest" filename="internal/adapters/handlers/grpc/user_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="48" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="49" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="48" hits="0"></line>
+						<line number="49" hits="0"></line>
+					</lines>
+				</class>
+				<class name="DailyStatsResponse" filename="internal/adapters/handlers/grpc/user_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="102" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="103" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="102" hits="0"></line>
+						<line number="103" hits="0"></line>
+					</lines>
+				</class>
+				<class name="Empty" filename="internal/adapters/handlers/grpc/user_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="66" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="67" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="66" hits="0"></line>
+						<line number="67" hits="0"></line>
+					</lines>
+				</class>
+				<class name="NutritionRequest" filename="internal/adapters/handlers/grpc/user_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="79" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="80" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="79" hits="0"></line>
+						<line number="80" hits="0"></line>
+					</lines>
+				</class>
+				<class name="UpdateHealthProfileRequest" filename="internal/adapters/handlers/grpc/user_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="60" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="61" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="60" hits="0"></line>
+						<line number="61" hits="0"></line>
+					</lines>
+				</class>
+				<class name="UserHandler" filename="internal/adapters/handlers/grpc/user_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="67" line-hits="0">
+					<methods>
+						<method name="GetActivityService" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="144" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetDailyStats" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="226" hits="0"></line>
+								<line number="227" hits="0"></line>
+								<line number="230" hits="0"></line>
+								<line number="231" hits="0"></line>
+								<line number="232" hits="0"></line>
+								<line number="235" hits="0"></line>
+								<line number="236" hits="0"></line>
+								<line number="239" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetService" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="140" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetUserProfile" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="148" hits="0"></line>
+								<line number="149" hits="0"></line>
+								<line number="152" hits="0"></line>
+								<line number="153" hits="0"></line>
+								<line number="154" hits="0"></line>
+								<line number="155" hits="0"></line>
+								<line number="158" hits="0"></line>
+								<line number="159" hits="0"></line>
+								<line number="160" hits="0"></line>
+								<line number="162" hits="0"></line>
+								<line number="165" hits="0"></line>
+								<line number="167" hits="0"></line>
+								<line number="168" hits="0"></line>
+								<line number="169" hits="0"></line>
+								<line number="170" hits="0"></line>
+								<line number="172" hits="0"></line>
+								<line number="173" hits="0"></line>
+								<line number="175" hits="0"></line>
+								<line number="176" hits="0"></line>
+								<line number="177" hits="0"></line>
+								<line number="178" hits="0"></line>
+								<line number="182" hits="0"></line>
+								<line number="183" hits="0"></line>
+								<line number="184" hits="0"></line>
+								<line number="187" hits="0"></line>
+							</lines>
+						</method>
+						<method name="LogNutrition" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="264" hits="0"></line>
+								<line number="265" hits="0"></line>
+								<line number="268" hits="0"></line>
+								<line number="269" hits="0"></line>
+								<line number="270" hits="0"></line>
+								<line number="273" hits="0"></line>
+							</lines>
+						</method>
+						<method name="LogWorkout" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="277" hits="0"></line>
+								<line number="278" hits="0"></line>
+								<line number="281" hits="0"></line>
+								<line number="282" hits="0"></line>
+								<line number="283" hits="0"></line>
+								<line number="286" hits="0"></line>
+							</lines>
+						</method>
+						<method name="UpdateBiometrics" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="249" hits="0"></line>
+								<line number="250" hits="0"></line>
+								<line number="253" hits="0"></line>
+								<line number="254" hits="0"></line>
+								<line number="255" hits="0"></line>
+								<line number="258" hits="0"></line>
+							</lines>
+						</method>
+						<method name="UpdateHealthProfile" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="202" hits="0"></line>
+								<line number="203" hits="0"></line>
+								<line number="204" hits="0"></line>
+								<line number="207" hits="0"></line>
+								<line number="208" hits="0"></line>
+								<line number="209" hits="0"></line>
+								<line number="210" hits="0"></line>
+								<line number="211" hits="0"></line>
+								<line number="213" hits="0"></line>
+								<line number="216" hits="0"></line>
+								<line number="217" hits="0"></line>
+								<line number="218" hits="0"></line>
+								<line number="219" hits="0"></line>
+								<line number="222" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="140" hits="0"></line>
+						<line number="144" hits="0"></line>
+						<line number="148" hits="0"></line>
+						<line number="149" hits="0"></line>
+						<line number="152" hits="0"></line>
+						<line number="153" hits="0"></line>
+						<line number="154" hits="0"></line>
+						<line number="155" hits="0"></line>
+						<line number="158" hits="0"></line>
+						<line number="159" hits="0"></line>
+						<line number="160" hits="0"></line>
+						<line number="162" hits="0"></line>
+						<line number="165" hits="0"></line>
+						<line number="167" hits="0"></line>
+						<line number="168" hits="0"></line>
+						<line number="169" hits="0"></line>
+						<line number="170" hits="0"></line>
+						<line number="172" hits="0"></line>
+						<line number="173" hits="0"></line>
+						<line number="175" hits="0"></line>
+						<line number="176" hits="0"></line>
+						<line number="177" hits="0"></line>
+						<line number="178" hits="0"></line>
+						<line number="182" hits="0"></line>
+						<line number="183" hits="0"></line>
+						<line number="184" hits="0"></line>
+						<line number="187" hits="0"></line>
+						<line number="202" hits="0"></line>
+						<line number="203" hits="0"></line>
+						<line number="204" hits="0"></line>
+						<line number="207" hits="0"></line>
+						<line number="208" hits="0"></line>
+						<line number="209" hits="0"></line>
+						<line number="210" hits="0"></line>
+						<line number="211" hits="0"></line>
+						<line number="213" hits="0"></line>
+						<line number="216" hits="0"></line>
+						<line number="217" hits="0"></line>
+						<line number="218" hits="0"></line>
+						<line number="219" hits="0"></line>
+						<line number="222" hits="0"></line>
+						<line number="226" hits="0"></line>
+						<line number="227" hits="0"></line>
+						<line number="230" hits="0"></line>
+						<line number="231" hits="0"></line>
+						<line number="232" hits="0"></line>
+						<line number="235" hits="0"></line>
+						<line number="236" hits="0"></line>
+						<line number="239" hits="0"></line>
+						<line number="249" hits="0"></line>
+						<line number="250" hits="0"></line>
+						<line number="253" hits="0"></line>
+						<line number="254" hits="0"></line>
+						<line number="255" hits="0"></line>
+						<line number="258" hits="0"></line>
+						<line number="264" hits="0"></line>
+						<line number="265" hits="0"></line>
+						<line number="268" hits="0"></line>
+						<line number="269" hits="0"></line>
+						<line number="270" hits="0"></line>
+						<line number="273" hits="0"></line>
+						<line number="277" hits="0"></line>
+						<line number="278" hits="0"></line>
+						<line number="281" hits="0"></line>
+						<line number="282" hits="0"></line>
+						<line number="283" hits="0"></line>
+						<line number="286" hits="0"></line>
+					</lines>
+				</class>
+				<class name="UserIdRequest" filename="internal/adapters/handlers/grpc/user_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="38" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="39" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="38" hits="0"></line>
+						<line number="39" hits="0"></line>
+					</lines>
+				</class>
+				<class name="UserProfileResponse" filename="internal/adapters/handlers/grpc/user_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="30" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="31" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="30" hits="0"></line>
+						<line number="31" hits="0"></line>
+					</lines>
+				</class>
+				<class name="WorkoutRequest" filename="internal/adapters/handlers/grpc/user_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="90" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="91" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="90" hits="0"></line>
+						<line number="91" hits="0"></line>
+					</lines>
+				</class>
+				<class name="-" filename="internal/adapters/handlers/grpc/workout_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="11" line-hits="0">
+					<methods>
+						<method name="@152:13" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="153" hits="0"></line>
+							</lines>
+						</method>
+						<method name="NewWorkoutHandler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="66" hits="0"></line>
+							</lines>
+						</method>
+						<method name="RegisterWorkoutService" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="132" hits="0"></line>
+							</lines>
+						</method>
+						<method name="_WorkoutService_GetWorkoutRecommendation_Handler" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="144" hits="0"></line>
+								<line number="145" hits="0"></line>
+								<line number="146" hits="0"></line>
+								<line number="148" hits="0"></line>
+								<line number="149" hits="0"></line>
+								<line number="151" hits="0"></line>
+								<line number="152" hits="0"></line>
+								<line number="155" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="66" hits="0"></line>
+						<line number="132" hits="0"></line>
+						<line number="144" hits="0"></line>
+						<line number="145" hits="0"></line>
+						<line number="146" hits="0"></line>
+						<line number="148" hits="0"></line>
+						<line number="149" hits="0"></line>
+						<line number="151" hits="0"></line>
+						<line number="152" hits="0"></line>
+						<line number="153" hits="0"></line>
+						<line number="155" hits="0"></line>
+					</lines>
+				</class>
+				<class name="GetWorkoutRecommendationRequest" filename="internal/adapters/handlers/grpc/workout_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="24" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="25" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="24" hits="0"></line>
+						<line number="25" hits="0"></line>
+					</lines>
+				</class>
+				<class name="WorkoutHandler" filename="internal/adapters/handlers/grpc/workout_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="14" line-hits="0">
+					<methods>
+						<method name="GetService" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="70" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetWorkoutRecommendation" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="74" hits="0"></line>
+								<line number="75" hits="0"></line>
+								<line number="79" hits="0"></line>
+								<line number="80" hits="0"></line>
+								<line number="81" hits="0"></line>
+								<line number="84" hits="0"></line>
+								<line number="90" hits="0"></line>
+								<line number="91" hits="0"></line>
+								<line number="92" hits="0"></line>
+								<line number="95" hits="0"></line>
+								<line number="103" hits="0"></line>
+								<line number="104" hits="0"></line>
+								<line number="122" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="70" hits="0"></line>
+						<line number="74" hits="0"></line>
+						<line number="75" hits="0"></line>
+						<line number="79" hits="0"></line>
+						<line number="80" hits="0"></line>
+						<line number="81" hits="0"></line>
+						<line number="84" hits="0"></line>
+						<line number="90" hits="0"></line>
+						<line number="91" hits="0"></line>
+						<line number="92" hits="0"></line>
+						<line number="95" hits="0"></line>
+						<line number="103" hits="0"></line>
+						<line number="104" hits="0"></line>
+						<line number="122" hits="0"></line>
+					</lines>
+				</class>
+				<class name="WorkoutPlanResponse" filename="internal/adapters/handlers/grpc/workout_handler.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="ProtoMessage" signature="" line-rate="NaN" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines></lines>
+						</method>
+						<method name="Reset" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="36" hits="0"></line>
+							</lines>
+						</method>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="37" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="36" hits="0"></line>
+						<line number="37" hits="0"></line>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="healthai/engine/internal/adapters/repositories/postgres" line-rate="0" branch-rate="0" complexity="0" line-count="64" line-hits="0">
+			<classes>
+				<class name="-" filename="internal/adapters/repositories/postgres/activity_repo.go" line-rate="0" branch-rate="0" complexity="0" line-count="1" line-hits="0">
+					<methods>
+						<method name="NewActivityRepository" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="19" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="19" hits="0"></line>
+					</lines>
+				</class>
+				<class name="ActivityRepository" filename="internal/adapters/repositories/postgres/activity_repo.go" line-rate="0" branch-rate="0" complexity="0" line-count="9" line-hits="0">
+					<methods>
+						<method name="CreateDailyLog" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="38" hits="0"></line>
+							</lines>
+						</method>
+						<method name="CreateWorkout" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="46" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetDailyLogByDate" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="23" hits="0"></line>
+								<line number="28" hits="0"></line>
+								<line number="29" hits="0"></line>
+								<line number="30" hits="0"></line>
+								<line number="32" hits="0"></line>
+								<line number="34" hits="0"></line>
+							</lines>
+						</method>
+						<method name="UpdateDailyLog" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="42" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="23" hits="0"></line>
+						<line number="28" hits="0"></line>
+						<line number="29" hits="0"></line>
+						<line number="30" hits="0"></line>
+						<line number="32" hits="0"></line>
+						<line number="34" hits="0"></line>
+						<line number="38" hits="0"></line>
+						<line number="42" hits="0"></line>
+						<line number="46" hits="0"></line>
+					</lines>
+				</class>
+				<class name="-" filename="internal/adapters/repositories/postgres/nutrition_repo.go" line-rate="0" branch-rate="0" complexity="0" line-count="1" line-hits="0">
+					<methods>
+						<method name="NewNutritionRepository" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="18" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="18" hits="0"></line>
+					</lines>
+				</class>
+				<class name="NutritionRepository" filename="internal/adapters/repositories/postgres/nutrition_repo.go" line-rate="0" branch-rate="0" complexity="0" line-count="20" line-hits="0">
+					<methods>
+						<method name="CreateMealPlan" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="71" hits="0"></line>
+							</lines>
+						</method>
+						<method name="CreateMealSuggestion" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="49" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetFoodPreference" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="22" hits="0"></line>
+								<line number="23" hits="0"></line>
+								<line number="24" hits="0"></line>
+								<line number="25" hits="0"></line>
+								<line number="26" hits="0"></line>
+								<line number="28" hits="0"></line>
+								<line number="30" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetMealPlanByDate" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="53" hits="0"></line>
+								<line number="55" hits="0"></line>
+								<line number="61" hits="0"></line>
+								<line number="62" hits="0"></line>
+								<line number="63" hits="0"></line>
+								<line number="65" hits="0"></line>
+								<line number="67" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetMealSuggestions" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="43" hits="0"></line>
+								<line number="44" hits="0"></line>
+								<line number="45" hits="0"></line>
+							</lines>
+						</method>
+						<method name="UpsertFoodPreference" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="39" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="22" hits="0"></line>
+						<line number="23" hits="0"></line>
+						<line number="24" hits="0"></line>
+						<line number="25" hits="0"></line>
+						<line number="26" hits="0"></line>
+						<line number="28" hits="0"></line>
+						<line number="30" hits="0"></line>
+						<line number="39" hits="0"></line>
+						<line number="43" hits="0"></line>
+						<line number="44" hits="0"></line>
+						<line number="45" hits="0"></line>
+						<line number="49" hits="0"></line>
+						<line number="53" hits="0"></line>
+						<line number="55" hits="0"></line>
+						<line number="61" hits="0"></line>
+						<line number="62" hits="0"></line>
+						<line number="63" hits="0"></line>
+						<line number="65" hits="0"></line>
+						<line number="67" hits="0"></line>
+						<line number="71" hits="0"></line>
+					</lines>
+				</class>
+				<class name="-" filename="internal/adapters/repositories/postgres/user_repo.go" line-rate="0" branch-rate="0" complexity="0" line-count="1" line-hits="0">
+					<methods>
+						<method name="NewUserRepository" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="18" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="18" hits="0"></line>
+					</lines>
+				</class>
+				<class name="UserRepository" filename="internal/adapters/repositories/postgres/user_repo.go" line-rate="0" branch-rate="0" complexity="0" line-count="8" line-hits="0">
+					<methods>
+						<method name="Create" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="33" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetByID" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="22" hits="0"></line>
+								<line number="23" hits="0"></line>
+								<line number="24" hits="0"></line>
+								<line number="25" hits="0"></line>
+								<line number="27" hits="0"></line>
+								<line number="29" hits="0"></line>
+							</lines>
+						</method>
+						<method name="Update" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="37" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="22" hits="0"></line>
+						<line number="23" hits="0"></line>
+						<line number="24" hits="0"></line>
+						<line number="25" hits="0"></line>
+						<line number="27" hits="0"></line>
+						<line number="29" hits="0"></line>
+						<line number="33" hits="0"></line>
+						<line number="37" hits="0"></line>
+					</lines>
+				</class>
+				<class name="-" filename="internal/adapters/repositories/postgres/workout_repo.go" line-rate="0" branch-rate="0" complexity="0" line-count="1" line-hits="0">
+					<methods>
+						<method name="NewWorkoutRepository" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="18" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="18" hits="0"></line>
+					</lines>
+				</class>
+				<class name="WorkoutRepository" filename="internal/adapters/repositories/postgres/workout_repo.go" line-rate="0" branch-rate="0" complexity="0" line-count="23" line-hits="0">
+					<methods>
+						<method name="CreateExercise" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="28" hits="0"></line>
+							</lines>
+						</method>
+						<method name="CreateWorkoutPlan" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="57" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetExercises" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="22" hits="0"></line>
+								<line number="23" hits="0"></line>
+								<line number="24" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetExercisesByEquipAndDiff" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="32" hits="0"></line>
+								<line number="33" hits="0"></line>
+								<line number="35" hits="0"></line>
+								<line number="36" hits="0"></line>
+								<line number="38" hits="0"></line>
+								<line number="39" hits="0"></line>
+								<line number="42" hits="0"></line>
+								<line number="43" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetLastWorkouts" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="47" hits="0"></line>
+								<line number="48" hits="0"></line>
+								<line number="53" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetWorkoutPlanByDate" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="61" hits="0"></line>
+								<line number="62" hits="0"></line>
+								<line number="68" hits="0"></line>
+								<line number="69" hits="0"></line>
+								<line number="70" hits="0"></line>
+								<line number="72" hits="0"></line>
+								<line number="74" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="22" hits="0"></line>
+						<line number="23" hits="0"></line>
+						<line number="24" hits="0"></line>
+						<line number="28" hits="0"></line>
+						<line number="32" hits="0"></line>
+						<line number="33" hits="0"></line>
+						<line number="35" hits="0"></line>
+						<line number="36" hits="0"></line>
+						<line number="38" hits="0"></line>
+						<line number="39" hits="0"></line>
+						<line number="42" hits="0"></line>
+						<line number="43" hits="0"></line>
+						<line number="47" hits="0"></line>
+						<line number="48" hits="0"></line>
+						<line number="53" hits="0"></line>
+						<line number="57" hits="0"></line>
+						<line number="61" hits="0"></line>
+						<line number="62" hits="0"></line>
+						<line number="68" hits="0"></line>
+						<line number="69" hits="0"></line>
+						<line number="70" hits="0"></line>
+						<line number="72" hits="0"></line>
+						<line number="74" hits="0"></line>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="healthai/engine/internal/core/domain" line-rate="0" branch-rate="0" complexity="0" line-count="19" line-hits="0">
+			<classes>
+				<class name="-" filename="internal/core/domain/activity.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="NewDailyLog" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="40" hits="0"></line>
+							</lines>
+						</method>
+						<method name="NewWorkout" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="50" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="40" hits="0"></line>
+						<line number="50" hits="0"></line>
+					</lines>
+				</class>
+				<class name="-" filename="internal/core/domain/nutrition.go" line-rate="0" branch-rate="0" complexity="0" line-count="1" line-hits="0">
+					<methods>
+						<method name="NewFoodPreference" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="83" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="83" hits="0"></line>
+					</lines>
+				</class>
+				<class name="FoodPreference" filename="internal/core/domain/nutrition.go" line-rate="0" branch-rate="0" complexity="0" line-count="3" line-hits="0">
+					<methods>
+						<method name="BeforeCreate" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="93" hits="0"></line>
+								<line number="94" hits="0"></line>
+								<line number="96" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="93" hits="0"></line>
+						<line number="94" hits="0"></line>
+						<line number="96" hits="0"></line>
+					</lines>
+				</class>
+				<class name="-" filename="internal/core/domain/user.go" line-rate="0" branch-rate="0" complexity="0" line-count="2" line-hits="0">
+					<methods>
+						<method name="NewUser" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="97" hits="0"></line>
+								<line number="98" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="97" hits="0"></line>
+						<line number="98" hits="0"></line>
+					</lines>
+				</class>
+				<class name="Account" filename="internal/core/domain/user.go" line-rate="0" branch-rate="0" complexity="0" line-count="1" line-hits="0">
+					<methods>
+						<method name="TableName" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="80" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="80" hits="0"></line>
+					</lines>
+				</class>
+				<class name="HealthProfile" filename="internal/core/domain/user.go" line-rate="0" branch-rate="0" complexity="0" line-count="1" line-hits="0">
+					<methods>
+						<method name="TableName" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="45" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="45" hits="0"></line>
+					</lines>
+				</class>
+				<class name="Session" filename="internal/core/domain/user.go" line-rate="0" branch-rate="0" complexity="0" line-count="1" line-hits="0">
+					<methods>
+						<method name="TableName" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="60" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="60" hits="0"></line>
+					</lines>
+				</class>
+				<class name="User" filename="internal/core/domain/user.go" line-rate="0" branch-rate="0" complexity="0" line-count="1" line-hits="0">
+					<methods>
+						<method name="TableName" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="111" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="111" hits="0"></line>
+					</lines>
+				</class>
+				<class name="Verification" filename="internal/core/domain/user.go" line-rate="0" branch-rate="0" complexity="0" line-count="1" line-hits="0">
+					<methods>
+						<method name="TableName" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="93" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="93" hits="0"></line>
+					</lines>
+				</class>
+				<class name="Exercise" filename="internal/core/domain/workout.go" line-rate="0" branch-rate="0" complexity="0" line-count="3" line-hits="0">
+					<methods>
+						<method name="BeforeCreate" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="79" hits="0"></line>
+								<line number="80" hits="0"></line>
+								<line number="82" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="79" hits="0"></line>
+						<line number="80" hits="0"></line>
+						<line number="82" hits="0"></line>
+					</lines>
+				</class>
+				<class name="WorkoutPlan" filename="internal/core/domain/workout.go" line-rate="0" branch-rate="0" complexity="0" line-count="3" line-hits="0">
+					<methods>
+						<method name="BeforeCreate" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="86" hits="0"></line>
+								<line number="87" hits="0"></line>
+								<line number="89" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="86" hits="0"></line>
+						<line number="87" hits="0"></line>
+						<line number="89" hits="0"></line>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="healthai/engine/internal/core/ports/mocks" line-rate="0" branch-rate="0" complexity="0" line-count="56" line-hits="0">
+			<classes>
+				<class name="MockActivityRepository" filename="internal/core/ports/mocks/activity_repo_mock.go" line-rate="0" branch-rate="0" complexity="0" line-count="10" line-hits="0">
+					<methods>
+						<method name="CreateDailyLog" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="25" hits="0"></line>
+								<line number="26" hits="0"></line>
+							</lines>
+						</method>
+						<method name="CreateWorkout" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="35" hits="0"></line>
+								<line number="36" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetDailyLogByDate" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="17" hits="0"></line>
+								<line number="18" hits="0"></line>
+								<line number="19" hits="0"></line>
+								<line number="21" hits="0"></line>
+							</lines>
+						</method>
+						<method name="UpdateDailyLog" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="30" hits="0"></line>
+								<line number="31" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="17" hits="0"></line>
+						<line number="18" hits="0"></line>
+						<line number="19" hits="0"></line>
+						<line number="21" hits="0"></line>
+						<line number="25" hits="0"></line>
+						<line number="26" hits="0"></line>
+						<line number="30" hits="0"></line>
+						<line number="31" hits="0"></line>
+						<line number="35" hits="0"></line>
+						<line number="36" hits="0"></line>
+					</lines>
+				</class>
+				<class name="MockNutritionRepository" filename="internal/core/ports/mocks/nutrition_repo_mock.go" line-rate="0" branch-rate="0" complexity="0" line-count="18" line-hits="0">
+					<methods>
+						<method name="CreateMealPlan" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="51" hits="0"></line>
+								<line number="52" hits="0"></line>
+							</lines>
+						</method>
+						<method name="CreateMealSuggestion" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="38" hits="0"></line>
+								<line number="39" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetFoodPreference" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="17" hits="0"></line>
+								<line number="18" hits="0"></line>
+								<line number="19" hits="0"></line>
+								<line number="21" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetMealPlanByDate" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="43" hits="0"></line>
+								<line number="44" hits="0"></line>
+								<line number="45" hits="0"></line>
+								<line number="47" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetMealSuggestions" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="30" hits="0"></line>
+								<line number="31" hits="0"></line>
+								<line number="32" hits="0"></line>
+								<line number="34" hits="0"></line>
+							</lines>
+						</method>
+						<method name="UpsertFoodPreference" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="25" hits="0"></line>
+								<line number="26" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="17" hits="0"></line>
+						<line number="18" hits="0"></line>
+						<line number="19" hits="0"></line>
+						<line number="21" hits="0"></line>
+						<line number="25" hits="0"></line>
+						<line number="26" hits="0"></line>
+						<line number="30" hits="0"></line>
+						<line number="31" hits="0"></line>
+						<line number="32" hits="0"></line>
+						<line number="34" hits="0"></line>
+						<line number="38" hits="0"></line>
+						<line number="39" hits="0"></line>
+						<line number="43" hits="0"></line>
+						<line number="44" hits="0"></line>
+						<line number="45" hits="0"></line>
+						<line number="47" hits="0"></line>
+						<line number="51" hits="0"></line>
+						<line number="52" hits="0"></line>
+					</lines>
+				</class>
+				<class name="MockUserRepository" filename="internal/core/ports/mocks/user_repo_mock.go" line-rate="0" branch-rate="0" complexity="0" line-count="8" line-hits="0">
+					<methods>
+						<method name="Create" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="24" hits="0"></line>
+								<line number="25" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetByID" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="16" hits="0"></line>
+								<line number="17" hits="0"></line>
+								<line number="18" hits="0"></line>
+								<line number="20" hits="0"></line>
+							</lines>
+						</method>
+						<method name="Update" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="29" hits="0"></line>
+								<line number="30" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="16" hits="0"></line>
+						<line number="17" hits="0"></line>
+						<line number="18" hits="0"></line>
+						<line number="20" hits="0"></line>
+						<line number="24" hits="0"></line>
+						<line number="25" hits="0"></line>
+						<line number="29" hits="0"></line>
+						<line number="30" hits="0"></line>
+					</lines>
+				</class>
+				<class name="MockWorkoutRepository" filename="internal/core/ports/mocks/workout_repo_mock.go" line-rate="0" branch-rate="0" complexity="0" line-count="20" line-hits="0">
+					<methods>
+						<method name="CreateExercise" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="25" hits="0"></line>
+								<line number="26" hits="0"></line>
+							</lines>
+						</method>
+						<method name="CreateWorkoutPlan" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="46" hits="0"></line>
+								<line number="47" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetExercises" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="17" hits="0"></line>
+								<line number="18" hits="0"></line>
+								<line number="19" hits="0"></line>
+								<line number="21" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetExercisesByEquipAndDiff" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="30" hits="0"></line>
+								<line number="31" hits="0"></line>
+								<line number="32" hits="0"></line>
+								<line number="34" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetLastWorkouts" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="38" hits="0"></line>
+								<line number="39" hits="0"></line>
+								<line number="40" hits="0"></line>
+								<line number="42" hits="0"></line>
+							</lines>
+						</method>
+						<method name="GetWorkoutPlanByDate" signature="" line-rate="0" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="51" hits="0"></line>
+								<line number="52" hits="0"></line>
+								<line number="53" hits="0"></line>
+								<line number="55" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="17" hits="0"></line>
+						<line number="18" hits="0"></line>
+						<line number="19" hits="0"></line>
+						<line number="21" hits="0"></line>
+						<line number="25" hits="0"></line>
+						<line number="26" hits="0"></line>
+						<line number="30" hits="0"></line>
+						<line number="31" hits="0"></line>
+						<line number="32" hits="0"></line>
+						<line number="34" hits="0"></line>
+						<line number="38" hits="0"></line>
+						<line number="39" hits="0"></line>
+						<line number="40" hits="0"></line>
+						<line number="42" hits="0"></line>
+						<line number="46" hits="0"></line>
+						<line number="47" hits="0"></line>
+						<line number="51" hits="0"></line>
+						<line number="52" hits="0"></line>
+						<line number="53" hits="0"></line>
+						<line number="55" hits="0"></line>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="healthai/engine/internal/core/services" line-rate="0.9019608" branch-rate="0" complexity="0" line-count="153" line-hits="138">
+			<classes>
+				<class name="-" filename="internal/core/services/activity_service.go" line-rate="1" branch-rate="0" complexity="0" line-count="1" line-hits="1">
+					<methods>
+						<method name="NewActivityService" signature="" line-rate="1" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="16" hits="1"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="16" hits="1"></line>
+					</lines>
+				</class>
+				<class name="ActivityService" filename="internal/core/services/activity_service.go" line-rate="1" branch-rate="0" complexity="0" line-count="24" line-hits="24">
+					<methods>
+						<method name="GetDailyStats" signature="" line-rate="1" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="55" hits="1"></line>
+								<line number="56" hits="1"></line>
+							</lines>
+						</method>
+						<method name="LogNutrition" signature="" line-rate="1" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="22" hits="1"></line>
+								<line number="24" hits="1"></line>
+								<line number="25" hits="1"></line>
+								<line number="26" hits="1"></line>
+								<line number="29" hits="1"></line>
+								<line number="31" hits="1"></line>
+								<line number="32" hits="1"></line>
+								<line number="33" hits="1"></line>
+								<line number="34" hits="1"></line>
+								<line number="35" hits="1"></line>
+								<line number="36" hits="1"></line>
+								<line number="40" hits="1"></line>
+								<line number="41" hits="1"></line>
+								<line number="42" hits="1"></line>
+								<line number="43" hits="1"></line>
+								<line number="44" hits="1"></line>
+								<line number="46" hits="1"></line>
+							</lines>
+						</method>
+						<method name="LogWorkout" signature="" line-rate="1" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="50" hits="1"></line>
+								<line number="51" hits="1"></line>
+							</lines>
+						</method>
+						<method name="calculateCalories" signature="" line-rate="1" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="65" hits="1"></line>
+								<line number="66" hits="1"></line>
+								<line number="69" hits="1"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="22" hits="1"></line>
+						<line number="24" hits="1"></line>
+						<line number="25" hits="1"></line>
+						<line number="26" hits="1"></line>
+						<line number="29" hits="1"></line>
+						<line number="31" hits="1"></line>
+						<line number="32" hits="1"></line>
+						<line number="33" hits="1"></line>
+						<line number="34" hits="1"></line>
+						<line number="35" hits="1"></line>
+						<line number="36" hits="1"></line>
+						<line number="40" hits="1"></line>
+						<line number="41" hits="1"></line>
+						<line number="42" hits="1"></line>
+						<line number="43" hits="1"></line>
+						<line number="44" hits="1"></line>
+						<line number="46" hits="1"></line>
+						<line number="50" hits="1"></line>
+						<line number="51" hits="1"></line>
+						<line number="55" hits="1"></line>
+						<line number="56" hits="1"></line>
+						<line number="65" hits="1"></line>
+						<line number="66" hits="1"></line>
+						<line number="69" hits="1"></line>
+					</lines>
+				</class>
+				<class name="-" filename="internal/core/services/nutrition_service.go" line-rate="1" branch-rate="0" complexity="0" line-count="1" line-hits="1">
+					<methods>
+						<method name="NewNutritionService" signature="" line-rate="1" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="19" hits="1"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="19" hits="1"></line>
+					</lines>
+				</class>
+				<class name="NutritionService" filename="internal/core/services/nutrition_service.go" line-rate="0.8767123" branch-rate="0" complexity="0" line-count="73" line-hits="64">
+					<methods>
+						<method name="AnalyzeMeal" signature="" line-rate="1" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="54" hits="1"></line>
+								<line number="61" hits="1"></line>
+								<line number="62" hits="1"></line>
+								<line number="63" hits="1"></line>
+								<line number="67" hits="1"></line>
+								<line number="68" hits="1"></line>
+								<line number="69" hits="1"></line>
+								<line number="70" hits="1"></line>
+								<line number="71" hits="1"></line>
+								<line number="72" hits="1"></line>
+								<line number="80" hits="1"></line>
+								<line number="81" hits="1"></line>
+								<line number="85" hits="1"></line>
+								<line number="86" hits="1"></line>
+								<line number="89" hits="1"></line>
+								<line number="90" hits="1"></line>
+								<line number="93" hits="1"></line>
+							</lines>
+						</method>
+						<method name="GenerateDailyPlan" signature="" line-rate="0.82222223" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="98" hits="1"></line>
+								<line number="99" hits="1"></line>
+								<line number="100" hits="1"></line>
+								<line number="103" hits="1"></line>
+								<line number="104" hits="1"></line>
+								<line number="105" hits="1"></line>
+								<line number="110" hits="1"></line>
+								<line number="111" hits="1"></line>
+								<line number="114" hits="1"></line>
+								<line number="115" hits="1"></line>
+								<line number="116" hits="1"></line>
+								<line number="121" hits="1"></line>
+								<line number="122" hits="1"></line>
+								<line number="124" hits="1"></line>
+								<line number="125" hits="1"></line>
+								<line number="126" hits="1"></line>
+								<line number="127" hits="1"></line>
+								<line number="128" hits="0"></line>
+								<line number="129" hits="0"></line>
+								<line number="132" hits="1"></line>
+								<line number="133" hits="1"></line>
+								<line number="138" hits="1"></line>
+								<line number="139" hits="1"></line>
+								<line number="140" hits="0"></line>
+								<line number="141" hits="0"></line>
+								<line number="142" hits="0"></line>
+								<line number="143" hits="0"></line>
+								<line number="144" hits="0"></line>
+								<line number="149" hits="1"></line>
+								<line number="150" hits="1"></line>
+								<line number="154" hits="1"></line>
+								<line number="155" hits="1"></line>
+								<line number="160" hits="1"></line>
+								<line number="162" hits="1"></line>
+								<line number="172" hits="1"></line>
+								<line number="174" hits="1"></line>
+								<line number="176" hits="1"></line>
+								<line number="177" hits="1"></line>
+								<line number="178" hits="1"></line>
+								<line number="180" hits="1"></line>
+								<line number="181" hits="1"></line>
+								<line number="190" hits="1"></line>
+								<line number="191" hits="1"></line>
+								<line number="192" hits="0"></line>
+								<line number="195" hits="1"></line>
+							</lines>
+						</method>
+						<method name="GetFoodPreferences" signature="" line-rate="1" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="23" hits="1"></line>
+							</lines>
+						</method>
+						<method name="UpdateFoodPreferences" signature="" line-rate="0.9" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="27" hits="1"></line>
+								<line number="28" hits="1"></line>
+								<line number="30" hits="0"></line>
+								<line number="33" hits="1"></line>
+								<line number="34" hits="1"></line>
+								<line number="39" hits="1"></line>
+								<line number="40" hits="1"></line>
+								<line number="41" hits="1"></line>
+								<line number="42" hits="1"></line>
+								<line number="44" hits="1"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="23" hits="1"></line>
+						<line number="27" hits="1"></line>
+						<line number="28" hits="1"></line>
+						<line number="30" hits="0"></line>
+						<line number="33" hits="1"></line>
+						<line number="34" hits="1"></line>
+						<line number="39" hits="1"></line>
+						<line number="40" hits="1"></line>
+						<line number="41" hits="1"></line>
+						<line number="42" hits="1"></line>
+						<line number="44" hits="1"></line>
+						<line number="54" hits="1"></line>
+						<line number="61" hits="1"></line>
+						<line number="62" hits="1"></line>
+						<line number="63" hits="1"></line>
+						<line number="67" hits="1"></line>
+						<line number="68" hits="1"></line>
+						<line number="69" hits="1"></line>
+						<line number="70" hits="1"></line>
+						<line number="71" hits="1"></line>
+						<line number="72" hits="1"></line>
+						<line number="80" hits="1"></line>
+						<line number="81" hits="1"></line>
+						<line number="85" hits="1"></line>
+						<line number="86" hits="1"></line>
+						<line number="89" hits="1"></line>
+						<line number="90" hits="1"></line>
+						<line number="93" hits="1"></line>
+						<line number="98" hits="1"></line>
+						<line number="99" hits="1"></line>
+						<line number="100" hits="1"></line>
+						<line number="103" hits="1"></line>
+						<line number="104" hits="1"></line>
+						<line number="105" hits="1"></line>
+						<line number="110" hits="1"></line>
+						<line number="111" hits="1"></line>
+						<line number="114" hits="1"></line>
+						<line number="115" hits="1"></line>
+						<line number="116" hits="1"></line>
+						<line number="121" hits="1"></line>
+						<line number="122" hits="1"></line>
+						<line number="124" hits="1"></line>
+						<line number="125" hits="1"></line>
+						<line number="126" hits="1"></line>
+						<line number="127" hits="1"></line>
+						<line number="128" hits="0"></line>
+						<line number="129" hits="0"></line>
+						<line number="132" hits="1"></line>
+						<line number="133" hits="1"></line>
+						<line number="138" hits="1"></line>
+						<line number="139" hits="1"></line>
+						<line number="140" hits="0"></line>
+						<line number="141" hits="0"></line>
+						<line number="142" hits="0"></line>
+						<line number="143" hits="0"></line>
+						<line number="144" hits="0"></line>
+						<line number="149" hits="1"></line>
+						<line number="150" hits="1"></line>
+						<line number="154" hits="1"></line>
+						<line number="155" hits="1"></line>
+						<line number="160" hits="1"></line>
+						<line number="162" hits="1"></line>
+						<line number="172" hits="1"></line>
+						<line number="174" hits="1"></line>
+						<line number="176" hits="1"></line>
+						<line number="177" hits="1"></line>
+						<line number="178" hits="1"></line>
+						<line number="180" hits="1"></line>
+						<line number="181" hits="1"></line>
+						<line number="190" hits="1"></line>
+						<line number="191" hits="1"></line>
+						<line number="192" hits="0"></line>
+						<line number="195" hits="1"></line>
+					</lines>
+				</class>
+				<class name="-" filename="internal/core/services/user_service.go" line-rate="1" branch-rate="0" complexity="0" line-count="1" line-hits="1">
+					<methods>
+						<method name="NewUserService" signature="" line-rate="1" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="19" hits="1"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="19" hits="1"></line>
+					</lines>
+				</class>
+				<class name="UserService" filename="internal/core/services/user_service.go" line-rate="0.7777778" branch-rate="0" complexity="0" line-count="18" line-hits="14">
+					<methods>
+						<method name="CanAccessAdvancedFeatures" signature="" line-rate="1" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="65" hits="1"></line>
+							</lines>
+						</method>
+						<method name="GetUser" signature="" line-rate="1" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="23" hits="1"></line>
+							</lines>
+						</method>
+						<method name="UpdateBiometrics" signature="" line-rate="0.8333333" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="27" hits="1"></line>
+								<line number="28" hits="1"></line>
+								<line number="29" hits="0"></line>
+								<line number="32" hits="1"></line>
+								<line number="33" hits="1"></line>
+								<line number="35" hits="1"></line>
+							</lines>
+						</method>
+						<method name="UpdateHealthProfile" signature="" line-rate="0.7" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="39" hits="1"></line>
+								<line number="40" hits="1"></line>
+								<line number="41" hits="0"></line>
+								<line number="44" hits="1"></line>
+								<line number="45" hits="1"></line>
+								<line number="47" hits="1"></line>
+								<line number="48" hits="1"></line>
+								<line number="55" hits="0"></line>
+								<line number="56" hits="0"></line>
+								<line number="59" hits="1"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="23" hits="1"></line>
+						<line number="27" hits="1"></line>
+						<line number="28" hits="1"></line>
+						<line number="29" hits="0"></line>
+						<line number="32" hits="1"></line>
+						<line number="33" hits="1"></line>
+						<line number="35" hits="1"></line>
+						<line number="39" hits="1"></line>
+						<line number="40" hits="1"></line>
+						<line number="41" hits="0"></line>
+						<line number="44" hits="1"></line>
+						<line number="45" hits="1"></line>
+						<line number="47" hits="1"></line>
+						<line number="48" hits="1"></line>
+						<line number="55" hits="0"></line>
+						<line number="56" hits="0"></line>
+						<line number="59" hits="1"></line>
+						<line number="65" hits="1"></line>
+					</lines>
+				</class>
+				<class name="-" filename="internal/core/services/workout_service.go" line-rate="1" branch-rate="0" complexity="0" line-count="1" line-hits="1">
+					<methods>
+						<method name="NewWorkoutService" signature="" line-rate="1" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="19" hits="1"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="19" hits="1"></line>
+					</lines>
+				</class>
+				<class name="WorkoutService" filename="internal/core/services/workout_service.go" line-rate="0.9411765" branch-rate="0" complexity="0" line-count="34" line-hits="32">
+					<methods>
+						<method name="GenerateWorkout" signature="" line-rate="0.9411765" branch-rate="0" complexity="0" line-count="0" line-hits="0">
+							<lines>
+								<line number="33" hits="1"></line>
+								<line number="36" hits="1"></line>
+								<line number="37" hits="1"></line>
+								<line number="46" hits="1"></line>
+								<line number="47" hits="1"></line>
+								<line number="48" hits="1"></line>
+								<line number="52" hits="1"></line>
+								<line number="53" hits="1"></line>
+								<line number="55" hits="1"></line>
+								<line number="56" hits="1"></line>
+								<line number="57" hits="1"></line>
+								<line number="58" hits="1"></line>
+								<line number="59" hits="1"></line>
+								<line number="60" hits="1"></line>
+								<line number="64" hits="1"></line>
+								<line number="65" hits="1"></line>
+								<line number="69" hits="1"></line>
+								<line number="70" hits="1"></line>
+								<line number="76" hits="1"></line>
+								<line number="77" hits="1"></line>
+								<line number="78" hits="1"></line>
+								<line number="81" hits="1"></line>
+								<line number="91" hits="1"></line>
+								<line number="92" hits="1"></line>
+								<line number="94" hits="1"></line>
+								<line number="95" hits="1"></line>
+								<line number="96" hits="0"></line>
+								<line number="98" hits="1"></line>
+								<line number="100" hits="1"></line>
+								<line number="109" hits="1"></line>
+								<line number="113" hits="1"></line>
+								<line number="114" hits="1"></line>
+								<line number="115" hits="0"></line>
+								<line number="118" hits="1"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="33" hits="1"></line>
+						<line number="36" hits="1"></line>
+						<line number="37" hits="1"></line>
+						<line number="46" hits="1"></line>
+						<line number="47" hits="1"></line>
+						<line number="48" hits="1"></line>
+						<line number="52" hits="1"></line>
+						<line number="53" hits="1"></line>
+						<line number="55" hits="1"></line>
+						<line number="56" hits="1"></line>
+						<line number="57" hits="1"></line>
+						<line number="58" hits="1"></line>
+						<line number="59" hits="1"></line>
+						<line number="60" hits="1"></line>
+						<line number="64" hits="1"></line>
+						<line number="65" hits="1"></line>
+						<line number="69" hits="1"></line>
+						<line number="70" hits="1"></line>
+						<line number="76" hits="1"></line>
+						<line number="77" hits="1"></line>
+						<line number="78" hits="1"></line>
+						<line number="81" hits="1"></line>
+						<line number="91" hits="1"></line>
+						<line number="92" hits="1"></line>
+						<line number="94" hits="1"></line>
+						<line number="95" hits="1"></line>
+						<line number="96" hits="0"></line>
+						<line number="98" hits="1"></line>
+						<line number="100" hits="1"></line>
+						<line number="109" hits="1"></line>
+						<line number="113" hits="1"></line>
+						<line number="114" hits="1"></line>
+						<line number="115" hits="0"></line>
+						<line number="118" hits="1"></line>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+	<sources>
+		<source>/home/ubuntu/dev/engine-go</source>
+	</sources>
+</coverage>

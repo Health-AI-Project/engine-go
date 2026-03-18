@@ -32,9 +32,6 @@ func (s *UserService) UpdateBiometrics(ctx context.Context, id string, weight, h
 	user.Weight = weight
 	user.Height = height
 
-	// Example of business logic potentially using CanAccessAdvancedFeatures check here if needed in future
-	// if !s.CanAccessAdvancedFeatures(user) { ... }
-
 	return s.repo.Update(ctx, user)
 }
 

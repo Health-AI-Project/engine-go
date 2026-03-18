@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package workout;
+
+option go_package = "healthai/engine/proto/workout";
+
+service WorkoutService {
+    rpc GetWorkoutRecommendation(GetWorkoutRecommendationRequest) returns (WorkoutPlanResponse);
+}
+
+message GetWorkoutRecommendationRequest {
+    string user_id = 1;
+    int32 duration_minutes = 2;
+    repeated string user_injuries = 3;
+    repeated string available_equipment = 4; // NONE, DUMBBELLS
+}
+
+message WorkoutPlanResponse {
+    string plan_id = 1;
+    string date = 2;
+    int32 duration_minutes = 3;
+    double est_calories_burn = 4;
+    repeated WorkoutItem exercises = 5;
+}
+
+message WorkoutItem {
+    string exercise_id = 1;
+    string name = 2; // Denormalized for display
+    int32 order = 3;
+    int32 sets = 4;
+    int32 reps = 5;
+    int32 duration_sec = 6;
+    int32 rest_sec = 7;
+    ExerciseDetails details = 8;
+}
+
+message ExerciseDetails {
+    string type = 1;
+    string difficulty = 2;
+    string equipment = 3;
+    repeated string muscle_targets = 4;
+    string video_url = 5;
+}

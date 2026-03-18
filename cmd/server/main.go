@@ -49,11 +49,21 @@ func NewDatabase() (*gorm.DB, error) {
 	}
 
 	// AutoMigrate
+	db.Exec("CREATE EXTENSION IF NOT EXISTS vector;")
 	if err := db.AutoMigrate(
 		// &domain.User{}, // Migrated manually to avoid conflicts with Drizzle
 		&domain.DailyLog{},
 		&domain.Workout{},
 		&domain.HealthProfile{},
+		// Feature 1: Nutrition
+		&domain.FoodPreference{},
+		&domain.MealSuggestion{},
+		&domain.MealPlan{},
+		&domain.MealPlanItem{},
+		// Feature 2: Workout Recommendation
+		&domain.Exercise{},
+		&domain.WorkoutPlan{},
+		&domain.WorkoutItem{},
 	); err != nil {
 		return nil, err
 	}
@@ -83,11 +93,16 @@ func NewDatabase() (*gorm.DB, error) {
 	return db, nil
 }
 
-func NewGRPCServer(lc fx.Lifecycle, userHandler *usergrpc.UserHandler) *grpc.Server {
+func NewGRPCServer(lc fx.Lifecycle, coreHandler *usergrpc.CoreHandler, userHandler *usergrpc.UserHandler, nutritionHandler *usergrpc.NutritionHandler, workoutHandler *usergrpc.WorkoutHandler) *grpc.Server {
 	server := grpc.NewServer()
 
-	// Register the UserServiceServer manually since code is not generated.
+	// Register the CoreService
+	usergrpc.RegisterCoreService(server, coreHandler)
+
+	// Keep existing ones for backward compatibility if needed, or remove them
 	usergrpc.RegisterUserService(server, userHandler)
+	usergrpc.RegisterNutritionService(server, nutritionHandler)
+	usergrpc.RegisterWorkoutService(server, workoutHandler)
 
 	// Enable reflection for debugging (e.g. with grpcurl)
 	reflection.Register(server)
@@ -130,9 +145,16 @@ func main() {
 			NewDatabase,
 			postgres.NewUserRepository,     // Returns ports.UserRepository
 			postgres.NewActivityRepository, // Returns ports.ActivityRepository
+			postgres.NewNutritionRepository,
+			postgres.NewWorkoutRepository,
 			services.NewUserService,
 			services.NewActivityService,
+			services.NewNutritionService,
+			services.NewWorkoutService,
 			usergrpc.NewUserHandler,
+			usergrpc.NewNutritionHandler,
+			usergrpc.NewWorkoutHandler,
+			usergrpc.NewCoreHandler,
 			NewGRPCServer,
 		),
 		fx.Invoke(func(*grpc.Server) {}), // Invoke to trigger server creation

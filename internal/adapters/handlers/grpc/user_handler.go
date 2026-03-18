@@ -136,6 +136,14 @@ func NewUserHandler(service *services.UserService, activityService *services.Act
 	}
 }
 
+func (h *UserHandler) GetService() *services.UserService {
+	return h.service
+}
+
+func (h *UserHandler) GetActivityService() *services.ActivityService {
+	return h.activityService
+}
+
 func (h *UserHandler) GetUserProfile(ctx context.Context, req *UserIdRequest) (*UserProfileResponse, error) {
 	if req.UserId == "" {
 		return nil, status.Error(codes.InvalidArgument, "user_id is required")

@@ -1,0 +1,2977 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>client: Go Coverage Report</title>
+		<style>
+			body {
+				background: black;
+				color: rgb(80, 80, 80);
+			}
+			body, pre, #legend span {
+				font-family: Menlo, monospace;
+				font-weight: bold;
+			}
+			#topbar {
+				background: black;
+				position: fixed;
+				top: 0; left: 0; right: 0;
+				height: 42px;
+				border-bottom: 1px solid rgb(80, 80, 80);
+			}
+			#content {
+				margin-top: 50px;
+			}
+			#nav, #legend {
+				float: left;
+				margin-left: 10px;
+			}
+			#legend {
+				margin-top: 12px;
+			}
+			#nav {
+				margin-top: 10px;
+			}
+			#legend span {
+				margin: 0 5px;
+			}
+			.cov0 { color: rgb(192, 0, 0) }
+.cov1 { color: rgb(128, 128, 128) }
+.cov2 { color: rgb(116, 140, 131) }
+.cov3 { color: rgb(104, 152, 134) }
+.cov4 { color: rgb(92, 164, 137) }
+.cov5 { color: rgb(80, 176, 140) }
+.cov6 { color: rgb(68, 188, 143) }
+.cov7 { color: rgb(56, 200, 146) }
+.cov8 { color: rgb(44, 212, 149) }
+.cov9 { color: rgb(32, 224, 152) }
+.cov10 { color: rgb(20, 236, 155) }
+
+		</style>
+	</head>
+	<body>
+		<div id="topbar">
+			<div id="nav">
+				<select id="files">
+				
+				<option value="file0">healthai/engine/cmd/client/main.go (0.0%)</option>
+				
+				<option value="file1">healthai/engine/cmd/server/main.go (0.0%)</option>
+				
+				<option value="file2">healthai/engine/internal/adapters/handlers/grpc/core_handler.go (0.0%)</option>
+				
+				<option value="file3">healthai/engine/internal/adapters/handlers/grpc/nutrition_handler.go (0.0%)</option>
+				
+				<option value="file4">healthai/engine/internal/adapters/handlers/grpc/user_handler.go (0.0%)</option>
+				
+				<option value="file5">healthai/engine/internal/adapters/handlers/grpc/workout_handler.go (0.0%)</option>
+				
+				<option value="file6">healthai/engine/internal/adapters/repositories/postgres/activity_repo.go (0.0%)</option>
+				
+				<option value="file7">healthai/engine/internal/adapters/repositories/postgres/nutrition_repo.go (0.0%)</option>
+				
+				<option value="file8">healthai/engine/internal/adapters/repositories/postgres/user_repo.go (0.0%)</option>
+				
+				<option value="file9">healthai/engine/internal/adapters/repositories/postgres/workout_repo.go (0.0%)</option>
+				
+				<option value="file10">healthai/engine/internal/core/domain/activity.go (0.0%)</option>
+				
+				<option value="file11">healthai/engine/internal/core/domain/nutrition.go (0.0%)</option>
+				
+				<option value="file12">healthai/engine/internal/core/domain/user.go (0.0%)</option>
+				
+				<option value="file13">healthai/engine/internal/core/domain/workout.go (0.0%)</option>
+				
+				<option value="file14">healthai/engine/internal/core/ports/mocks/activity_repo_mock.go (0.0%)</option>
+				
+				<option value="file15">healthai/engine/internal/core/ports/mocks/nutrition_repo_mock.go (0.0%)</option>
+				
+				<option value="file16">healthai/engine/internal/core/ports/mocks/user_repo_mock.go (0.0%)</option>
+				
+				<option value="file17">healthai/engine/internal/core/ports/mocks/workout_repo_mock.go (0.0%)</option>
+				
+				<option value="file18">healthai/engine/internal/core/services/activity_service.go (100.0%)</option>
+				
+				<option value="file19">healthai/engine/internal/core/services/nutrition_service.go (87.8%)</option>
+				
+				<option value="file20">healthai/engine/internal/core/services/user_service.go (78.9%)</option>
+				
+				<option value="file21">healthai/engine/internal/core/services/workout_service.go (94.3%)</option>
+				
+				<option value="file22">healthai/engine/main.go (0.0%)</option>
+				
+				</select>
+			</div>
+			<div id="legend">
+				<span>not tracked</span>
+			
+				<span class="cov0">not covered</span>
+				<span class="cov8">covered</span>
+			
+			</div>
+		</div>
+		<div id="content">
+		
+		<pre class="file" id="file0" style="display: none">package main
+
+import (
+        "context"
+        "fmt"
+        "log"
+        "time"
+
+        "google.golang.org/grpc"
+        "google.golang.org/grpc/credentials/insecure"
+)
+
+// -- Manual Type Definitions matching Server --
+type NutritionRequest struct {
+        UserId   string
+        Calories float64
+        Protein  float64
+        Carbs    float64
+        Fat      float64
+}
+
+type Ack struct {
+        Success bool
+        Message string
+}
+
+type UserIdRequest struct {
+        UserId string
+}
+
+type UserProfileResponse struct {
+        Id                 string   `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
+        Email              string   `protobuf:"bytes,2,opt,name=email" json:"email,omitempty"`
+        SubscriptionStatus string   `protobuf:"bytes,3,opt,name=subscription_status" json:"subscription_status,omitempty"`
+        Weight             float64  `protobuf:"fixed64,4,opt,name=weight" json:"weight,omitempty"`
+        Height             float64  `protobuf:"fixed64,5,opt,name=height" json:"height,omitempty"`
+        IsPremium          bool     `protobuf:"varint,6,opt,name=is_premium" json:"is_premium,omitempty"`
+        DateOfBirth        string   `protobuf:"bytes,7,opt,name=date_of_birth" json:"date_of_birth,omitempty"`
+        Age                int32    `protobuf:"varint,8,opt,name=age" json:"age,omitempty"`
+        Goals              []string `protobuf:"bytes,9,rep,name=goals" json:"goals,omitempty"`
+        Allergies          []string `protobuf:"bytes,10,rep,name=allergies" json:"allergies,omitempty"`
+}
+
+type UpdateHealthProfileRequest struct {
+        UserId      string   `protobuf:"bytes,1,opt,name=user_id" json:"user_id,omitempty"`
+        DateOfBirth string   `protobuf:"bytes,2,opt,name=date_of_birth" json:"date_of_birth,omitempty"`
+        Goals       []string `protobuf:"bytes,3,rep,name=goals" json:"goals,omitempty"`
+        Allergies   []string `protobuf:"bytes,4,rep,name=allergies" json:"allergies,omitempty"`
+        Weight      float64  `protobuf:"fixed64,5,opt,name=weight" json:"weight,omitempty"`
+}
+
+// -- Client Implementation --
+
+func main() <span class="cov0" title="0">{
+        fmt.Println("Starting Demo Client...")
+
+        // 1. Connect to Server
+        conn, err := grpc.Dial("localhost:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
+        if err != nil </span><span class="cov0" title="0">{
+                log.Fatalf("did not connect: %v", err)
+        }</span>
+        <span class="cov0" title="0">defer conn.Close()
+
+        // Since we don't have generated client code, we use Invoke directly
+        // This is a bit advanced but standard for dynamic clients without gen code.
+        // Actually, easier to just define the method name string.
+
+        // Simulation User ID (Must exist in DB ideally, but for now we trust the flow)
+        // PRO TIP: Run 'psql' to insert a user if "User Not Found" error occurs.
+        userID := "demo-user-123"
+
+        ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+        defer cancel()
+
+        // 2. Call LogNutrition
+        fmt.Println("\n[1] Logging Nutrition (500 kcal)...")
+        nutritionReq := &amp;NutritionRequest{
+                UserId:   userID,
+                Calories: 500,
+                Protein:  30,
+                Carbs:    50,
+                Fat:      20,
+        }
+        ack := &amp;Ack{}
+
+        // NOTE: Because we don't have the generated Client interface, we can't easily call methods without using the invoke method
+        // accessible via the connection. But `Invoke` takes method name string.
+        // Method path: /user.UserService/LogNutrition
+
+        err = conn.Invoke(ctx, "/user.UserService/LogNutrition", nutritionReq, ack)
+        if err != nil </span><span class="cov0" title="0">{
+                fmt.Printf("Error Logging Nutrition: %v\n(Did you start the server? Is DB Up?)\n", err)
+        }</span> else<span class="cov0" title="0"> {
+                fmt.Printf("Success: %v (Msg: %s)\n", ack.Success, ack.Message)
+        }</span>
+
+        // 2.5 Call UpdateHealthProfile
+        <span class="cov0" title="0">fmt.Println("\n[1.5] Updating Health Profile (Weight: 82.5, DOB: 1990-05-15)...")
+        healthReq := &amp;UpdateHealthProfileRequest{
+                UserId:      userID,
+                DateOfBirth: "1990-05-15",
+                Goals:       []string{"Marathon", "Better Sleep"},
+                Allergies:   []string{"Peanuts"},
+                Weight:      82.5,
+        }
+        healthAck := &amp;Ack{}
+        err = conn.Invoke(ctx, "/user.UserService/UpdateHealthProfile", healthReq, healthAck)
+        if err != nil </span><span class="cov0" title="0">{
+                fmt.Printf("Error Updating Health Profile: %v\n", err)
+        }</span> else<span class="cov0" title="0"> {
+                fmt.Printf("Success: %v (Msg: %s)\n", healthAck.Success, healthAck.Message)
+        }</span>
+
+        // 3. Call GetUserProfile (Might fail if user doesn't exist in 'users' table)
+        <span class="cov0" title="0">fmt.Println("\n[2] Getting User Profile...")
+        profileReq := &amp;UserIdRequest{UserId: userID}
+        profileRes := &amp;UserProfileResponse{}
+
+        err = conn.Invoke(ctx, "/user.UserService/GetUserProfile", profileReq, profileRes)
+        if err != nil </span><span class="cov0" title="0">{
+                fmt.Printf("Fetch Profile Failed: %v\n(This is expected if user 'demo-user-123' is not in the 'users' table yet.)\n", err)
+                fmt.Println("To fix: Insert a user into DB or use an existing ID.")
+        }</span> else<span class="cov0" title="0"> {
+                fmt.Printf("User Profile: %+v\n", profileRes)
+        }</span>
+}
+</pre>
+		
+		<pre class="file" id="file1" style="display: none">package main
+
+import (
+        "context"
+        "fmt"
+        "net"
+        "os"
+
+        usergrpc "healthai/engine/internal/adapters/handlers/grpc"
+        "healthai/engine/internal/adapters/repositories/postgres"
+        "healthai/engine/internal/core/domain"
+        "healthai/engine/internal/core/services"
+
+        // "healthai/engine/internal/core/ports" // Not strictly needed if fx uses type inference, but good for clarity if referenced. Use implicit matching.
+
+        "github.com/joho/godotenv"
+        "go.uber.org/fx"
+        "google.golang.org/grpc"
+        "google.golang.org/grpc/reflection"
+        gormpg "gorm.io/driver/postgres"
+        "gorm.io/gorm"
+        "gorm.io/gorm/schema"
+)
+
+func NewDatabase() (*gorm.DB, error) <span class="cov0" title="0">{
+        var dsn string
+        dbURL := os.Getenv("DATABASE_URL")
+        if dbURL != "" </span><span class="cov0" title="0">{
+                dsn = dbURL
+        }</span> else<span class="cov0" title="0"> {
+                dsn = fmt.Sprintf(
+                        "host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
+                        os.Getenv("DB_HOST"),
+                        os.Getenv("DB_USER"),
+                        os.Getenv("DB_PASSWORD"),
+                        os.Getenv("DB_NAME"),
+                        os.Getenv("DB_PORT"),
+                )
+        }</span>
+
+        <span class="cov0" title="0">db, err := gorm.Open(gormpg.Open(dsn), &amp;gorm.Config{
+                NamingStrategy: schema.NamingStrategy{
+                        SingularTable: true,
+                },
+                PrepareStmt: false, // Disable prepared statements to fix array binding
+        })
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        // AutoMigrate
+        <span class="cov0" title="0">db.Exec("CREATE EXTENSION IF NOT EXISTS vector;")
+        if err := db.AutoMigrate(
+                // &amp;domain.User{}, // Migrated manually to avoid conflicts with Drizzle
+                &amp;domain.DailyLog{},
+                &amp;domain.Workout{},
+                &amp;domain.HealthProfile{},
+                // Feature 1: Nutrition
+                &amp;domain.FoodPreference{},
+                &amp;domain.MealSuggestion{},
+                &amp;domain.MealPlan{},
+                &amp;domain.MealPlanItem{},
+                // Feature 2: Workout Recommendation
+                &amp;domain.Exercise{},
+                &amp;domain.WorkoutPlan{},
+                &amp;domain.WorkoutItem{},
+        ); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        // DEBUG: Print actual connection info
+        <span class="cov0" title="0">sqlDB, _ := db.DB()
+        var currentDB string
+        var serverAddr string
+        sqlDB.QueryRow("SELECT current_database()").Scan(&amp;currentDB)
+        sqlDB.QueryRow("SELECT inet_server_addr()").Scan(&amp;serverAddr)
+        fmt.Printf("[DEBUG] Connected to Database: %s at %s (Configured Host: %s)\n", currentDB, serverAddr, os.Getenv("DB_HOST"))
+
+        // DEBUG: Check columns in user table
+        rows, err := sqlDB.Query("SELECT column_name FROM information_schema.columns WHERE table_name = 'user'")
+        if err == nil </span><span class="cov0" title="0">{
+                defer rows.Close()
+                fmt.Println("[DEBUG] Columns in 'user' table:")
+                for rows.Next() </span><span class="cov0" title="0">{
+                        var colName string
+                        rows.Scan(&amp;colName)
+                        fmt.Printf(" - %s\n", colName)
+                }</span>
+        } else<span class="cov0" title="0"> {
+                fmt.Printf("[DEBUG] Failed to list columns: %v\n", err)
+        }</span>
+
+        <span class="cov0" title="0">return db, nil</span>
+}
+
+func NewGRPCServer(lc fx.Lifecycle, coreHandler *usergrpc.CoreHandler, userHandler *usergrpc.UserHandler, nutritionHandler *usergrpc.NutritionHandler, workoutHandler *usergrpc.WorkoutHandler) *grpc.Server <span class="cov0" title="0">{
+        server := grpc.NewServer()
+
+        // Register the CoreService
+        usergrpc.RegisterCoreService(server, coreHandler)
+
+        // Keep existing ones for backward compatibility if needed, or remove them
+        usergrpc.RegisterUserService(server, userHandler)
+        usergrpc.RegisterNutritionService(server, nutritionHandler)
+        usergrpc.RegisterWorkoutService(server, workoutHandler)
+
+        // Enable reflection for debugging (e.g. with grpcurl)
+        reflection.Register(server)
+
+        lc.Append(fx.Hook{
+                OnStart: func(ctx context.Context) error </span><span class="cov0" title="0">{
+                        lis, err := net.Listen("tcp", ":50051")
+                        if err != nil </span><span class="cov0" title="0">{
+                                return err
+                        }</span>
+                        <span class="cov0" title="0">fmt.Println("Starting gRPC server on :50051")
+                        go server.Serve(lis)
+                        return nil</span>
+                },
+                OnStop: func(ctx context.Context) error <span class="cov0" title="0">{
+                        fmt.Println("Stopping gRPC server")
+                        server.GracefulStop()
+                        return nil
+                }</span>,
+        })
+
+        <span class="cov0" title="0">return server</span>
+}
+
+// Alias for import clarity since we named our local package 'grpc'
+// In real code, use a different name for the local package or alias the system one.
+// Here I actually aliased the local one in imports but let's be explicit.
+// The import above is "healthai/engine/internal/adapters/handlers/grpc" -&gt; which creates package content accessible as 'grpc'.
+// The standard library one is "google.golang.org/grpc".
+// Go will complain about conflict. I should alias the standard one or the local one.
+
+// Retrying imports for clarity in the file content below.
+func main() <span class="cov0" title="0">{
+        if err := godotenv.Load(); err != nil </span><span class="cov0" title="0">{
+                fmt.Println("Warning: .env file not found, using system environment variables")
+        }</span>
+
+        <span class="cov0" title="0">fx.New(
+                fx.Provide(
+                        NewDatabase,
+                        postgres.NewUserRepository,     // Returns ports.UserRepository
+                        postgres.NewActivityRepository, // Returns ports.ActivityRepository
+                        postgres.NewNutritionRepository,
+                        postgres.NewWorkoutRepository,
+                        services.NewUserService,
+                        services.NewActivityService,
+                        services.NewNutritionService,
+                        services.NewWorkoutService,
+                        usergrpc.NewUserHandler,
+                        usergrpc.NewNutritionHandler,
+                        usergrpc.NewWorkoutHandler,
+                        usergrpc.NewCoreHandler,
+                        NewGRPCServer,
+                ),
+                fx.Invoke(func(*grpc.Server) </span>{<span class="cov0" title="0">}</span>), // Invoke to trigger server creation
+        ).Run()
+}
+</pre>
+		
+		<pre class="file" id="file2" style="display: none">package grpc
+
+import (
+        "context"
+        "time"
+
+        "healthai/engine/internal/core/domain"
+        "healthai/engine/internal/core/services"
+
+        "google.golang.org/grpc"
+        "google.golang.org/grpc/codes"
+        "google.golang.org/grpc/status"
+)
+
+// --- Mappings ---
+
+// Ensure we don't redeclare types present in user_handler.go within the same package.
+// Reused types: UserIdRequest, UserProfileResponse, DailyStatsResponse, BiometricsRequest,
+// UpdateHealthProfileRequest, NutritionRequest, WorkoutRequest, Ack, Empty.
+
+// --- Core Service Interface ---
+
+type CoreServiceServer interface {
+        GetUserProfile(context.Context, *UserIdRequest) (*UserProfileResponse, error)
+        GetDailyStats(context.Context, *UserIdRequest) (*DailyStatsResponse, error)
+        UpdateBiometrics(context.Context, *BiometricsRequest) (*Empty, error)
+        LogNutrition(context.Context, *NutritionRequest) (*Ack, error)
+        LogWorkout(context.Context, *WorkoutRequest) (*Ack, error)
+        UpdateHealthProfile(context.Context, *UpdateHealthProfileRequest) (*Ack, error)
+
+        UpdateFoodPreferences(context.Context, *UpdateFoodPreferencesRequest) (*Ack, error)
+        AnalyzeMeal(context.Context, *AnalyzeMealRequest) (*AnalyzeMealResponse, error)
+        GetMealPlan(context.Context, *GetMealPlanRequest) (*MealPlanResponse, error)
+        GetFoodPreferences(context.Context, *GetFoodPreferencesRequest) (*FoodPreferencesResponse, error)
+        GetWorkoutRecommendation(context.Context, *GetWorkoutRecommendationRequest) (*WorkoutPlanResponse, error)
+}
+
+// --- Handler Implementation ---
+
+type CoreHandler struct {
+        userService      *services.UserService
+        activityService  *services.ActivityService
+        nutritionService *services.NutritionService
+        workoutService   *services.WorkoutService
+}
+
+func NewCoreHandler(
+        u *services.UserService,
+        a *services.ActivityService,
+        n *services.NutritionService,
+        w *services.WorkoutService,
+) *CoreHandler <span class="cov0" title="0">{
+        return &amp;CoreHandler{
+                userService:      u,
+                activityService:  a,
+                nutritionService: n,
+                workoutService:   w,
+        }
+}</span>
+
+// 1. GetUserProfile (Proxy to UserHandler logic)
+func (h *CoreHandler) GetUserProfile(ctx context.Context, req *UserIdRequest) (*UserProfileResponse, error) <span class="cov0" title="0">{
+        if req.UserId == "" </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.InvalidArgument, "user_id is required")
+        }</span>
+        <span class="cov0" title="0">user, err := h.userService.GetUser(ctx, req.UserId)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.NotFound, "user not found")
+        }</span>
+
+        <span class="cov0" title="0">isPremium := h.userService.CanAccessAdvancedFeatures(user)
+        var dobStr string
+        var age int32
+        var goals []string
+        var allergies []string
+
+        if user.DateOfBirth != nil </span><span class="cov0" title="0">{
+                dobStr = user.DateOfBirth.Format("2006-01-02")
+                now := time.Now()
+                age = int32(now.Year() - user.DateOfBirth.Year())
+                if now.YearDay() &lt; user.DateOfBirth.YearDay() </span><span class="cov0" title="0">{
+                        age--
+                }</span>
+        }
+        <span class="cov0" title="0">if user.HealthProfile != nil </span><span class="cov0" title="0">{
+                goals = []string(user.HealthProfile.Goals)
+                allergies = []string(user.HealthProfile.Allergies)
+        }</span>
+
+        <span class="cov0" title="0">return &amp;UserProfileResponse{
+                Id:                 user.ID,
+                Email:              user.Email,
+                SubscriptionStatus: string(user.SubscriptionStatus),
+                Weight:             user.Weight,
+                Height:             user.Height,
+                IsPremium:          isPremium,
+                DateOfBirth:        dobStr,
+                Age:                age,
+                Goals:              goals,
+                Allergies:          allergies,
+        }, nil</span>
+}
+
+// 2. GetDailyStats
+func (h *CoreHandler) GetDailyStats(ctx context.Context, req *UserIdRequest) (*DailyStatsResponse, error) <span class="cov0" title="0">{
+        if req.UserId == "" </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.InvalidArgument, "user_id is required")
+        }</span>
+        <span class="cov0" title="0">log, err := h.activityService.GetDailyStats(ctx, req.UserId)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.Internal, "failed to get stats")
+        }</span>
+        <span class="cov0" title="0">if log == nil </span><span class="cov0" title="0">{
+                return &amp;DailyStatsResponse{}, nil
+        }</span>
+        <span class="cov0" title="0">return &amp;DailyStatsResponse{Calories: log.TotalCalories, Protein: log.TotalProtein, Carbs: log.TotalCarbs, Fat: log.TotalFat, WorkoutsCount: 0}, nil</span>
+}
+
+// 3. UpdateBiometrics
+func (h *CoreHandler) UpdateBiometrics(ctx context.Context, req *BiometricsRequest) (*Empty, error) <span class="cov0" title="0">{
+        // Reusing logic (simplified)
+        if req.UserId == "" </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.InvalidArgument, "id req")
+        }</span>
+        <span class="cov0" title="0">h.userService.UpdateBiometrics(ctx, req.UserId, req.Weight, req.Height)
+        return &amp;Empty{}, nil</span>
+}
+
+// 4. UpdateHealthProfile
+func (h *CoreHandler) UpdateHealthProfile(ctx context.Context, req *UpdateHealthProfileRequest) (*Ack, error) <span class="cov0" title="0">{
+        if req.UserId == "" </span><span class="cov0" title="0">{
+                return &amp;Ack{Success: false, Message: "id required"}, nil
+        }</span>
+        <span class="cov0" title="0">var dob *time.Time
+        if req.DateOfBirth != "" </span><span class="cov0" title="0">{
+                t, _ := time.Parse("2006-01-02", req.DateOfBirth)
+                dob = &amp;t
+        }</span>
+        <span class="cov0" title="0">err := h.userService.UpdateHealthProfile(ctx, req.UserId, dob, req.Goals, req.Allergies, req.Weight)
+        if err != nil </span><span class="cov0" title="0">{
+                return &amp;Ack{Success: false, Message: err.Error()}, nil
+        }</span>
+        <span class="cov0" title="0">return &amp;Ack{Success: true, Message: "updated"}, nil</span>
+}
+
+// 5. LogNutrition
+func (h *CoreHandler) LogNutrition(ctx context.Context, req *NutritionRequest) (*Ack, error) <span class="cov0" title="0">{
+        h.activityService.LogNutrition(ctx, req.UserId, req.Calories, req.Protein, req.Carbs, req.Fat)
+        return &amp;Ack{Success: true}, nil
+}</span>
+
+// 6. LogWorkout
+func (h *CoreHandler) LogWorkout(ctx context.Context, req *WorkoutRequest) (*Ack, error) <span class="cov0" title="0">{
+        h.activityService.LogWorkout(ctx, req.UserId, req.Type, int(req.DurationMinutes), req.CaloriesBurned)
+        return &amp;Ack{Success: true}, nil
+}</span>
+
+func (h *CoreHandler) UpdateFoodPreferences(ctx context.Context, req *UpdateFoodPreferencesRequest) (*Ack, error) <span class="cov0" title="0">{
+        err := h.nutritionService.UpdateFoodPreferences(ctx, req.UserId, req.Allergies, domain.DietType(req.DietType), req.DislikedIngredients)
+        if err != nil </span><span class="cov0" title="0">{
+                return &amp;Ack{Success: false, Message: err.Error()}, nil
+        }</span>
+        <span class="cov0" title="0">return &amp;Ack{Success: true, Message: "updated"}, nil</span>
+}
+
+func (h *CoreHandler) GetFoodPreferences(ctx context.Context, req *GetFoodPreferencesRequest) (*FoodPreferencesResponse, error) <span class="cov0" title="0">{
+        if req.UserId == "" </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.InvalidArgument, "user_id is required")
+        }</span>
+        <span class="cov0" title="0">prefs, err := h.nutritionService.GetFoodPreferences(ctx, req.UserId)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.Internal, err.Error())
+        }</span>
+        <span class="cov0" title="0">if prefs == nil </span><span class="cov0" title="0">{
+                return &amp;FoodPreferencesResponse{Allergies: []string{}, DietType: "NONE", DislikedIngredients: []string{}}, nil
+        }</span>
+        <span class="cov0" title="0">return &amp;FoodPreferencesResponse{
+                Allergies:           prefs.Allergies,
+                DietType:            string(prefs.DietType),
+                DislikedIngredients: prefs.DislikedIngredients,
+        }, nil</span>
+}
+
+// Stubs for others with Freemium Block
+func (h *CoreHandler) AnalyzeMeal(ctx context.Context, req *AnalyzeMealRequest) (*AnalyzeMealResponse, error) <span class="cov0" title="0">{
+        user, err := h.userService.GetUser(ctx, req.UserId)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.NotFound, "user not found")
+        }</span>
+        <span class="cov0" title="0">if !h.userService.CanAccessAdvancedFeatures(user) </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.PermissionDenied, "freemium users cannot access advanced features")
+        }</span>
+        <span class="cov0" title="0">return nil, status.Error(codes.Unimplemented, "AnalyzeMeal unimplemented")</span>
+}
+func (h *CoreHandler) GetMealPlan(ctx context.Context, req *GetMealPlanRequest) (*MealPlanResponse, error) <span class="cov0" title="0">{
+        user, err := h.userService.GetUser(ctx, req.UserId)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.NotFound, "user not found")
+        }</span>
+        <span class="cov0" title="0">if !h.userService.CanAccessAdvancedFeatures(user) </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.PermissionDenied, "freemium users cannot access advanced features")
+        }</span>
+        <span class="cov0" title="0">return nil, status.Error(codes.Unimplemented, "GetMealPlan unimplemented")</span>
+}
+func (h *CoreHandler) GetWorkoutRecommendation(ctx context.Context, req *GetWorkoutRecommendationRequest) (*WorkoutPlanResponse, error) <span class="cov0" title="0">{
+        user, err := h.userService.GetUser(ctx, req.UserId)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.NotFound, "user not found")
+        }</span>
+        <span class="cov0" title="0">if !h.userService.CanAccessAdvancedFeatures(user) </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.PermissionDenied, "freemium users cannot access advanced features")
+        }</span>
+        <span class="cov0" title="0">return nil, status.Error(codes.Unimplemented, "GetWorkoutRecommendation unimplemented")</span>
+}
+
+// --- Registration ---
+
+func RegisterCoreService(s *grpc.Server, srv *CoreHandler) <span class="cov0" title="0">{
+        s.RegisterService(&amp;grpc.ServiceDesc{
+                ServiceName: "core.CoreService",
+                HandlerType: (*CoreServiceServer)(nil),
+                Methods: []grpc.MethodDesc{
+                        {MethodName: "GetUserProfile", Handler: _Core_GetUserProfile_Handler},
+                        {MethodName: "GetDailyStats", Handler: _Core_GetDailyStats_Handler},
+                        {MethodName: "UpdateBiometrics", Handler: _Core_UpdateBiometrics_Handler},
+                        {MethodName: "UpdateHealthProfile", Handler: _Core_UpdateHealthProfile_Handler},
+                        {MethodName: "LogNutrition", Handler: _Core_LogNutrition_Handler},
+                        {MethodName: "LogWorkout", Handler: _Core_LogWorkout_Handler},
+                        {MethodName: "UpdateFoodPreferences", Handler: _Core_UpdateFoodPreferences_Handler},
+                        {MethodName: "AnalyzeMeal", Handler: _Core_AnalyzeMeal_Handler},
+                        {MethodName: "GetMealPlan", Handler: _Core_GetMealPlan_Handler},
+                        {MethodName: "GetFoodPreferences", Handler: _Core_GetFoodPreferences_Handler},
+                        {MethodName: "GetWorkoutRecommendation", Handler: _Core_GetWorkoutRecommendation_Handler},
+                },
+                Streams:  []grpc.StreamDesc{},
+                Metadata: "core.proto",
+        }, srv)
+}</span>
+
+// --- Wrappers ---
+
+func _Core_GetUserProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(UserIdRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*CoreHandler).GetUserProfile(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{Server: srv, FullMethod: "/core.CoreService/GetUserProfile"}
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*CoreHandler).GetUserProfile(ctx, req.(*UserIdRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+
+// Repeating generic wrapper for brevity on others, just renaming types...
+// I will implement a few critical ones.
+
+func _Core_GetDailyStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(UserIdRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*CoreHandler).GetDailyStats(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{Server: srv, FullMethod: "/core.CoreService/GetDailyStats"}
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*CoreHandler).GetDailyStats(ctx, req.(*UserIdRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+
+func _Core_GetFoodPreferences_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(GetFoodPreferencesRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*CoreHandler).GetFoodPreferences(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{Server: srv, FullMethod: "/core.CoreService/GetFoodPreferences"}
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*CoreHandler).GetFoodPreferences(ctx, req.(*GetFoodPreferencesRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+
+func _Core_UpdateHealthProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(UpdateHealthProfileRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*CoreHandler).UpdateHealthProfile(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{Server: srv, FullMethod: "/core.CoreService/UpdateHealthProfile"}
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*CoreHandler).UpdateHealthProfile(ctx, req.(*UpdateHealthProfileRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+
+func _Core_UpdateFoodPreferences_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(UpdateFoodPreferencesRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*CoreHandler).UpdateFoodPreferences(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{Server: srv, FullMethod: "/core.CoreService/UpdateFoodPreferences"}
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*CoreHandler).UpdateFoodPreferences(ctx, req.(*UpdateFoodPreferencesRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+
+// Simplified Stubs for the rest (runtime error if called but won't crash registration)
+func _Core_UpdateBiometrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        return nil, nil
+}</span>
+func _Core_LogNutrition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        return nil, nil
+}</span>
+func _Core_LogWorkout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        return nil, nil
+}</span>
+func _Core_AnalyzeMeal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(AnalyzeMealRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*CoreHandler).AnalyzeMeal(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{Server: srv, FullMethod: "/core.CoreService/AnalyzeMeal"}
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*CoreHandler).AnalyzeMeal(ctx, req.(*AnalyzeMealRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+func _Core_GetMealPlan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(GetMealPlanRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*CoreHandler).GetMealPlan(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{Server: srv, FullMethod: "/core.CoreService/GetMealPlan"}
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*CoreHandler).GetMealPlan(ctx, req.(*GetMealPlanRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+func _Core_GetWorkoutRecommendation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(GetWorkoutRecommendationRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*CoreHandler).GetWorkoutRecommendation(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{Server: srv, FullMethod: "/core.CoreService/GetWorkoutRecommendation"}
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*CoreHandler).GetWorkoutRecommendation(ctx, req.(*GetWorkoutRecommendationRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+</pre>
+		
+		<pre class="file" id="file3" style="display: none">package grpc
+
+import (
+        "context"
+        "fmt"
+        "time"
+
+        "healthai/engine/internal/core/domain"
+        "healthai/engine/internal/core/services"
+
+        "google.golang.org/grpc"
+        "google.golang.org/grpc/codes"
+        "google.golang.org/grpc/status"
+)
+
+// --- Manual Protobuf Struct Definitions (Shadowing helper) ---
+
+type UpdateFoodPreferencesRequest struct {
+        UserId              string   `json:"user_id"`
+        DietType            string   `json:"diet_type"`
+        Allergies           []string `json:"allergies"`
+        DislikedIngredients []string `json:"disliked_ingredients"`
+}
+
+func (m *UpdateFoodPreferencesRequest) Reset()         <span class="cov0" title="0">{ *m = UpdateFoodPreferencesRequest{} }</span>
+func (m *UpdateFoodPreferencesRequest) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*UpdateFoodPreferencesRequest) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+type AnalyzeMealRequest struct {
+        UserId string               `json:"user_id"`
+        Meal   *ProtoMealSuggestion `json:"meal"`
+}
+
+func (m *AnalyzeMealRequest) Reset()         <span class="cov0" title="0">{ *m = AnalyzeMealRequest{} }</span>
+func (m *AnalyzeMealRequest) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*AnalyzeMealRequest) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+type ProtoMealSuggestion struct {
+        Id          string   `json:"id"`
+        Name        string   `json:"name"`
+        Calories    float64  `json:"calories"`
+        Protein     float64  `json:"protein"`
+        Carbs       float64  `json:"carbs"`
+        Fat         float64  `json:"fat"`
+        Ingredients []string `json:"ingredients"`
+        DietTags    []string `json:"diet_tags"`
+}
+
+func (m *ProtoMealSuggestion) Reset()         <span class="cov0" title="0">{ *m = ProtoMealSuggestion{} }</span>
+func (m *ProtoMealSuggestion) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*ProtoMealSuggestion) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+type AnalyzeMealResponse struct {
+        IsBalanced     bool     `json:"is_balanced"`
+        Warnings       []string `json:"warnings"`
+        CriticalAlerts []string `json:"critical_alerts"`
+}
+
+func (m *AnalyzeMealResponse) Reset()         <span class="cov0" title="0">{ *m = AnalyzeMealResponse{} }</span>
+func (m *AnalyzeMealResponse) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*AnalyzeMealResponse) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+type GetMealPlanRequest struct {
+        UserId string `json:"user_id"`
+        Date   string `json:"date"` // YYYY-MM-DD
+}
+
+func (m *GetMealPlanRequest) Reset()         <span class="cov0" title="0">{ *m = GetMealPlanRequest{} }</span>
+func (m *GetMealPlanRequest) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*GetMealPlanRequest) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+type MealPlanResponse struct {
+        PlanId         string          `json:"plan_id"`
+        Date           string          `json:"date"`
+        TargetCalories float64         `json:"target_calories"`
+        Meals          []*MealPlanItem `json:"meals"`
+}
+
+func (m *MealPlanResponse) Reset()         <span class="cov0" title="0">{ *m = MealPlanResponse{} }</span>
+func (m *MealPlanResponse) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*MealPlanResponse) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+type MealPlanItem struct {
+        MealType string               `json:"meal_type"`
+        Meal     *ProtoMealSuggestion `json:"meal"`
+        IsEaten  bool                 `json:"is_eaten"`
+}
+
+type GetFoodPreferencesRequest struct {
+        UserId string `json:"user_id"`
+}
+
+func (m *GetFoodPreferencesRequest) Reset()         <span class="cov0" title="0">{ *m = GetFoodPreferencesRequest{} }</span>
+func (m *GetFoodPreferencesRequest) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*GetFoodPreferencesRequest) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+type FoodPreferencesResponse struct {
+        Allergies           []string `json:"allergies"`
+        DietType            string   `json:"diet_type"`
+        DislikedIngredients []string `json:"disliked_ingredients"`
+}
+
+func (m *FoodPreferencesResponse) Reset()         <span class="cov0" title="0">{ *m = FoodPreferencesResponse{} }</span>
+func (m *FoodPreferencesResponse) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*FoodPreferencesResponse) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+// --- Handler Logic ---
+
+type NutritionHandler struct {
+        service *services.NutritionService
+}
+
+func NewNutritionHandler(service *services.NutritionService) *NutritionHandler <span class="cov0" title="0">{
+        return &amp;NutritionHandler{service: service}
+}</span>
+
+func (h *NutritionHandler) GetService() *services.NutritionService <span class="cov0" title="0">{
+        return h.service
+}</span>
+
+func (h *NutritionHandler) UpdateFoodPreferences(ctx context.Context, req *UpdateFoodPreferencesRequest) (*Ack, error) <span class="cov0" title="0">{
+        // Not implemented in Service yet, but repo has Upsert. Simple pass-through or todo.
+        return &amp;Ack{Success: true, Message: "Preferences updated (mock)"}, nil
+}</span>
+
+func (h *NutritionHandler) GetFoodPreferences(ctx context.Context, req *GetFoodPreferencesRequest) (*FoodPreferencesResponse, error) <span class="cov0" title="0">{
+        if req.UserId == "" </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.InvalidArgument, "user_id is required")
+        }</span>
+
+        <span class="cov0" title="0">prefs, err := h.service.GetFoodPreferences(ctx, req.UserId)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.Internal, err.Error())
+        }</span>
+
+        <span class="cov0" title="0">if prefs == nil </span><span class="cov0" title="0">{
+                // Return empty default if not set
+                return &amp;FoodPreferencesResponse{
+                        Allergies:           []string{},
+                        DietType:            "NONE",
+                        DislikedIngredients: []string{},
+                }, nil
+        }</span>
+
+        <span class="cov0" title="0">return &amp;FoodPreferencesResponse{
+                Allergies:           prefs.Allergies,
+                DietType:            string(prefs.DietType),
+                DislikedIngredients: prefs.DislikedIngredients,
+        }, nil</span>
+}
+
+func (h *NutritionHandler) AnalyzeMeal(ctx context.Context, req *AnalyzeMealRequest) (*AnalyzeMealResponse, error) <span class="cov0" title="0">{
+        if req.UserId == "" || req.Meal == nil </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.InvalidArgument, "invalid arguments")
+        }</span>
+
+        <span class="cov0" title="0">domainMeal := domain.MealSuggestion{
+                ID:          req.Meal.Id,
+                Name:        req.Meal.Name,
+                Calories:    req.Meal.Calories,
+                Protein:     req.Meal.Protein,
+                Carbs:       req.Meal.Carbs,
+                Fat:         req.Meal.Fat,
+                Ingredients: req.Meal.Ingredients,
+                DietTags:    req.Meal.DietTags,
+        }
+
+        report, err := h.service.AnalyzeMeal(ctx, req.UserId, domainMeal)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.Internal, err.Error())
+        }</span>
+
+        <span class="cov0" title="0">return &amp;AnalyzeMealResponse{
+                IsBalanced:     report.IsBalanced,
+                Warnings:       report.Warnings,
+                CriticalAlerts: report.CriticalAlerts,
+        }, nil</span>
+}
+
+func (h *NutritionHandler) GetMealPlan(ctx context.Context, req *GetMealPlanRequest) (*MealPlanResponse, error) <span class="cov0" title="0">{
+        targetDate := time.Now()
+        if req.Date != "" </span><span class="cov0" title="0">{
+                parsed, err := time.Parse("2006-01-02", req.Date)
+                if err == nil </span><span class="cov0" title="0">{
+                        targetDate = parsed
+                }</span>
+        }
+
+        <span class="cov0" title="0">plan, err := h.service.GenerateDailyPlan(ctx, req.UserId, targetDate)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.Internal, err.Error())
+        }</span>
+
+        <span class="cov0" title="0">resp := &amp;MealPlanResponse{
+                PlanId:         plan.ID,
+                Date:           plan.Date.Format("2006-01-02"),
+                TargetCalories: plan.TargetCalories,
+                Meals:          []*MealPlanItem{},
+        }
+
+        for _, item := range plan.Meals </span><span class="cov0" title="0">{
+                resp.Meals = append(resp.Meals, &amp;MealPlanItem{
+                        MealType: string(item.MealType),
+                        IsEaten:  item.IsEatened,
+                        Meal: &amp;ProtoMealSuggestion{
+                                Id:          item.MealSuggestion.ID,
+                                Name:        item.MealSuggestion.Name,
+                                Calories:    item.MealSuggestion.Calories,
+                                Protein:     item.MealSuggestion.Protein,
+                                Carbs:       item.MealSuggestion.Carbs,
+                                Fat:         item.MealSuggestion.Fat,
+                                Ingredients: item.MealSuggestion.Ingredients,
+                                DietTags:    item.MealSuggestion.DietTags,
+                        },
+                })
+        }</span>
+
+        <span class="cov0" title="0">return resp, nil</span>
+}
+
+// --- Registration ---
+
+type NutritionServiceServer interface {
+        UpdateFoodPreferences(context.Context, *UpdateFoodPreferencesRequest) (*Ack, error)
+        AnalyzeMeal(context.Context, *AnalyzeMealRequest) (*AnalyzeMealResponse, error)
+        GetMealPlan(context.Context, *GetMealPlanRequest) (*MealPlanResponse, error)
+        GetFoodPreferences(context.Context, *GetFoodPreferencesRequest) (*FoodPreferencesResponse, error)
+}
+
+func RegisterNutritionService(s *grpc.Server, srv *NutritionHandler) <span class="cov0" title="0">{
+        s.RegisterService(&amp;grpc.ServiceDesc{
+                ServiceName: "nutrition.NutritionService",
+                HandlerType: (*NutritionServiceServer)(nil),
+                Methods: []grpc.MethodDesc{
+                        {MethodName: "UpdateFoodPreferences", Handler: _NutritionService_UpdateFoodPreferences_Handler},
+                        {MethodName: "AnalyzeMeal", Handler: _NutritionService_AnalyzeMeal_Handler},
+                        {MethodName: "GetMealPlan", Handler: _NutritionService_GetMealPlan_Handler},
+                        {MethodName: "GetFoodPreferences", Handler: _NutritionService_GetFoodPreferences_Handler},
+                },
+                Streams:  []grpc.StreamDesc{},
+                Metadata: "nutrition.proto",
+        }, srv)
+}</span>
+
+func _NutritionService_UpdateFoodPreferences_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(UpdateFoodPreferencesRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*NutritionHandler).UpdateFoodPreferences(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{Server: srv, FullMethod: "/nutrition.NutritionService/UpdateFoodPreferences"}
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*NutritionHandler).UpdateFoodPreferences(ctx, req.(*UpdateFoodPreferencesRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+
+func _NutritionService_AnalyzeMeal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(AnalyzeMealRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*NutritionHandler).AnalyzeMeal(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{Server: srv, FullMethod: "/nutrition.NutritionService/AnalyzeMeal"}
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*NutritionHandler).AnalyzeMeal(ctx, req.(*AnalyzeMealRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+
+func _NutritionService_GetMealPlan_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(GetMealPlanRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*NutritionHandler).GetMealPlan(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{Server: srv, FullMethod: "/nutrition.NutritionService/GetMealPlan"}
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*NutritionHandler).GetMealPlan(ctx, req.(*GetMealPlanRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+
+func _NutritionService_GetFoodPreferences_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(GetFoodPreferencesRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*NutritionHandler).GetFoodPreferences(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{Server: srv, FullMethod: "/nutrition.NutritionService/GetFoodPreferences"}
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*NutritionHandler).GetFoodPreferences(ctx, req.(*GetFoodPreferencesRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+</pre>
+		
+		<pre class="file" id="file4" style="display: none">package grpc
+
+import (
+        "context"
+        "fmt"
+        "time"
+
+        "healthai/engine/internal/core/services"
+        // pb "healthai/engine/proto/user" // generic import, assuming generation
+        "google.golang.org/grpc"
+        "google.golang.org/grpc/codes"
+        "google.golang.org/grpc/status"
+)
+
+// To make this compilable without the generated code, I am defining aliases here.
+// IN A REAL SCENARIO: Remove these and import the generated 'pb' package.
+type UserProfileResponse struct {
+        Id                 string   `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
+        Email              string   `protobuf:"bytes,2,opt,name=email" json:"email,omitempty"`
+        SubscriptionStatus string   `protobuf:"bytes,3,opt,name=subscription_status" json:"subscription_status,omitempty"`
+        Weight             float64  `protobuf:"fixed64,4,opt,name=weight" json:"weight,omitempty"`
+        Height             float64  `protobuf:"fixed64,5,opt,name=height" json:"height,omitempty"`
+        IsPremium          bool     `protobuf:"varint,6,opt,name=is_premium" json:"is_premium,omitempty"`
+        DateOfBirth        string   `protobuf:"bytes,7,opt,name=date_of_birth" json:"date_of_birth,omitempty"`
+        Age                int32    `protobuf:"varint,8,opt,name=age" json:"age,omitempty"`
+        Goals              []string `protobuf:"bytes,9,rep,name=goals" json:"goals,omitempty"`
+        Allergies          []string `protobuf:"bytes,10,rep,name=allergies" json:"allergies,omitempty"`
+}
+
+func (m *UserProfileResponse) Reset()         <span class="cov0" title="0">{ *m = UserProfileResponse{} }</span>
+func (m *UserProfileResponse) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*UserProfileResponse) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+type UserIdRequest struct {
+        UserId string `protobuf:"bytes,1,opt,name=user_id" json:"user_id,omitempty"`
+}
+
+func (m *UserIdRequest) Reset()         <span class="cov0" title="0">{ *m = UserIdRequest{} }</span>
+func (m *UserIdRequest) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*UserIdRequest) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+type BiometricsRequest struct {
+        UserId string  `protobuf:"bytes,1,opt,name=user_id" json:"user_id,omitempty"`
+        Weight float64 `protobuf:"fixed64,2,opt,name=weight" json:"weight,omitempty"`
+        Height float64 `protobuf:"fixed64,3,opt,name=height" json:"height,omitempty"`
+}
+
+func (m *BiometricsRequest) Reset()         <span class="cov0" title="0">{ *m = BiometricsRequest{} }</span>
+func (m *BiometricsRequest) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*BiometricsRequest) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+type UpdateHealthProfileRequest struct {
+        UserId      string   `protobuf:"bytes,1,opt,name=user_id" json:"user_id,omitempty"`
+        DateOfBirth string   `protobuf:"bytes,2,opt,name=date_of_birth" json:"date_of_birth,omitempty"`
+        Goals       []string `protobuf:"bytes,3,rep,name=goals" json:"goals,omitempty"`
+        Allergies   []string `protobuf:"bytes,4,rep,name=allergies" json:"allergies,omitempty"`
+        Weight      float64  `protobuf:"fixed64,5,opt,name=weight" json:"weight,omitempty"`
+}
+
+func (m *UpdateHealthProfileRequest) Reset()         <span class="cov0" title="0">{ *m = UpdateHealthProfileRequest{} }</span>
+func (m *UpdateHealthProfileRequest) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*UpdateHealthProfileRequest) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+type Empty struct{}
+
+func (m *Empty) Reset()         <span class="cov0" title="0">{ *m = Empty{} }</span>
+func (m *Empty) String() string <span class="cov0" title="0">{ return "{}" }</span>
+func (*Empty) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+// Manual definitions for Feature B
+type NutritionRequest struct {
+        UserId   string  `protobuf:"bytes,1,opt,name=user_id" json:"user_id,omitempty"`
+        Calories float64 `protobuf:"fixed64,2,opt,name=calories" json:"calories,omitempty"`
+        Protein  float64 `protobuf:"fixed64,3,opt,name=protein" json:"protein,omitempty"`
+        Carbs    float64 `protobuf:"fixed64,4,opt,name=carbs" json:"carbs,omitempty"`
+        Fat      float64 `protobuf:"fixed64,5,opt,name=fat" json:"fat,omitempty"`
+}
+
+func (m *NutritionRequest) Reset()         <span class="cov0" title="0">{ *m = NutritionRequest{} }</span>
+func (m *NutritionRequest) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*NutritionRequest) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+type WorkoutRequest struct {
+        UserId          string  `protobuf:"bytes,1,opt,name=user_id" json:"user_id,omitempty"`
+        Type            string  `protobuf:"bytes,2,opt,name=type" json:"type,omitempty"`
+        DurationMinutes int32   `protobuf:"varint,3,opt,name=duration_minutes" json:"duration_minutes,omitempty"`
+        CaloriesBurned  float64 `protobuf:"fixed64,4,opt,name=calories_burned" json:"calories_burned,omitempty"`
+}
+
+func (m *WorkoutRequest) Reset()         <span class="cov0" title="0">{ *m = WorkoutRequest{} }</span>
+func (m *WorkoutRequest) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*WorkoutRequest) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+type DailyStatsResponse struct {
+        Calories      float64 `protobuf:"fixed64,1,opt,name=calories" json:"calories,omitempty"`
+        Protein       float64 `protobuf:"fixed64,2,opt,name=protein" json:"protein,omitempty"`
+        Carbs         float64 `protobuf:"fixed64,3,opt,name=carbs" json:"carbs,omitempty"`
+        Fat           float64 `protobuf:"fixed64,4,opt,name=fat" json:"fat,omitempty"`
+        WorkoutsCount int32   `protobuf:"varint,5,opt,name=workouts_count" json:"workouts_count,omitempty"`
+}
+
+func (m *DailyStatsResponse) Reset()         <span class="cov0" title="0">{ *m = DailyStatsResponse{} }</span>
+func (m *DailyStatsResponse) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*DailyStatsResponse) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+type Ack struct {
+        Success bool   `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
+        Message string `protobuf:"bytes,2,opt,name=message" json:"message,omitempty"`
+}
+
+func (m *Ack) Reset()         <span class="cov0" title="0">{ *m = Ack{} }</span>
+func (m *Ack) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*Ack) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+// UserServiceServer is the interface that defines the gRPC service methods.
+type UserServiceServer interface {
+        GetUserProfile(context.Context, *UserIdRequest) (*UserProfileResponse, error)
+        GetDailyStats(context.Context, *UserIdRequest) (*DailyStatsResponse, error)
+        UpdateBiometrics(context.Context, *BiometricsRequest) (*Empty, error)
+        UpdateHealthProfile(context.Context, *UpdateHealthProfileRequest) (*Ack, error)
+        LogNutrition(context.Context, *NutritionRequest) (*Ack, error)
+        LogWorkout(context.Context, *WorkoutRequest) (*Ack, error)
+}
+
+// UserHandler implements the gRPC service methods.
+type UserHandler struct {
+        service         *services.UserService
+        activityService *services.ActivityService
+        // pb.UnimplementedUserServiceServer
+}
+
+func NewUserHandler(service *services.UserService, activityService *services.ActivityService) *UserHandler <span class="cov0" title="0">{
+        return &amp;UserHandler{
+                service:         service,
+                activityService: activityService,
+        }
+}</span>
+
+func (h *UserHandler) GetService() *services.UserService <span class="cov0" title="0">{
+        return h.service
+}</span>
+
+func (h *UserHandler) GetActivityService() *services.ActivityService <span class="cov0" title="0">{
+        return h.activityService
+}</span>
+
+func (h *UserHandler) GetUserProfile(ctx context.Context, req *UserIdRequest) (*UserProfileResponse, error) <span class="cov0" title="0">{
+        if req.UserId == "" </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.InvalidArgument, "user_id is required")
+        }</span>
+
+        <span class="cov0" title="0">user, err := h.service.GetUser(ctx, req.UserId)
+        if err != nil </span><span class="cov0" title="0">{
+                fmt.Printf("[GRPC] GetUserProfile Error: %v for User %s\n", err, req.UserId)
+                return nil, status.Error(codes.NotFound, "user not found")
+        }</span>
+
+        <span class="cov0" title="0">fmt.Printf("[GRPC] Fetched User: %+v\n", user)
+        if user.HealthProfile != nil </span><span class="cov0" title="0">{
+                fmt.Printf("[GRPC] Health Profile: %+v\n", user.HealthProfile)
+        }</span> else<span class="cov0" title="0"> {
+                fmt.Println("[GRPC] No Health Profile found for user")
+        }</span>
+
+        <span class="cov0" title="0">isPremium := h.service.CanAccessAdvancedFeatures(user)
+
+        var dobStr string
+        var age int32
+        var goals []string
+        var allergies []string
+
+        if user.DateOfBirth != nil </span><span class="cov0" title="0">{
+                dobStr = user.DateOfBirth.Format("2006-01-02")
+                // Calculate age
+                now := time.Now()
+                age = int32(now.Year() - user.DateOfBirth.Year())
+                if now.YearDay() &lt; user.DateOfBirth.YearDay() </span><span class="cov0" title="0">{
+                        age--
+                }</span>
+        }
+
+        <span class="cov0" title="0">if user.HealthProfile != nil </span><span class="cov0" title="0">{
+                goals = []string(user.HealthProfile.Goals)
+                allergies = []string(user.HealthProfile.Allergies)
+        }</span>
+
+        <span class="cov0" title="0">return &amp;UserProfileResponse{
+                Id:                 user.ID,
+                Email:              user.Email,
+                SubscriptionStatus: string(user.SubscriptionStatus),
+                Weight:             user.Weight,
+                Height:             user.Height,
+                IsPremium:          isPremium,
+                DateOfBirth:        dobStr,
+                Age:                age,
+                Goals:              goals,
+                Allergies:          allergies,
+        }, nil</span>
+}
+
+func (h *UserHandler) UpdateHealthProfile(ctx context.Context, req *UpdateHealthProfileRequest) (*Ack, error) <span class="cov0" title="0">{
+        fmt.Printf("[GRPC] Received UpdateHealthProfile for User: %s, Weight: %f, Goals: %v\n", req.UserId, req.Weight, req.Goals)
+        if req.UserId == "" </span><span class="cov0" title="0">{
+                return &amp;Ack{Success: false, Message: "user_id is required"}, status.Error(codes.InvalidArgument, "user_id is required")
+        }</span>
+
+        <span class="cov0" title="0">var dob *time.Time
+        if req.DateOfBirth != "" </span><span class="cov0" title="0">{
+                t, err := time.Parse("2006-01-02", req.DateOfBirth)
+                if err != nil </span><span class="cov0" title="0">{
+                        return &amp;Ack{Success: false, Message: "invalid date_of_birth format, use YYYY-MM-DD"}, status.Error(codes.InvalidArgument, "invalid date_of_birth format")
+                }</span>
+                <span class="cov0" title="0">dob = &amp;t</span>
+        }
+
+        <span class="cov0" title="0">err := h.service.UpdateHealthProfile(ctx, req.UserId, dob, req.Goals, req.Allergies, req.Weight)
+        if err != nil </span><span class="cov0" title="0">{
+                fmt.Printf("[GRPC] UpdateHealthProfile ERROR: %v\n", err)
+                return &amp;Ack{Success: false, Message: err.Error()}, status.Error(codes.Internal, "failed to update health profile")
+        }</span>
+
+        <span class="cov0" title="0">return &amp;Ack{Success: true, Message: "health profile updated"}, nil</span>
+}
+
+func (h *UserHandler) GetDailyStats(ctx context.Context, req *UserIdRequest) (*DailyStatsResponse, error) <span class="cov0" title="0">{
+        if req.UserId == "" </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.InvalidArgument, "user_id is required")
+        }</span>
+
+        <span class="cov0" title="0">log, err := h.activityService.GetDailyStats(ctx, req.UserId)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.Internal, "failed to get daily stats")
+        }</span>
+
+        <span class="cov0" title="0">if log == nil </span><span class="cov0" title="0">{
+                return &amp;DailyStatsResponse{}, nil
+        }</span>
+
+        <span class="cov0" title="0">return &amp;DailyStatsResponse{
+                Calories:      log.TotalCalories,
+                Protein:       log.TotalProtein,
+                Carbs:         log.TotalCarbs,
+                Fat:           log.TotalFat,
+                WorkoutsCount: 0, // In a real scenario, we'd count today's workouts too
+        }, nil</span>
+}
+
+func (h *UserHandler) UpdateBiometrics(ctx context.Context, req *BiometricsRequest) (*Empty, error) <span class="cov0" title="0">{
+        if req.UserId == "" </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.InvalidArgument, "user_id is required")
+        }</span>
+
+        <span class="cov0" title="0">err := h.service.UpdateBiometrics(ctx, req.UserId, req.Weight, req.Height)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.Internal, "failed to update biometrics")
+        }</span>
+
+        <span class="cov0" title="0">return &amp;Empty{}, nil</span>
+}
+
+// Feature B: Activity RPCs
+
+func (h *UserHandler) LogNutrition(ctx context.Context, req *NutritionRequest) (*Ack, error) <span class="cov0" title="0">{
+        if req.UserId == "" </span><span class="cov0" title="0">{
+                return &amp;Ack{Success: false, Message: "user_id is required"}, status.Error(codes.InvalidArgument, "user_id is required")
+        }</span>
+
+        <span class="cov0" title="0">err := h.activityService.LogNutrition(ctx, req.UserId, req.Calories, req.Protein, req.Carbs, req.Fat)
+        if err != nil </span><span class="cov0" title="0">{
+                return &amp;Ack{Success: false, Message: err.Error()}, status.Error(codes.Internal, "failed to log nutrition")
+        }</span>
+
+        <span class="cov0" title="0">return &amp;Ack{Success: true, Message: "nutrition logged"}, nil</span>
+}
+
+func (h *UserHandler) LogWorkout(ctx context.Context, req *WorkoutRequest) (*Ack, error) <span class="cov0" title="0">{
+        if req.UserId == "" </span><span class="cov0" title="0">{
+                return &amp;Ack{Success: false, Message: "user_id is required"}, status.Error(codes.InvalidArgument, "user_id is required")
+        }</span>
+
+        <span class="cov0" title="0">err := h.activityService.LogWorkout(ctx, req.UserId, req.Type, int(req.DurationMinutes), req.CaloriesBurned)
+        if err != nil </span><span class="cov0" title="0">{
+                return &amp;Ack{Success: false, Message: err.Error()}, status.Error(codes.Internal, "failed to log workout")
+        }</span>
+
+        <span class="cov0" title="0">return &amp;Ack{Success: true, Message: "workout logged"}, nil</span>
+}
+
+// --- Manual gRPC Registration (since we don't have protoc) ---
+
+func RegisterUserService(s *grpc.Server, srv *UserHandler) <span class="cov0" title="0">{
+        s.RegisterService(&amp;grpc.ServiceDesc{
+                ServiceName: "user.UserService",
+                HandlerType: (*UserServiceServer)(nil),
+                Methods: []grpc.MethodDesc{
+                        {
+                                MethodName: "GetUserProfile",
+                                Handler:    _UserService_GetUserProfile_Handler,
+                        },
+                        {
+                                MethodName: "GetDailyStats",
+                                Handler:    _UserService_GetDailyStats_Handler,
+                        },
+                        {
+                                MethodName: "UpdateBiometrics",
+                                Handler:    _UserService_UpdateBiometrics_Handler,
+                        },
+                        {
+                                MethodName: "UpdateHealthProfile",
+                                Handler:    _UserService_UpdateHealthProfile_Handler,
+                        },
+                        {
+                                MethodName: "LogNutrition",
+                                Handler:    _UserService_LogNutrition_Handler,
+                        },
+                        {
+                                MethodName: "LogWorkout",
+                                Handler:    _UserService_LogWorkout_Handler,
+                        },
+                },
+                Streams:  []grpc.StreamDesc{},
+                Metadata: "user.proto",
+        }, srv)
+}</span>
+
+func _UserService_GetUserProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(UserIdRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*UserHandler).GetUserProfile(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{
+                Server:     srv,
+                FullMethod: "/user.UserService/GetUserProfile",
+        }
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*UserHandler).GetUserProfile(ctx, req.(*UserIdRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+
+func _UserService_GetDailyStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(UserIdRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*UserHandler).GetDailyStats(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{
+                Server:     srv,
+                FullMethod: "/user.UserService/GetDailyStats",
+        }
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*UserHandler).GetDailyStats(ctx, req.(*UserIdRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+
+func _UserService_UpdateBiometrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(BiometricsRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*UserHandler).UpdateBiometrics(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{
+                Server:     srv,
+                FullMethod: "/user.UserService/UpdateBiometrics",
+        }
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*UserHandler).UpdateBiometrics(ctx, req.(*BiometricsRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+
+func _UserService_UpdateHealthProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(UpdateHealthProfileRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*UserHandler).UpdateHealthProfile(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{
+                Server:     srv,
+                FullMethod: "/user.UserService/UpdateHealthProfile",
+        }
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*UserHandler).UpdateHealthProfile(ctx, req.(*UpdateHealthProfileRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+
+func _UserService_LogNutrition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(NutritionRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*UserHandler).LogNutrition(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{
+                Server:     srv,
+                FullMethod: "/user.UserService/LogNutrition",
+        }
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*UserHandler).LogNutrition(ctx, req.(*NutritionRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+
+func _UserService_LogWorkout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(WorkoutRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*UserHandler).LogWorkout(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{
+                Server:     srv,
+                FullMethod: "/user.UserService/LogWorkout",
+        }
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*UserHandler).LogWorkout(ctx, req.(*WorkoutRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+</pre>
+		
+		<pre class="file" id="file5" style="display: none">package grpc
+
+import (
+        "context"
+        "fmt"
+
+        "healthai/engine/internal/core/domain"
+        "healthai/engine/internal/core/services"
+
+        "google.golang.org/grpc"
+        "google.golang.org/grpc/codes"
+        "google.golang.org/grpc/status"
+)
+
+// --- Manual Protobuf Structs ---
+
+type GetWorkoutRecommendationRequest struct {
+        UserId             string   `json:"user_id"`
+        DurationMinutes    int32    `json:"duration_minutes"`
+        UserInjuries       []string `json:"user_injuries"`
+        AvailableEquipment []string `json:"available_equipment"`
+}
+
+func (m *GetWorkoutRecommendationRequest) Reset()         <span class="cov0" title="0">{ *m = GetWorkoutRecommendationRequest{} }</span>
+func (m *GetWorkoutRecommendationRequest) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*GetWorkoutRecommendationRequest) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+type WorkoutPlanResponse struct {
+        PlanId          string              `json:"plan_id"`
+        Date            string              `json:"date"`
+        DurationMinutes int32               `json:"duration_minutes"`
+        EstCaloriesBurn float64             `json:"est_calories_burn"`
+        Exercises       []*ProtoWorkoutItem `json:"exercises"`
+}
+
+func (m *WorkoutPlanResponse) Reset()         <span class="cov0" title="0">{ *m = WorkoutPlanResponse{} }</span>
+func (m *WorkoutPlanResponse) String() string <span class="cov0" title="0">{ return fmt.Sprintf("%+v", *m) }</span>
+func (*WorkoutPlanResponse) ProtoMessage()    {<span class="cov0" title="0">}</span>
+
+type ProtoWorkoutItem struct {
+        ExerciseId  string           `json:"exercise_id"`
+        Name        string           `json:"name"`
+        Order       int32            `json:"order"`
+        Sets        int32            `json:"sets"`
+        Reps        int32            `json:"reps"`
+        DurationSec int32            `json:"duration_sec"`
+        RestSec     int32            `json:"rest_sec"`
+        Details     *ExerciseDetails `json:"details"`
+}
+
+type ExerciseDetails struct {
+        Type          string   `json:"type"`
+        Difficulty    string   `json:"difficulty"`
+        Equipment     string   `json:"equipment"`
+        MuscleTargets []string `json:"muscle_targets"`
+        VideoUrl      string   `json:"video_url"`
+}
+
+// --- Handler Logic ---
+
+type WorkoutHandler struct {
+        service *services.WorkoutService
+}
+
+func NewWorkoutHandler(service *services.WorkoutService) *WorkoutHandler <span class="cov0" title="0">{
+        return &amp;WorkoutHandler{service: service}
+}</span>
+
+func (h *WorkoutHandler) GetService() *services.WorkoutService <span class="cov0" title="0">{
+        return h.service
+}</span>
+
+func (h *WorkoutHandler) GetWorkoutRecommendation(ctx context.Context, req *GetWorkoutRecommendationRequest) (*WorkoutPlanResponse, error) <span class="cov0" title="0">{
+        if req.UserId == "" </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.InvalidArgument, "user_id is required")
+        }</span>
+
+        // Map Equipment
+        <span class="cov0" title="0">equip := []domain.EquipmentType{}
+        for _, e := range req.AvailableEquipment </span><span class="cov0" title="0">{
+                equip = append(equip, domain.EquipmentType(e))
+        }</span>
+
+        <span class="cov0" title="0">constraints := services.WorkoutConstraints{
+                DurationMinutes: int(req.DurationMinutes),
+                Equipment:       equip,
+                UserInjuries:    req.UserInjuries,
+        }
+
+        plan, err := h.service.GenerateWorkout(ctx, req.UserId, constraints)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, status.Error(codes.Internal, err.Error())
+        }</span>
+
+        <span class="cov0" title="0">resp := &amp;WorkoutPlanResponse{
+                PlanId:          plan.ID,
+                Date:            plan.Date.Format("2006-01-02"),
+                DurationMinutes: int32(plan.DurationMinutes),
+                EstCaloriesBurn: plan.EstCaloriesBurn,
+                Exercises:       []*ProtoWorkoutItem{},
+        }
+
+        for _, item := range plan.Exercises </span><span class="cov0" title="0">{
+                resp.Exercises = append(resp.Exercises, &amp;ProtoWorkoutItem{
+                        ExerciseId:  item.ExerciseID,
+                        Name:        item.Exercise.Name,
+                        Order:       int32(item.Order),
+                        Sets:        int32(item.Sets),
+                        Reps:        int32(item.Reps),
+                        DurationSec: int32(item.DurationSec),
+                        RestSec:     int32(item.RestSec),
+                        Details: &amp;ExerciseDetails{
+                                Type:          string(item.Exercise.Type),
+                                Difficulty:    string(item.Exercise.Difficulty),
+                                Equipment:     string(item.Exercise.RequiredEquipment),
+                                MuscleTargets: item.Exercise.MusclesTargeted,
+                                VideoUrl:      item.Exercise.VideoURL,
+                        },
+                })
+        }</span>
+
+        <span class="cov0" title="0">return resp, nil</span>
+}
+
+// --- Registration ---
+
+type WorkoutServiceServer interface {
+        GetWorkoutRecommendation(context.Context, *GetWorkoutRecommendationRequest) (*WorkoutPlanResponse, error)
+}
+
+func RegisterWorkoutService(s *grpc.Server, srv *WorkoutHandler) <span class="cov0" title="0">{
+        s.RegisterService(&amp;grpc.ServiceDesc{
+                ServiceName: "workout.WorkoutService",
+                HandlerType: (*WorkoutServiceServer)(nil),
+                Methods: []grpc.MethodDesc{
+                        {MethodName: "GetWorkoutRecommendation", Handler: _WorkoutService_GetWorkoutRecommendation_Handler},
+                },
+                Streams:  []grpc.StreamDesc{},
+                Metadata: "workout.proto",
+        }, srv)
+}</span>
+
+func _WorkoutService_GetWorkoutRecommendation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) <span class="cov0" title="0">{
+        in := new(GetWorkoutRecommendationRequest)
+        if err := dec(in); err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+        <span class="cov0" title="0">if interceptor == nil </span><span class="cov0" title="0">{
+                return srv.(*WorkoutHandler).GetWorkoutRecommendation(ctx, in)
+        }</span>
+        <span class="cov0" title="0">info := &amp;grpc.UnaryServerInfo{Server: srv, FullMethod: "/workout.WorkoutService/GetWorkoutRecommendation"}
+        handler := func(ctx context.Context, req interface{}) (interface{}, error) </span><span class="cov0" title="0">{
+                return srv.(*WorkoutHandler).GetWorkoutRecommendation(ctx, req.(*GetWorkoutRecommendationRequest))
+        }</span>
+        <span class="cov0" title="0">return interceptor(ctx, in, info, handler)</span>
+}
+</pre>
+		
+		<pre class="file" id="file6" style="display: none">package postgres
+
+import (
+        "context"
+        "errors"
+        "time"
+
+        "healthai/engine/internal/core/domain"
+        "healthai/engine/internal/core/ports"
+
+        "gorm.io/gorm"
+)
+
+type ActivityRepository struct {
+        db *gorm.DB
+}
+
+func NewActivityRepository(db *gorm.DB) ports.ActivityRepository <span class="cov0" title="0">{
+        return &amp;ActivityRepository{db: db}
+}</span>
+
+func (r *ActivityRepository) GetDailyLogByDate(ctx context.Context, userID string, date time.Time) (*domain.DailyLog, error) <span class="cov0" title="0">{
+        var log domain.DailyLog
+        // Search by truncated date to ensure day-level uniqueness
+        // Using GORM, depending on driver, we might need strict date comparison.
+        // Assuming incoming date is already truncated to midnight by service, but good to be safe.
+        // Here simple equality check on date column.
+        if err := r.db.WithContext(ctx).Where("user_id = ? AND date = ?", userID, date).First(&amp;log).Error; err != nil </span><span class="cov0" title="0">{
+                if errors.Is(err, gorm.ErrRecordNotFound) </span><span class="cov0" title="0">{
+                        return nil, nil // Return nil if not found, let service handle logic
+                }</span>
+                <span class="cov0" title="0">return nil, err</span>
+        }
+        <span class="cov0" title="0">return &amp;log, nil</span>
+}
+
+func (r *ActivityRepository) CreateDailyLog(ctx context.Context, log *domain.DailyLog) error <span class="cov0" title="0">{
+        return r.db.WithContext(ctx).Create(log).Error
+}</span>
+
+func (r *ActivityRepository) UpdateDailyLog(ctx context.Context, log *domain.DailyLog) error <span class="cov0" title="0">{
+        return r.db.WithContext(ctx).Save(log).Error
+}</span>
+
+func (r *ActivityRepository) CreateWorkout(ctx context.Context, workout *domain.Workout) error <span class="cov0" title="0">{
+        return r.db.WithContext(ctx).Create(workout).Error
+}</span>
+</pre>
+		
+		<pre class="file" id="file7" style="display: none">package postgres
+
+import (
+        "context"
+        "time"
+
+        "healthai/engine/internal/core/domain"
+        "healthai/engine/internal/core/ports"
+
+        "gorm.io/gorm"
+)
+
+type NutritionRepository struct {
+        db *gorm.DB
+}
+
+func NewNutritionRepository(db *gorm.DB) ports.NutritionRepository <span class="cov0" title="0">{
+        return &amp;NutritionRepository{db: db}
+}</span>
+
+func (r *NutritionRepository) GetFoodPreference(ctx context.Context, userID string) (*domain.FoodPreference, error) <span class="cov0" title="0">{
+        var fp domain.FoodPreference
+        err := r.db.WithContext(ctx).Where("user_id = ?", userID).First(&amp;fp).Error
+        if err != nil </span><span class="cov0" title="0">{
+                if err == gorm.ErrRecordNotFound </span><span class="cov0" title="0">{
+                        return nil, nil // Return nil if not set yet
+                }</span>
+                <span class="cov0" title="0">return nil, err</span>
+        }
+        <span class="cov0" title="0">return &amp;fp, nil</span>
+}
+
+func (r *NutritionRepository) UpsertFoodPreference(ctx context.Context, fp *domain.FoodPreference) error <span class="cov0" title="0">{
+        // GORM Clause 'OnConflict'
+        // return r.db.WithContext(ctx).Save(fp).Error // Save handles update if ID exists, but we want Upsert by UserID
+        // Actually, since ID is primary key, Save works if ID is known.
+        // If ID is not known but UserID is unique index, we need OnConflict.
+        // For simplicity, let's use Save.
+        return r.db.WithContext(ctx).Save(fp).Error
+}</span>
+
+func (r *NutritionRepository) GetMealSuggestions(ctx context.Context, limit int) ([]domain.MealSuggestion, error) <span class="cov0" title="0">{
+        var meals []domain.MealSuggestion
+        err := r.db.WithContext(ctx).Limit(limit).Find(&amp;meals).Error
+        return meals, err
+}</span>
+
+func (r *NutritionRepository) CreateMealSuggestion(ctx context.Context, meal *domain.MealSuggestion) error <span class="cov0" title="0">{
+        return r.db.WithContext(ctx).Create(meal).Error
+}</span>
+
+func (r *NutritionRepository) GetMealPlanByDate(ctx context.Context, userID string, date time.Time) (*domain.MealPlan, error) <span class="cov0" title="0">{
+        var plan domain.MealPlan
+        // Preload Meals using GORM association
+        err := r.db.WithContext(ctx).
+                Preload("Meals").
+                Preload("Meals.MealSuggestion").
+                Where("user_id = ? AND date = ?", userID, date).
+                First(&amp;plan).Error
+
+        if err != nil </span><span class="cov0" title="0">{
+                if err == gorm.ErrRecordNotFound </span><span class="cov0" title="0">{
+                        return nil, nil
+                }</span>
+                <span class="cov0" title="0">return nil, err</span>
+        }
+        <span class="cov0" title="0">return &amp;plan, nil</span>
+}
+
+func (r *NutritionRepository) CreateMealPlan(ctx context.Context, plan *domain.MealPlan) error <span class="cov0" title="0">{
+        return r.db.WithContext(ctx).Create(plan).Error
+}</span>
+</pre>
+		
+		<pre class="file" id="file8" style="display: none">package postgres
+
+import (
+        "context"
+        "errors"
+
+        "healthai/engine/internal/core/domain"
+        "healthai/engine/internal/core/ports"
+
+        "gorm.io/gorm"
+)
+
+type UserRepository struct {
+        db *gorm.DB
+}
+
+func NewUserRepository(db *gorm.DB) ports.UserRepository <span class="cov0" title="0">{
+        return &amp;UserRepository{db: db}
+}</span>
+
+func (r *UserRepository) GetByID(ctx context.Context, id string) (*domain.User, error) <span class="cov0" title="0">{
+        var user domain.User
+        if err := r.db.WithContext(ctx).Preload("HealthProfile").First(&amp;user, "id = ?", id).Error; err != nil </span><span class="cov0" title="0">{
+                if errors.Is(err, gorm.ErrRecordNotFound) </span><span class="cov0" title="0">{
+                        return nil, errors.New("user not found")
+                }</span>
+                <span class="cov0" title="0">return nil, err</span>
+        }
+        <span class="cov0" title="0">return &amp;user, nil</span>
+}
+
+func (r *UserRepository) Create(ctx context.Context, user *domain.User) error <span class="cov0" title="0">{
+        return r.db.WithContext(ctx).Create(user).Error
+}</span>
+
+func (r *UserRepository) Update(ctx context.Context, user *domain.User) error <span class="cov0" title="0">{
+        return r.db.WithContext(ctx).Save(user).Error
+}</span>
+</pre>
+		
+		<pre class="file" id="file9" style="display: none">package postgres
+
+import (
+        "context"
+        "time"
+
+        "healthai/engine/internal/core/domain"
+        "healthai/engine/internal/core/ports"
+
+        "gorm.io/gorm"
+)
+
+type WorkoutRepository struct {
+        db *gorm.DB
+}
+
+func NewWorkoutRepository(db *gorm.DB) ports.WorkoutRepository <span class="cov0" title="0">{
+        return &amp;WorkoutRepository{db: db}
+}</span>
+
+func (r *WorkoutRepository) GetExercises(ctx context.Context, limit int) ([]domain.Exercise, error) <span class="cov0" title="0">{
+        var exercises []domain.Exercise
+        err := r.db.WithContext(ctx).Limit(limit).Find(&amp;exercises).Error
+        return exercises, err
+}</span>
+
+func (r *WorkoutRepository) CreateExercise(ctx context.Context, exercise *domain.Exercise) error <span class="cov0" title="0">{
+        return r.db.WithContext(ctx).Create(exercise).Error
+}</span>
+
+func (r *WorkoutRepository) GetExercisesByEquipAndDiff(ctx context.Context, equipment []domain.EquipmentType, difficulty []domain.DifficultyLevel) ([]domain.Exercise, error) <span class="cov0" title="0">{
+        var exercises []domain.Exercise
+        query := r.db.WithContext(ctx)
+
+        if len(equipment) &gt; 0 </span><span class="cov0" title="0">{
+                query = query.Where("required_equipment IN ?", equipment)
+        }</span>
+        <span class="cov0" title="0">if len(difficulty) &gt; 0 </span><span class="cov0" title="0">{
+                query = query.Where("difficulty IN ?", difficulty)
+        }</span>
+
+        <span class="cov0" title="0">err := query.Find(&amp;exercises).Error
+        return exercises, err</span>
+}
+
+func (r *WorkoutRepository) GetLastWorkouts(ctx context.Context, userID string, limit int) ([]domain.Workout, error) <span class="cov0" title="0">{
+        var workouts []domain.Workout
+        err := r.db.WithContext(ctx).
+                Where("user_id = ?", userID).
+                Order("date desc").
+                Limit(limit).
+                Find(&amp;workouts).Error
+        return workouts, err
+}</span>
+
+func (r *WorkoutRepository) CreateWorkoutPlan(ctx context.Context, plan *domain.WorkoutPlan) error <span class="cov0" title="0">{
+        return r.db.WithContext(ctx).Create(plan).Error
+}</span>
+
+func (r *WorkoutRepository) GetWorkoutPlanByDate(ctx context.Context, userID string, date time.Time) (*domain.WorkoutPlan, error) <span class="cov0" title="0">{
+        var plan domain.WorkoutPlan
+        err := r.db.WithContext(ctx).
+                Preload("Exercises").
+                Preload("Exercises.Exercise").
+                Where("user_id = ? AND date = ?", userID, date).
+                First(&amp;plan).Error
+
+        if err != nil </span><span class="cov0" title="0">{
+                if err == gorm.ErrRecordNotFound </span><span class="cov0" title="0">{
+                        return nil, nil
+                }</span>
+                <span class="cov0" title="0">return nil, err</span>
+        }
+        <span class="cov0" title="0">return &amp;plan, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file10" style="display: none">package domain
+
+import (
+        "time"
+
+        "github.com/google/uuid"
+)
+
+type WorkoutType string
+
+const (
+        WorkoutTypeCardio WorkoutType = "CARDIO"
+        WorkoutTypeStrength WorkoutType = "STRENGTH"
+)
+
+type DailyLog struct {
+        ID            string    `gorm:"primaryKey;type:text"`
+        UserID        string    `gorm:"not null;type:text;index"` // Indexed for quick lookup by user+date
+        Date          time.Time `gorm:"not null;type:date;index"` // Date part only usually
+        TotalCalories float64
+        TotalProtein  float64
+        TotalCarbs    float64
+        TotalFat      float64
+        CreatedAt     time.Time
+        UpdatedAt     time.Time
+}
+
+type Workout struct {
+        ID             string      `gorm:"primaryKey;type:text"`
+        UserID         string      `gorm:"not null;type:text"` // Direct link to user
+        DailyLogID     *string     `gorm:"type:text"` // Optional link to daily log
+        Type           WorkoutType `gorm:"type:varchar(50)"`
+        Duration       int         // Minutes
+        CaloriesBurned float64
+        Date           time.Time   `gorm:"not null"`
+        CreatedAt      time.Time
+}
+
+func NewDailyLog(userID string, date time.Time) *DailyLog <span class="cov0" title="0">{
+        return &amp;DailyLog{
+                ID:        uuid.NewString(), // Keeping string ID convention
+                UserID:    userID,
+                Date:      date,
+                CreatedAt: time.Now(),
+                UpdatedAt: time.Now(),
+        }
+}</span>
+
+func NewWorkout(userID string, wType WorkoutType, duration int, calories float64) *Workout <span class="cov0" title="0">{
+        return &amp;Workout{
+                ID:             uuid.NewString(),
+                UserID:         userID,
+                Type:           wType,
+                Duration:       duration,
+                CaloriesBurned: calories,
+                Date:           time.Now(),
+                CreatedAt:      time.Now(),
+        }
+}</span>
+</pre>
+		
+		<pre class="file" id="file11" style="display: none">package domain
+
+import (
+        "time"
+
+        "github.com/google/uuid"
+        "github.com/lib/pq"
+        "github.com/pgvector/pgvector-go"
+        "gorm.io/gorm"
+)
+
+// Enums for Diet Types
+type DietType string
+
+const (
+        DietTypeNone       DietType = "NONE"
+        DietTypeVegan      DietType = "VEGAN"
+        DietTypeVegetarian DietType = "VEGETARIAN"
+        DietTypeKeto       DietType = "KETO"
+        DietTypePaleo      DietType = "PALEO"
+)
+
+// FoodPreference stores user-specific nutrition settings
+type FoodPreference struct {
+        ID                  string         `gorm:"primaryKey;type:text"`
+        UserID              string         `gorm:"uniqueIndex;not null;type:text"`
+        Allergies           pq.StringArray `gorm:"type:text[]"`
+        DislikedIngredients pq.StringArray `gorm:"type:text[]"`
+        DietType            DietType       `gorm:"type:varchar(50);default:'NONE'"`
+        CreatedAt           time.Time
+        UpdatedAt           time.Time
+}
+
+// MealSuggestion represents a predefined meal in the catalog
+type MealSuggestion struct {
+        ID          string         `gorm:"primaryKey;type:text"`
+        Name        string         `gorm:"not null;type:text"`
+        Calories    float64        `gorm:"not null"`
+        Protein     float64        `gorm:"not null"`
+        Carbs       float64        `gorm:"not null"`
+        Fat         float64        `gorm:"not null"`
+        ImageURL    string         `gorm:"type:text"`
+        Ingredients pq.StringArray `gorm:"type:text[]"`
+        DietTags    pq.StringArray `gorm:"type:text[]"` // e.g. ["VEGAN", "GLUTEN_FREE"]
+        Embedding   pgvector.Vector `gorm:"type:vector(384)"`
+        CreatedAt   time.Time
+}
+
+// MealPlan represents a daily plan generated for a user
+type MealPlan struct {
+        ID             string    `gorm:"primaryKey;type:text"`
+        UserID         string    `gorm:"not null;type:text;index"`
+        Date           time.Time `gorm:"not null;type:date;index"`
+        TargetCalories float64
+        TargetProtein  float64
+        TargetCarbs    float64
+        TargetFat      float64
+        // We use a separate association table or struct for items to allow details
+        Meals []MealPlanItem `gorm:"foreignKey:MealPlanID"`
+}
+
+type MealType string
+
+const (
+        MealTypeBreakfast MealType = "BREAKFAST"
+        MealTypeLunch     MealType = "LUNCH"
+        MealTypeDinner    MealType = "DINNER"
+        MealTypeSnack     MealType = "SNACK"
+)
+
+type MealPlanItem struct {
+        ID               string `gorm:"primaryKey;type:text"`
+        MealPlanID       string `gorm:"not null;type:text;index"`
+        MealSuggestionID string `gorm:"not null;type:text"`
+        MealSuggestion   MealSuggestion
+        MealType         MealType `gorm:"type:varchar(20)"`
+        IsEatened        bool     `gorm:"default:false"`
+}
+
+// Hooks / Constructors
+
+func NewFoodPreference(userID string) *FoodPreference <span class="cov0" title="0">{
+        return &amp;FoodPreference{
+                ID:        uuid.NewString(),
+                UserID:    userID,
+                DietType:  DietTypeNone,
+                CreatedAt: time.Now(),
+                UpdatedAt: time.Now(),
+        }
+}</span>
+
+func (fp *FoodPreference) BeforeCreate(tx *gorm.DB) (err error) <span class="cov0" title="0">{
+        if fp.ID == "" </span><span class="cov0" title="0">{
+                fp.ID = uuid.NewString()
+        }</span>
+        <span class="cov0" title="0">return</span>
+}
+</pre>
+		
+		<pre class="file" id="file12" style="display: none">package domain
+
+import (
+        "time"
+
+        "github.com/google/uuid"
+        "github.com/lib/pq"
+)
+
+type SubscriptionStatus string
+
+const (
+        SubscriptionStatusFree    SubscriptionStatus = "FREE"
+        SubscriptionStatusPremium SubscriptionStatus = "PREMIUM"
+)
+
+// User struct adapted to provided Drizzle schema + Business fields
+type User struct {
+        ID            string    `gorm:"primaryKey;column:id;type:text"`
+        Name          string    `gorm:"not null;column:name;type:text"`
+        Email         string    `gorm:"uniqueIndex:user_email_unique;not null;column:email;type:text"`
+        EmailVerified bool      `gorm:"not null;column:emailVerified"`
+        Image         *string   `gorm:"type:text;column:image"`
+        CreatedAt     time.Time `gorm:"not null;column:createdAt"`
+        UpdatedAt     time.Time `gorm:"not null;column:updatedAt"`
+
+        // Business fields
+        SubscriptionStatus SubscriptionStatus `gorm:"type:varchar(20);default:'FREE';column:subscriptionStatus"`
+        Weight             float64            `gorm:"column:weight"`
+        Height             float64            `gorm:"column:height"`
+        DateOfBirth        *time.Time         `gorm:"column:dateOfBirth"`
+        HealthProfile      *HealthProfile     `gorm:"foreignKey:UserID;references:ID"`
+}
+
+type HealthProfile struct {
+        ID        string         `gorm:"primaryKey;type:text"`
+        UserID    string         `gorm:"uniqueIndex;not null;type:text"`
+        Goals     pq.StringArray `gorm:"type:text[]"`
+        Allergies pq.StringArray `gorm:"type:text[]"`
+        CreatedAt time.Time      `gorm:"column:createdAt"`
+        UpdatedAt time.Time      `gorm:"column:updatedAt"`
+}
+
+func (HealthProfile) TableName() string <span class="cov0" title="0">{
+        return "health_profile"
+}</span>
+
+type Session struct {
+        ID        string    `gorm:"primaryKey;column:id;type:text"`
+        ExpiresAt time.Time `gorm:"not null;column:expiresAt"`
+        Token     string    `gorm:"uniqueIndex;not null;column:token;type:text"`
+        CreatedAt time.Time `gorm:"not null;column:createdAt"`
+        UpdatedAt time.Time `gorm:"not null;column:updatedAt"`
+        IpAddress *string   `gorm:"type:text;column:ipAddress"`
+        UserAgent *string   `gorm:"type:text;column:userAgent"`
+        UserId    string    `gorm:"not null;column:userId;type:text"`
+}
+
+func (Session) TableName() string <span class="cov0" title="0">{
+        return "session"
+}</span>
+
+type Account struct {
+        ID                    string     `gorm:"primaryKey;column:id;type:text"`
+        AccountId             string     `gorm:"not null;column:accountId;type:text"`
+        ProviderId            string     `gorm:"not null;column:providerId;type:text"`
+        UserId                string     `gorm:"not null;column:userId;type:text"`
+        AccessToken           *string    `gorm:"type:text;column:accessToken"`
+        RefreshToken          *string    `gorm:"type:text;column:refreshToken"`
+        IdToken               *string    `gorm:"type:text;column:idToken"`
+        AccessTokenExpiresAt  *time.Time `gorm:"column:accessTokenExpiresAt"`
+        RefreshTokenExpiresAt *time.Time `gorm:"column:refreshTokenExpiresAt"`
+        Scope                 *string    `gorm:"type:text;column:scope"`
+        Password              *string    `gorm:"type:text;column:password"`
+        CreatedAt             time.Time  `gorm:"not null;column:createdAt"`
+        UpdatedAt             time.Time  `gorm:"not null;column:updatedAt"`
+}
+
+func (Account) TableName() string <span class="cov0" title="0">{
+        return "account"
+}</span>
+
+type Verification struct {
+        ID         string     `gorm:"primaryKey;column:id;type:text"`
+        Identifier string     `gorm:"not null;column:identifier;type:text"`
+        Value      string     `gorm:"not null;column:value;type:text"`
+        ExpiresAt  time.Time  `gorm:"not null;column:expiresAt"`
+        CreatedAt  *time.Time `gorm:"column:createdAt"`
+        UpdatedAt  *time.Time `gorm:"column:updatedAt"`
+}
+
+func (Verification) TableName() string <span class="cov0" title="0">{
+        return "verification"
+}</span>
+
+func NewUser(email, name string) *User <span class="cov0" title="0">{
+        now := time.Now()
+        return &amp;User{
+                ID:                 uuid.NewString(), // Generate UUID as string
+                Name:               name,
+                Email:              email,
+                EmailVerified:      false,
+                SubscriptionStatus: SubscriptionStatusFree,
+                CreatedAt:          now,
+                UpdatedAt:          now,
+        }
+}</span>
+
+// TableName overrides the table name used by User to `user`
+func (User) TableName() string <span class="cov0" title="0">{
+        return "user"
+}</span>
+</pre>
+		
+		<pre class="file" id="file13" style="display: none">package domain
+
+import (
+        "time"
+
+        "github.com/google/uuid"
+        "github.com/lib/pq"
+        "github.com/pgvector/pgvector-go"
+        "gorm.io/gorm"
+)
+
+type ExerciseType string
+
+const (
+        ExerciseTypeCardio      ExerciseType = "CARDIO"
+        ExerciseTypeStrength    ExerciseType = "STRENGTH"
+        ExerciseTypeFlexibility ExerciseType = "FLEXIBILITY"
+)
+
+type EquipmentType string
+
+const (
+        EquipmentNone      EquipmentType = "NONE"
+        EquipmentDumbbells EquipmentType = "DUMBBELLS"
+        EquipmentBarbell   EquipmentType = "BARBELL"
+        EquipmentMachine   EquipmentType = "MACHINE"
+        EquipmentBand      EquipmentType = "BAND"
+)
+
+type DifficultyLevel string
+
+const (
+        DifficultyBeginner     DifficultyLevel = "BEGINNER"
+        DifficultyIntermediate DifficultyLevel = "INTERMEDIATE"
+        DifficultyAdvanced     DifficultyLevel = "ADVANCED"
+)
+
+// Exercise catalog
+type Exercise struct {
+        ID                string          `gorm:"primaryKey;type:text"`
+        Name              string          `gorm:"not null;type:text"`
+        Type              ExerciseType    `gorm:"type:varchar(50)"`
+        RequiredEquipment EquipmentType   `gorm:"type:varchar(50)"`
+        Difficulty        DifficultyLevel `gorm:"type:varchar(50)"`
+        MusclesTargeted   pq.StringArray  `gorm:"type:text[]"` // e.g. ["Chest", "Triceps"]
+        Contraindications pq.StringArray  `gorm:"type:text[]"` // e.g. ["ShoulderInjury"]
+        ImageURL          string          `gorm:"type:text"`
+        VideoURL          string          `gorm:"type:text"`
+        Embedding         pgvector.Vector `gorm:"type:vector(384)"`
+        CreatedAt         time.Time
+}
+
+// WorkoutPlan generated for a user
+type WorkoutPlan struct {
+        ID              string    `gorm:"primaryKey;type:text"`
+        UserID          string    `gorm:"not null;type:text;index"`
+        Date            time.Time `gorm:"not null;type:date;index"`
+        DurationMinutes int
+        EstCaloriesBurn float64
+        Status          string        `gorm:"type:varchar(20);default:'PENDING'"` // PENDING, COMPLETED, SKIPPED
+        Exercises       []WorkoutItem `gorm:"foreignKey:WorkoutPlanID"`
+}
+
+type WorkoutItem struct {
+        ID            string `gorm:"primaryKey;type:text"`
+        WorkoutPlanID string `gorm:"not null;type:text;index"`
+        ExerciseID    string `gorm:"not null;type:text"`
+        Exercise      Exercise
+        Order         int // 1, 2, 3...
+        Sets          int
+        Reps          int
+        DurationSec   int // For cardio or timed exercises
+        RestSec       int
+}
+
+// Constructors
+
+func (e *Exercise) BeforeCreate(tx *gorm.DB) (err error) <span class="cov0" title="0">{
+        if e.ID == "" </span><span class="cov0" title="0">{
+                e.ID = uuid.NewString()
+        }</span>
+        <span class="cov0" title="0">return</span>
+}
+
+func (wp *WorkoutPlan) BeforeCreate(tx *gorm.DB) (err error) <span class="cov0" title="0">{
+        if wp.ID == "" </span><span class="cov0" title="0">{
+                wp.ID = uuid.NewString()
+        }</span>
+        <span class="cov0" title="0">return</span>
+}
+</pre>
+		
+		<pre class="file" id="file14" style="display: none">package mocks
+
+import (
+        "context"
+        "time"
+
+        "healthai/engine/internal/core/domain"
+
+        "github.com/stretchr/testify/mock"
+)
+
+type MockActivityRepository struct {
+        mock.Mock
+}
+
+func (m *MockActivityRepository) GetDailyLogByDate(ctx context.Context, userID string, date time.Time) (*domain.DailyLog, error) <span class="cov0" title="0">{
+        args := m.Called(ctx, userID, date)
+        if args.Get(0) == nil </span><span class="cov0" title="0">{
+                return nil, args.Error(1)
+        }</span>
+        <span class="cov0" title="0">return args.Get(0).(*domain.DailyLog), args.Error(1)</span>
+}
+
+func (m *MockActivityRepository) CreateDailyLog(ctx context.Context, log *domain.DailyLog) error <span class="cov0" title="0">{
+        args := m.Called(ctx, log)
+        return args.Error(0)
+}</span>
+
+func (m *MockActivityRepository) UpdateDailyLog(ctx context.Context, log *domain.DailyLog) error <span class="cov0" title="0">{
+        args := m.Called(ctx, log)
+        return args.Error(0)
+}</span>
+
+func (m *MockActivityRepository) CreateWorkout(ctx context.Context, workout *domain.Workout) error <span class="cov0" title="0">{
+        args := m.Called(ctx, workout)
+        return args.Error(0)
+}</span>
+</pre>
+		
+		<pre class="file" id="file15" style="display: none">package mocks
+
+import (
+        "context"
+        "time"
+
+        "healthai/engine/internal/core/domain"
+
+        "github.com/stretchr/testify/mock"
+)
+
+type MockNutritionRepository struct {
+        mock.Mock
+}
+
+func (m *MockNutritionRepository) GetFoodPreference(ctx context.Context, userID string) (*domain.FoodPreference, error) <span class="cov0" title="0">{
+        args := m.Called(ctx, userID)
+        if args.Get(0) == nil </span><span class="cov0" title="0">{
+                return nil, args.Error(1)
+        }</span>
+        <span class="cov0" title="0">return args.Get(0).(*domain.FoodPreference), args.Error(1)</span>
+}
+
+func (m *MockNutritionRepository) UpsertFoodPreference(ctx context.Context, fp *domain.FoodPreference) error <span class="cov0" title="0">{
+        args := m.Called(ctx, fp)
+        return args.Error(0)
+}</span>
+
+func (m *MockNutritionRepository) GetMealSuggestions(ctx context.Context, limit int) ([]domain.MealSuggestion, error) <span class="cov0" title="0">{
+        args := m.Called(ctx, limit)
+        if args.Get(0) == nil </span><span class="cov0" title="0">{
+                return nil, args.Error(1)
+        }</span>
+        <span class="cov0" title="0">return args.Get(0).([]domain.MealSuggestion), args.Error(1)</span>
+}
+
+func (m *MockNutritionRepository) CreateMealSuggestion(ctx context.Context, meal *domain.MealSuggestion) error <span class="cov0" title="0">{
+        args := m.Called(ctx, meal)
+        return args.Error(0)
+}</span>
+
+func (m *MockNutritionRepository) GetMealPlanByDate(ctx context.Context, userID string, date time.Time) (*domain.MealPlan, error) <span class="cov0" title="0">{
+        args := m.Called(ctx, userID, date)
+        if args.Get(0) == nil </span><span class="cov0" title="0">{
+                return nil, args.Error(1)
+        }</span>
+        <span class="cov0" title="0">return args.Get(0).(*domain.MealPlan), args.Error(1)</span>
+}
+
+func (m *MockNutritionRepository) CreateMealPlan(ctx context.Context, plan *domain.MealPlan) error <span class="cov0" title="0">{
+        args := m.Called(ctx, plan)
+        return args.Error(0)
+}</span>
+</pre>
+		
+		<pre class="file" id="file16" style="display: none">package mocks
+
+import (
+        "context"
+
+        "healthai/engine/internal/core/domain"
+
+        "github.com/stretchr/testify/mock"
+)
+
+type MockUserRepository struct {
+        mock.Mock
+}
+
+func (m *MockUserRepository) GetByID(ctx context.Context, id string) (*domain.User, error) <span class="cov0" title="0">{
+        args := m.Called(ctx, id)
+        if args.Get(0) == nil </span><span class="cov0" title="0">{
+                return nil, args.Error(1)
+        }</span>
+        <span class="cov0" title="0">return args.Get(0).(*domain.User), args.Error(1)</span>
+}
+
+func (m *MockUserRepository) Create(ctx context.Context, user *domain.User) error <span class="cov0" title="0">{
+        args := m.Called(ctx, user)
+        return args.Error(0)
+}</span>
+
+func (m *MockUserRepository) Update(ctx context.Context, user *domain.User) error <span class="cov0" title="0">{
+        args := m.Called(ctx, user)
+        return args.Error(0)
+}</span>
+</pre>
+		
+		<pre class="file" id="file17" style="display: none">package mocks
+
+import (
+        "context"
+        "time"
+
+        "healthai/engine/internal/core/domain"
+
+        "github.com/stretchr/testify/mock"
+)
+
+type MockWorkoutRepository struct {
+        mock.Mock
+}
+
+func (m *MockWorkoutRepository) GetExercises(ctx context.Context, limit int) ([]domain.Exercise, error) <span class="cov0" title="0">{
+        args := m.Called(ctx, limit)
+        if args.Get(0) == nil </span><span class="cov0" title="0">{
+                return nil, args.Error(1)
+        }</span>
+        <span class="cov0" title="0">return args.Get(0).([]domain.Exercise), args.Error(1)</span>
+}
+
+func (m *MockWorkoutRepository) CreateExercise(ctx context.Context, exercise *domain.Exercise) error <span class="cov0" title="0">{
+        args := m.Called(ctx, exercise)
+        return args.Error(0)
+}</span>
+
+func (m *MockWorkoutRepository) GetExercisesByEquipAndDiff(ctx context.Context, equipment []domain.EquipmentType, difficulty []domain.DifficultyLevel) ([]domain.Exercise, error) <span class="cov0" title="0">{
+        args := m.Called(ctx, equipment, difficulty)
+        if args.Get(0) == nil </span><span class="cov0" title="0">{
+                return nil, args.Error(1)
+        }</span>
+        <span class="cov0" title="0">return args.Get(0).([]domain.Exercise), args.Error(1)</span>
+}
+
+func (m *MockWorkoutRepository) GetLastWorkouts(ctx context.Context, userID string, limit int) ([]domain.Workout, error) <span class="cov0" title="0">{
+        args := m.Called(ctx, userID, limit)
+        if args.Get(0) == nil </span><span class="cov0" title="0">{
+                return nil, args.Error(1)
+        }</span>
+        <span class="cov0" title="0">return args.Get(0).([]domain.Workout), args.Error(1)</span>
+}
+
+func (m *MockWorkoutRepository) CreateWorkoutPlan(ctx context.Context, plan *domain.WorkoutPlan) error <span class="cov0" title="0">{
+        args := m.Called(ctx, plan)
+        return args.Error(0)
+}</span>
+
+func (m *MockWorkoutRepository) GetWorkoutPlanByDate(ctx context.Context, userID string, date time.Time) (*domain.WorkoutPlan, error) <span class="cov0" title="0">{
+        args := m.Called(ctx, userID, date)
+        if args.Get(0) == nil </span><span class="cov0" title="0">{
+                return nil, args.Error(1)
+        }</span>
+        <span class="cov0" title="0">return args.Get(0).(*domain.WorkoutPlan), args.Error(1)</span>
+}
+</pre>
+		
+		<pre class="file" id="file18" style="display: none">package services
+
+import (
+        "context"
+        "time"
+
+        "healthai/engine/internal/core/domain"
+        "healthai/engine/internal/core/ports"
+)
+
+type ActivityService struct {
+        repo ports.ActivityRepository
+}
+
+func NewActivityService(repo ports.ActivityRepository) *ActivityService <span class="cov8" title="1">{
+        return &amp;ActivityService{repo: repo}
+}</span>
+
+// LogNutrition adds nutrition data to today's log.
+// Logic: Find existing today ? update : create new.
+func (s *ActivityService) LogNutrition(ctx context.Context, userID string, calories, protein, carbs, fat float64) error <span class="cov8" title="1">{
+        today := time.Now().Truncate(24 * time.Hour) // Normalize to midnight
+
+        log, err := s.repo.GetDailyLogByDate(ctx, userID, today)
+        if err != nil </span><span class="cov8" title="1">{
+                return err
+        }</span>
+
+        <span class="cov8" title="1">if log == nil </span><span class="cov8" title="1">{
+                // Create new
+                newLog := domain.NewDailyLog(userID, today)
+                newLog.TotalProtein = protein
+                newLog.TotalCarbs = carbs
+                newLog.TotalFat = fat
+                newLog.TotalCalories = s.calculateCalories(calories, protein, carbs, fat)
+                return s.repo.CreateDailyLog(ctx, newLog)
+        }</span>
+
+        // Update existing
+        <span class="cov8" title="1">log.TotalProtein += protein
+        log.TotalCarbs += carbs
+        log.TotalFat += fat
+        log.TotalCalories += s.calculateCalories(calories, protein, carbs, fat) 
+        log.UpdatedAt = time.Now()
+
+        return s.repo.UpdateDailyLog(ctx, log)</span>
+}
+
+func (s *ActivityService) LogWorkout(ctx context.Context, userID string, wType string, duration int, calories float64) error <span class="cov8" title="1">{
+        workout := domain.NewWorkout(userID, domain.WorkoutType(wType), duration, calories)
+        return s.repo.CreateWorkout(ctx, workout)
+}</span>
+
+func (s *ActivityService) GetDailyStats(ctx context.Context, userID string) (*domain.DailyLog, error) <span class="cov8" title="1">{
+        today := time.Now().Truncate(24 * time.Hour)
+        return s.repo.GetDailyLogByDate(ctx, userID, today)
+}</span>
+
+
+// calculateCalories helper: prefers specific calorie input, else estimates from macros
+// However, task says "Recalcule automatiquement le total calorique après chaque ajout."
+// This implies aggregation.
+// For the *delta* being added: 
+func (s *ActivityService) calculateCalories(explicitCal, p, c, f float64) float64 <span class="cov8" title="1">{
+        if explicitCal &gt; 0 </span><span class="cov8" title="1">{
+                return explicitCal
+        }</span>
+        // Fallback estimation: 4 kcal/g protein/carbs, 9 kcal/g fat
+        <span class="cov8" title="1">return (p * 4) + (c * 4) + (f * 9)</span>
+}
+</pre>
+		
+		<pre class="file" id="file19" style="display: none">package services
+
+import (
+        "context"
+        "fmt"
+        "math/rand"
+        "time"
+
+        "healthai/engine/internal/core/domain"
+        "healthai/engine/internal/core/ports"
+)
+
+type NutritionService struct {
+        repo     ports.NutritionRepository
+        userRepo ports.UserRepository
+}
+
+func NewNutritionService(repo ports.NutritionRepository, userRepo ports.UserRepository) *NutritionService <span class="cov8" title="1">{
+        return &amp;NutritionService{repo: repo, userRepo: userRepo}
+}</span>
+
+func (s *NutritionService) GetFoodPreferences(ctx context.Context, userID string) (*domain.FoodPreference, error) <span class="cov8" title="1">{
+        return s.repo.GetFoodPreference(ctx, userID)
+}</span>
+
+func (s *NutritionService) UpdateFoodPreferences(ctx context.Context, userID string, allergies []string, diet domain.DietType, disliked []string) error <span class="cov8" title="1">{
+        prefs, err := s.repo.GetFoodPreference(ctx, userID)
+        if err != nil </span><span class="cov0" title="0">{
+                // If error is not found, we create new
+                prefs = &amp;domain.FoodPreference{
+                        UserID: userID,
+                }
+        }</span> else<span class="cov8" title="1"> if prefs == nil </span><span class="cov8" title="1">{
+                prefs = &amp;domain.FoodPreference{
+                        UserID: userID,
+                }
+        }</span>
+
+        <span class="cov8" title="1">prefs.Allergies = allergies
+        prefs.DietType = diet
+        prefs.DislikedIngredients = disliked
+        prefs.UpdatedAt = time.Now()
+
+        return s.repo.UpsertFoodPreference(ctx, prefs)</span>
+}
+
+type MealAnalysisReport struct {
+        IsBalanced     bool
+        Warnings       []string // e.g., "Too many carbs", "Low protein"
+        CriticalAlerts []string // e.g., "Contains Peanut (Allergen)"
+}
+
+func (s *NutritionService) AnalyzeMeal(ctx context.Context, userID string, mealInput domain.MealSuggestion) (*MealAnalysisReport, error) <span class="cov8" title="1">{
+        report := &amp;MealAnalysisReport{
+                IsBalanced:     true,
+                Warnings:       []string{},
+                CriticalAlerts: []string{},
+        }
+
+        // 1. Fetch User Preferences (for Allergies)
+        prefs, err := s.repo.GetFoodPreference(ctx, userID)
+        if err != nil </span><span class="cov8" title="1">{
+                return nil, fmt.Errorf("failed to fetch user preferences: %w", err)
+        }</span>
+
+        // 2. Check Allergies
+        <span class="cov8" title="1">if prefs != nil </span><span class="cov8" title="1">{
+                for _, ingredient := range mealInput.Ingredients </span><span class="cov8" title="1">{
+                        for _, allergy := range prefs.Allergies </span><span class="cov8" title="1">{
+                                if ingredient == allergy </span><span class="cov8" title="1">{
+                                        report.CriticalAlerts = append(report.CriticalAlerts, fmt.Sprintf("Contains %s (Allergen)", allergy))
+                                        report.IsBalanced = false
+                                }</span>
+                        }
+                }
+        }
+
+        // 3. Check Macros (Simplified logic)
+        // Example rule: &gt; 40% of standard 2000kcal day in one meal is "Heavy" (800kcal)
+        <span class="cov8" title="1">if mealInput.Calories &gt; 800 </span><span class="cov8" title="1">{
+                report.Warnings = append(report.Warnings, "High calorie meal (&gt;800kcal)")
+        }</span>
+
+        // Check Protein (Arbitrary threshold for example: &lt; 10g is low)
+        <span class="cov8" title="1">if mealInput.Protein &lt; 10 </span><span class="cov8" title="1">{
+                report.Warnings = append(report.Warnings, "Low protein content (&lt;10g)")
+        }</span>
+
+        <span class="cov8" title="1">if len(report.Warnings) &gt; 0 </span><span class="cov8" title="1">{
+                report.IsBalanced = false // debatable, but let's flag it
+        }</span>
+
+        <span class="cov8" title="1">return report, nil</span>
+}
+
+func (s *NutritionService) GenerateDailyPlan(ctx context.Context, userID string, targetDate time.Time) (*domain.MealPlan, error) <span class="cov8" title="1">{
+        // 1. Fetch Constraints
+        prefs, err := s.repo.GetFoodPreference(ctx, userID)
+        if err != nil </span><span class="cov8" title="1">{
+                return nil, err
+        }</span>
+
+        <span class="cov8" title="1">dietType := domain.DietTypeNone
+        if prefs != nil </span><span class="cov8" title="1">{
+                dietType = prefs.DietType
+        }</span>
+
+        // 2. Determine Targets (Simplified: could come from HealthProfile BMR calc)
+        // For now, hardcode or assume defaults
+        <span class="cov8" title="1">targetCalories := 2200.0
+        targetProtein := 150.0
+
+        // 3. Fetch Meal Catalog
+        suggestions, err := s.repo.GetMealSuggestions(ctx, 100) // fetch catalogue
+        if err != nil </span><span class="cov8" title="1">{
+                return nil, err
+        }</span>
+
+        // 4. Algorithm: Select Meals
+        // Filter by DietType &amp; Allergies
+        <span class="cov8" title="1">var validMeals []domain.MealSuggestion
+        for _, meal := range suggestions </span><span class="cov8" title="1">{
+                // Filter diet type
+                if dietType != domain.DietTypeNone </span><span class="cov8" title="1">{
+                        matchesDiet := false
+                        for _, tag := range meal.DietTags </span><span class="cov8" title="1">{
+                                if tag == string(dietType) </span><span class="cov0" title="0">{
+                                        matchesDiet = true
+                                        break</span>
+                                }
+                        }
+                        <span class="cov8" title="1">if !matchesDiet </span><span class="cov8" title="1">{
+                                continue</span>
+                        }
+                }
+
+                // Filter Allergies
+                <span class="cov8" title="1">isAllergic := false
+                if prefs != nil </span><span class="cov0" title="0">{
+                        for _, ing := range meal.Ingredients </span><span class="cov0" title="0">{
+                                for _, all := range prefs.Allergies </span><span class="cov0" title="0">{
+                                        if ing == all </span><span class="cov0" title="0">{
+                                                isAllergic = true
+                                                break</span>
+                                        }
+                                }
+                        }
+                }
+                <span class="cov8" title="1">if !isAllergic </span><span class="cov8" title="1">{
+                        validMeals = append(validMeals, meal)
+                }</span>
+        }
+
+        <span class="cov8" title="1">if len(validMeals) &lt; 3 </span><span class="cov8" title="1">{
+                return nil, fmt.Errorf("not enough valid meals found for diet: %s", dietType)
+        }</span>
+
+        // Simple heuristic: Pick 3 random meals (Breakfast, Lunch, Dinner)
+        // In production -&gt; Knapsack problem to fit calories
+        <span class="cov8" title="1">r := rand.New(rand.NewSource(time.Now().UnixNano()))
+
+        plan := &amp;domain.MealPlan{
+                ID:             "", // GORM hooks will handle UUID
+                UserID:         userID,
+                Date:           targetDate,
+                TargetCalories: targetCalories,
+                TargetProtein:  targetProtein,
+                Meals:          []domain.MealPlanItem{},
+        }
+
+        // Pick 3 unique meals if possible
+        perm := r.Perm(len(validMeals))
+
+        mealTypes := []domain.MealType{domain.MealTypeBreakfast, domain.MealTypeLunch, domain.MealTypeDinner}
+
+        for i, idx := range perm </span><span class="cov8" title="1">{
+                if i &gt;= 3 </span><span class="cov8" title="1">{
+                        break</span>
+                }
+                <span class="cov8" title="1">meal := validMeals[idx]
+                plan.Meals = append(plan.Meals, domain.MealPlanItem{
+                        // ID handled by DB/GORM usually, but we are creating the object structure
+                        MealSuggestionID: meal.ID, // DB Relationship
+                        MealSuggestion:   meal,    // Struct embedding for return
+                        MealType:         mealTypes[i],
+                })</span>
+        }
+
+        // 5. Save Plan
+        <span class="cov8" title="1">err = s.repo.CreateMealPlan(ctx, plan)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov8" title="1">return plan, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file20" style="display: none">package services
+
+import (
+        "context"
+        "time"
+
+        "healthai/engine/internal/core/domain"
+        "healthai/engine/internal/core/ports"
+
+        "github.com/google/uuid"
+        "github.com/lib/pq"
+)
+
+type UserService struct {
+        repo ports.UserRepository
+}
+
+func NewUserService(repo ports.UserRepository) *UserService <span class="cov8" title="1">{
+        return &amp;UserService{repo: repo}
+}</span>
+
+func (s *UserService) GetUser(ctx context.Context, id string) (*domain.User, error) <span class="cov8" title="1">{
+        return s.repo.GetByID(ctx, id)
+}</span>
+
+func (s *UserService) UpdateBiometrics(ctx context.Context, id string, weight, height float64) error <span class="cov8" title="1">{
+        user, err := s.repo.GetByID(ctx, id)
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+
+        <span class="cov8" title="1">user.Weight = weight
+        user.Height = height
+
+        return s.repo.Update(ctx, user)</span>
+}
+
+func (s *UserService) UpdateHealthProfile(ctx context.Context, id string, dob *time.Time, goals, allergies []string, weight float64) error <span class="cov8" title="1">{
+        user, err := s.repo.GetByID(ctx, id)
+        if err != nil </span><span class="cov0" title="0">{
+                return err
+        }</span>
+
+        <span class="cov8" title="1">user.DateOfBirth = dob
+        user.Weight = weight
+
+        if user.HealthProfile == nil </span><span class="cov8" title="1">{
+                user.HealthProfile = &amp;domain.HealthProfile{
+                        ID:        uuid.NewString(),
+                        UserID:    user.ID,
+                        Goals:     pq.StringArray(goals),
+                        Allergies: pq.StringArray(allergies),
+                }
+        }</span> else<span class="cov0" title="0"> {
+                user.HealthProfile.Goals = pq.StringArray(goals)
+                user.HealthProfile.Allergies = pq.StringArray(allergies)
+        }</span>
+
+        <span class="cov8" title="1">return s.repo.Update(ctx, user)</span>
+}
+
+// CanAccessAdvancedFeatures checks if the user has PREMIUM status.
+// This serves as the "Freemium Guard" for future features.
+func (s *UserService) CanAccessAdvancedFeatures(user *domain.User) bool <span class="cov8" title="1">{
+        return user.SubscriptionStatus == domain.SubscriptionStatusPremium
+}</span>
+</pre>
+		
+		<pre class="file" id="file21" style="display: none">package services
+
+import (
+        "context"
+        "fmt"
+        "math/rand"
+        "time"
+
+        "healthai/engine/internal/core/domain"
+        "healthai/engine/internal/core/ports"
+)
+
+type WorkoutService struct {
+        repo     ports.WorkoutRepository
+        userRepo ports.UserRepository
+}
+
+func NewWorkoutService(repo ports.WorkoutRepository, userRepo ports.UserRepository) *WorkoutService <span class="cov8" title="1">{
+        return &amp;WorkoutService{repo: repo, userRepo: userRepo}
+}</span>
+
+type WorkoutConstraints struct {
+        DurationMinutes int
+        Equipment       []domain.EquipmentType
+        UserInjuries    []string
+        TargetMuscle    []string // optional
+}
+
+func (s *WorkoutService) GenerateWorkout(ctx context.Context, userID string, constraints WorkoutConstraints) (*domain.WorkoutPlan, error) <span class="cov8" title="1">{
+        // 1. Get User Profile for Fitness Level (mocked as Intermediate if null)
+        // In real app, fetch from User Domain or HealthProfile
+        // For now, let's assume "BEGINNER" as default
+        userLevel := domain.DifficultyBeginner
+
+        // 2. Progression Check: Check last 5 workouts
+        lastWorkouts, err := s.repo.GetLastWorkouts(ctx, userID, 5)
+        if err == nil &amp;&amp; len(lastWorkouts) &gt;= 5 </span>{<span class="cov8" title="1">
+                // Logique naive: Si tous les derniers workouts sont marqués "Easy" (imaginaire), on up.
+                // Since we don't have "Rating" in domain yet, let's skip strict progression logic implementation
+                // and just adhere to the userLevel.
+                // TODO: Implement rating check.
+        }</span>
+
+        // 3. Fetch Candidate Exercises
+        // Filter by Equipment (Repo Level) and Roughly by Difficulty
+        <span class="cov8" title="1">candidates, err := s.repo.GetExercisesByEquipAndDiff(ctx, constraints.Equipment, []domain.DifficultyLevel{userLevel})
+        if err != nil </span><span class="cov8" title="1">{
+                return nil, err
+        }</span>
+
+        // 4. Filtration Pipeline (Injuries)
+        <span class="cov8" title="1">var filtered []domain.Exercise
+        for _, ex := range candidates </span><span class="cov8" title="1">{
+                // Filter By Injury (Contraindications)
+                isSafe := true
+                for _, contra := range ex.Contraindications </span><span class="cov8" title="1">{
+                        for _, injury := range constraints.UserInjuries </span><span class="cov8" title="1">{
+                                if contra == injury </span><span class="cov8" title="1">{
+                                        isSafe = false
+                                        break</span>
+                                }
+                        }
+                }
+                <span class="cov8" title="1">if isSafe </span><span class="cov8" title="1">{
+                        filtered = append(filtered, ex)
+                }</span>
+        }
+
+        <span class="cov8" title="1">if len(filtered) == 0 </span><span class="cov8" title="1">{
+                return nil, fmt.Errorf("no exercises found matching constraints")
+        }</span>
+
+        // 5. Assembly: Fill Duration
+        // Heuristic: Warmup (5m) + Main (X * 5-10m) + Cooldown (5m)
+        // Let's simplified: Each exercise ~5 mins (3 sets)
+        <span class="cov8" title="1">targetExercises := (constraints.DurationMinutes - 10) / 5
+        if targetExercises &lt; 1 </span><span class="cov8" title="1">{
+                targetExercises = 1
+        }</span>
+
+        <span class="cov8" title="1">plan := &amp;domain.WorkoutPlan{
+                ID:              "", // UUID hooks
+                UserID:          userID,
+                Date:            time.Now(),
+                DurationMinutes: constraints.DurationMinutes,
+                Status:          "PENDING",
+                EstCaloriesBurn: 0, // Calculate sum later
+                Exercises:       []domain.WorkoutItem{},
+        }
+
+        r := rand.New(rand.NewSource(time.Now().UnixNano()))
+        perm := r.Perm(len(filtered))
+
+        for i, idx := range perm </span><span class="cov8" title="1">{
+                if i &gt;= targetExercises </span><span class="cov0" title="0">{
+                        break</span>
+                }
+                <span class="cov8" title="1">ex := filtered[idx]
+
+                plan.Exercises = append(plan.Exercises, domain.WorkoutItem{
+                        ExerciseID:  ex.ID,
+                        Exercise:    ex,
+                        Order:       i + 1,
+                        Sets:        3,
+                        Reps:        12, // standard hypertrophy
+                        RestSec:     60,
+                        DurationSec: 0, // for cardio
+                })
+                plan.EstCaloriesBurn += 50</span> // Mock calorie burn per exercise
+        }
+
+        // 6. Save Plan
+        <span class="cov8" title="1">err = s.repo.CreateWorkoutPlan(ctx, plan)
+        if err != nil </span><span class="cov0" title="0">{
+                return nil, err
+        }</span>
+
+        <span class="cov8" title="1">return plan, nil</span>
+}
+</pre>
+		
+		<pre class="file" id="file22" style="display: none">package main
+
+import (
+        "fmt"
+        "os"
+        "os/signal"
+        "syscall"
+)
+
+func main() <span class="cov0" title="0">{
+        fmt.Println("Moteur de recommandation Sport démarré")
+
+        // Wait for termination signal to keep the process alive
+        stop := make(chan os.Signal, 1)
+        signal.Notify(stop, os.Interrupt, syscall.SIGTERM)
+
+        &lt;-stop
+        fmt.Println("Arrêt du moteur...")
+}</pre>
+		
+		</div>
+	</body>
+	<script>
+	(function() {
+		var files = document.getElementById('files');
+		var visible;
+		files.addEventListener('change', onChange, false);
+		function select(part) {
+			if (visible)
+				visible.style.display = 'none';
+			visible = document.getElementById(part);
+			if (!visible)
+				return;
+			files.value = part;
+			visible.style.display = 'block';
+			location.hash = part;
+		}
+		function onChange() {
+			select(files.value);
+			window.scrollTo(0, 0);
+		}
+		if (location.hash != "") {
+			select(location.hash.substr(1));
+		}
+		if (!visible) {
+			select("file0");
+		}
+	})();
+	</script>
+</html>

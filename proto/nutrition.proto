@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package nutrition;
+
+option go_package = "healthai/engine/proto/nutrition";
+
+service NutritionService {
+    rpc UpdateFoodPreferences(UpdateFoodPreferencesRequest) returns (Ack);
+    rpc AnalyzeMeal(AnalyzeMealRequest) returns (AnalyzeMealResponse);
+    rpc GetMealPlan(GetMealPlanRequest) returns (MealPlanResponse);
+    rpc GetFoodPreferences(GetFoodPreferencesRequest) returns (FoodPreferencesResponse);
+}
+
+message GetFoodPreferencesRequest {
+    string user_id = 1;
+}
+
+message FoodPreferencesResponse {
+    repeated string allergies = 1;
+    string diet_type = 2; // ex: "VEGAN", "KETO", "NONE"
+    repeated string disliked_ingredients = 3;
+}
+
+message Ack {
+    bool success = 1;
+    string message = 2;
+}
+
+message UpdateFoodPreferencesRequest {
+    string user_id = 1;
+    string diet_type = 2; // VEGAN, KETO...
+    repeated string allergies = 3;
+    repeated string disliked_ingredients = 4;
+}
+
+message AnalyzeMealRequest {
+    string user_id = 1;
+    MealSuggestion meal = 2;
+}
+
+message MealSuggestion {
+    string id = 1;
+    string name = 2;
+    double calories = 3;
+    double protein = 4;
+    double carbs = 5;
+    double fat = 6;
+    repeated string ingredients = 7;
+    repeated string diet_tags = 8;
+}
+
+message AnalyzeMealResponse {
+    bool is_balanced = 1;
+    repeated string warnings = 2;
+    repeated string critical_alerts = 3;
+}
+
+message GetMealPlanRequest {
+    string user_id = 1;
+    string date = 2; // YYYY-MM-DD
+}
+
+message MealPlanResponse {
+    string plan_id = 1;
+    string date = 2;
+    double target_calories = 3;
+    repeated MealPlanItem meals = 4;
+}
+
+message MealPlanItem {
+    string meal_type = 1; // BREAKFAST, LUNCH...
+    MealSuggestion meal = 2;
+    bool is_eaten = 3;
+}
