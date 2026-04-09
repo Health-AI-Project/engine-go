@@ -34,5 +34,11 @@ func (r *UserRepository) Create(ctx context.Context, user *domain.User) error {
 }
 
 func (r *UserRepository) Update(ctx context.Context, user *domain.User) error {
-	return r.db.WithContext(ctx).Save(user).Error
+	if err := r.db.WithContext(ctx).Save(user).Error; err != nil {
+		return err
+	}
+	if user.HealthProfile != nil {
+		return r.db.WithContext(ctx).Save(user.HealthProfile).Error
+	}
+	return nil
 }
