@@ -19,10 +19,10 @@ type User struct {
 	ID            string    `gorm:"primaryKey;column:id;type:text"`
 	Name          string    `gorm:"not null;column:name;type:text"`
 	Email         string    `gorm:"uniqueIndex:user_email_unique;not null;column:email;type:text"`
-	EmailVerified bool      `gorm:"not null;column:emailVerified"`
+	EmailVerified bool      `gorm:"not null;column:email_verified"`
 	Image         *string   `gorm:"type:text;column:image"`
-	CreatedAt     time.Time `gorm:"not null;column:createdAt"`
-	UpdatedAt     time.Time `gorm:"not null;column:updatedAt"`
+	CreatedAt     time.Time `gorm:"not null;column:created_at"`
+	UpdatedAt     time.Time `gorm:"not null;column:updated_at"`
 
 	// Business fields
 	SubscriptionStatus SubscriptionStatus `gorm:"type:varchar(20);default:'FREE';column:subscriptionStatus"`

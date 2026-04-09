@@ -66,6 +66,7 @@ message UpdateHealthProfileRequest {
   repeated string goals = 3;
   repeated string allergies = 4;
   double weight = 5;
+  double height = 6;
 }
 
 // New Features

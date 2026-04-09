@@ -136,7 +136,7 @@ func (h *CoreHandler) UpdateHealthProfile(ctx context.Context, req *UpdateHealth
 		t, _ := time.Parse("2006-01-02", req.DateOfBirth)
 		dob = &t
 	}
-	err := h.userService.UpdateHealthProfile(ctx, req.UserId, dob, req.Goals, req.Allergies, req.Weight)
+	err := h.userService.UpdateHealthProfile(ctx, req.UserId, dob, req.Goals, req.Allergies, req.Weight, req.Height)
 	if err != nil {
 		return &Ack{Success: false, Message: err.Error()}, nil
 	}

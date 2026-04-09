@@ -35,7 +35,7 @@ func (s *UserService) UpdateBiometrics(ctx context.Context, id string, weight, h
 	return s.repo.Update(ctx, user)
 }
 
-func (s *UserService) UpdateHealthProfile(ctx context.Context, id string, dob *time.Time, goals, allergies []string, weight float64) error {
+func (s *UserService) UpdateHealthProfile(ctx context.Context, id string, dob *time.Time, goals, allergies []string, weight, height float64) error {
 	user, err := s.repo.GetByID(ctx, id)
 	if err != nil {
 		return err
@@ -43,6 +43,7 @@ func (s *UserService) UpdateHealthProfile(ctx context.Context, id string, dob *t
 
 	user.DateOfBirth = dob
 	user.Weight = weight
+	user.Height = height
 
 	if user.HealthProfile == nil {
 		user.HealthProfile = &domain.HealthProfile{

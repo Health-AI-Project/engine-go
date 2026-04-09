@@ -55,6 +55,7 @@ type UpdateHealthProfileRequest struct {
 	Goals       []string `protobuf:"bytes,3,rep,name=goals" json:"goals,omitempty"`
 	Allergies   []string `protobuf:"bytes,4,rep,name=allergies" json:"allergies,omitempty"`
 	Weight      float64  `protobuf:"fixed64,5,opt,name=weight" json:"weight,omitempty"`
+	Height      float64  `protobuf:"fixed64,6,opt,name=height" json:"height,omitempty"`
 }
 
 func (m *UpdateHealthProfileRequest) Reset()         { *m = UpdateHealthProfileRequest{} }
@@ -213,7 +214,7 @@ func (h *UserHandler) UpdateHealthProfile(ctx context.Context, req *UpdateHealth
 		dob = &t
 	}
 
-	err := h.service.UpdateHealthProfile(ctx, req.UserId, dob, req.Goals, req.Allergies, req.Weight)
+	err := h.service.UpdateHealthProfile(ctx, req.UserId, dob, req.Goals, req.Allergies, req.Weight, req.Height)
 	if err != nil {
 		fmt.Printf("[GRPC] UpdateHealthProfile ERROR: %v\n", err)
 		return &Ack{Success: false, Message: err.Error()}, status.Error(codes.Internal, "failed to update health profile")
