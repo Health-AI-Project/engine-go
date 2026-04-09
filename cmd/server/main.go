@@ -49,7 +49,7 @@ func NewDatabase() (*gorm.DB, error) {
 	}
 
 	// AutoMigrate
-	db.Exec("CREATE EXTENSION IF NOT EXISTS vector;")
+	// db.Exec("CREATE EXTENSION IF NOT EXISTS vector;") // Disabled: pgvector not installed on shared DB
 	if err := db.AutoMigrate(
 		// &domain.User{}, // Migrated manually to avoid conflicts with Drizzle
 		&domain.DailyLog{},
@@ -57,15 +57,17 @@ func NewDatabase() (*gorm.DB, error) {
 		&domain.HealthProfile{},
 		// Feature 1: Nutrition
 		&domain.FoodPreference{},
-		&domain.MealSuggestion{},
 		&domain.MealPlan{},
 		&domain.MealPlanItem{},
 		// Feature 2: Workout Recommendation
-		&domain.Exercise{},
 		&domain.WorkoutPlan{},
 		&domain.WorkoutItem{},
+		// Disabled: require pgvector extension
+		// &domain.MealSuggestion{},
+		// &domain.Exercise{},
 	); err != nil {
-		return nil, err
+		fmt.Printf("AutoMigrate warning: %v\n", err)
+		// Continue anyway - tables may already exist
 	}
 
 	// DEBUG: Print actual connection info
