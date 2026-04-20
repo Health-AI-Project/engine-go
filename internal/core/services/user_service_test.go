@@ -71,13 +71,14 @@ func TestUpdateHealthProfile(t *testing.T) {
 		mockRepo.On("Update", context.Background(), mock.MatchedBy(func(u *domain.User) bool {
 			return u.DateOfBirth != nil &&
 				u.Weight == 80.0 &&
+				u.Height == 175.0 &&
 				u.HealthProfile != nil &&
 				u.HealthProfile.Goals[0] == "perdre du poids" &&
 				u.HealthProfile.Allergies[0] == "arachides"
 		})).Return(nil).Once()
 
 		dob := time.Date(1990, 1, 1, 0, 0, 0, 0, time.UTC)
-		err := service.UpdateHealthProfile(context.Background(), "123", &dob, []string{"perdre du poids"}, []string{"arachides"}, 80.0)
+		err := service.UpdateHealthProfile(context.Background(), "123", &dob, []string{"perdre du poids"}, []string{"arachides"}, 80.0, 175.0)
 		assert.NoError(t, err)
 	})
 }
