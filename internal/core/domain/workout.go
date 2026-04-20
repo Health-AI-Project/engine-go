@@ -5,7 +5,6 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/lib/pq"
-	"github.com/pgvector/pgvector-go"
 	"gorm.io/gorm"
 )
 
@@ -46,7 +45,6 @@ type Exercise struct {
 	Contraindications pq.StringArray  `gorm:"type:text[]"` // e.g. ["ShoulderInjury"]
 	ImageURL          string          `gorm:"type:text"`
 	VideoURL          string          `gorm:"type:text"`
-	Embedding         pgvector.Vector `gorm:"type:vector(384)"`
 	CreatedAt         time.Time
 }
 

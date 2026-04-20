@@ -212,7 +212,55 @@ func (h *CoreHandler) GetWorkoutRecommendation(ctx context.Context, req *GetWork
 	if !h.userService.CanAccessAdvancedFeatures(user) {
 		return nil, status.Error(codes.PermissionDenied, "freemium users cannot access advanced features")
 	}
-	return nil, status.Error(codes.Unimplemented, "GetWorkoutRecommendation unimplemented")
+
+	equip := []domain.EquipmentType{}
+	for _, e := range req.AvailableEquipment {
+		equip = append(equip, domain.EquipmentType(e))
+	}
+	if len(equip) == 0 {
+		equip = append(equip, domain.EquipmentNone)
+	}
+
+	constraints := services.WorkoutConstraints{
+		DurationMinutes: int(req.DurationMinutes),
+		Equipment:       equip,
+		UserInjuries:    req.UserInjuries,
+	}
+	if constraints.DurationMinutes <= 0 {
+		constraints.DurationMinutes = 30
+	}
+
+	plan, err := h.workoutService.GenerateWorkout(ctx, req.UserId, constraints)
+	if err != nil {
+		return nil, status.Error(codes.Internal, err.Error())
+	}
+
+	resp := &WorkoutPlanResponse{
+		PlanId:          plan.ID,
+		Date:            plan.Date.Format("2006-01-02"),
+		DurationMinutes: int32(plan.DurationMinutes),
+		EstCaloriesBurn: plan.EstCaloriesBurn,
+		Exercises:       []*ProtoWorkoutItem{},
+	}
+	for _, item := range plan.Exercises {
+		resp.Exercises = append(resp.Exercises, &ProtoWorkoutItem{
+			ExerciseId:  item.ExerciseID,
+			Name:        item.Exercise.Name,
+			Order:       int32(item.Order),
+			Sets:        int32(item.Sets),
+			Reps:        int32(item.Reps),
+			DurationSec: int32(item.DurationSec),
+			RestSec:     int32(item.RestSec),
+			Details: &ExerciseDetails{
+				Type:          string(item.Exercise.Type),
+				Difficulty:    string(item.Exercise.Difficulty),
+				Equipment:     string(item.Exercise.RequiredEquipment),
+				MuscleTargets: item.Exercise.MusclesTargeted,
+				VideoUrl:      item.Exercise.VideoURL,
+			},
+		})
+	}
+	return resp, nil
 }
 
 // 7. GetCaloriesHistory

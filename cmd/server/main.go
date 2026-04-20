@@ -11,6 +11,8 @@ import (
 	"healthai/engine/internal/core/domain"
 	"healthai/engine/internal/core/services"
 
+	"github.com/lib/pq"
+
 	// "healthai/engine/internal/core/ports" // Not strictly needed if fx uses type inference, but good for clarity if referenced. Use implicit matching.
 
 	"github.com/joho/godotenv"
@@ -62,13 +64,15 @@ func NewDatabase() (*gorm.DB, error) {
 		// Feature 2: Workout Recommendation
 		&domain.WorkoutPlan{},
 		&domain.WorkoutItem{},
-		// Disabled: require pgvector extension
-		// &domain.MealSuggestion{},
-		// &domain.Exercise{},
+		&domain.Exercise{},
+		// &domain.MealSuggestion{}, // Disabled: require pgvector extension
 	); err != nil {
 		fmt.Printf("AutoMigrate warning: %v\n", err)
 		// Continue anyway - tables may already exist
 	}
+
+	// Seed exercises if empty
+	seedExercises(db)
 
 	// DEBUG: Print actual connection info
 	sqlDB, _ := db.DB()
@@ -137,6 +141,40 @@ func NewGRPCServer(lc fx.Lifecycle, coreHandler *usergrpc.CoreHandler, userHandl
 // Go will complain about conflict. I should alias the standard one or the local one.
 
 // Retrying imports for clarity in the file content below.
+func seedExercises(db *gorm.DB) {
+	var count int64
+	db.Model(&domain.Exercise{}).Count(&count)
+	if count > 0 {
+		fmt.Printf("[SEED] %d exercises already exist, skipping seed\n", count)
+		return
+	}
+
+	exercises := []domain.Exercise{
+		{Name: "Pompes", Type: domain.ExerciseTypeStrength, RequiredEquipment: domain.EquipmentNone, Difficulty: domain.DifficultyBeginner, MusclesTargeted: pq.StringArray{"Pectoraux", "Triceps", "Epaules"}},
+		{Name: "Squats", Type: domain.ExerciseTypeStrength, RequiredEquipment: domain.EquipmentNone, Difficulty: domain.DifficultyBeginner, MusclesTargeted: pq.StringArray{"Quadriceps", "Fessiers", "Ischio-jambiers"}},
+		{Name: "Planche", Type: domain.ExerciseTypeStrength, RequiredEquipment: domain.EquipmentNone, Difficulty: domain.DifficultyBeginner, MusclesTargeted: pq.StringArray{"Abdominaux", "Dos"}},
+		{Name: "Fentes", Type: domain.ExerciseTypeStrength, RequiredEquipment: domain.EquipmentNone, Difficulty: domain.DifficultyBeginner, MusclesTargeted: pq.StringArray{"Quadriceps", "Fessiers"}},
+		{Name: "Burpees", Type: domain.ExerciseTypeCardio, RequiredEquipment: domain.EquipmentNone, Difficulty: domain.DifficultyIntermediate, MusclesTargeted: pq.StringArray{"Corps entier"}},
+		{Name: "Mountain Climbers", Type: domain.ExerciseTypeCardio, RequiredEquipment: domain.EquipmentNone, Difficulty: domain.DifficultyBeginner, MusclesTargeted: pq.StringArray{"Abdominaux", "Epaules", "Cardio"}},
+		{Name: "Crunchs", Type: domain.ExerciseTypeStrength, RequiredEquipment: domain.EquipmentNone, Difficulty: domain.DifficultyBeginner, MusclesTargeted: pq.StringArray{"Abdominaux"}},
+		{Name: "Dips sur chaise", Type: domain.ExerciseTypeStrength, RequiredEquipment: domain.EquipmentNone, Difficulty: domain.DifficultyBeginner, MusclesTargeted: pq.StringArray{"Triceps", "Pectoraux"}},
+		{Name: "Jumping Jacks", Type: domain.ExerciseTypeCardio, RequiredEquipment: domain.EquipmentNone, Difficulty: domain.DifficultyBeginner, MusclesTargeted: pq.StringArray{"Corps entier", "Cardio"}},
+		{Name: "Superman", Type: domain.ExerciseTypeStrength, RequiredEquipment: domain.EquipmentNone, Difficulty: domain.DifficultyBeginner, MusclesTargeted: pq.StringArray{"Dos", "Fessiers"}},
+		{Name: "Curl Biceps", Type: domain.ExerciseTypeStrength, RequiredEquipment: domain.EquipmentDumbbells, Difficulty: domain.DifficultyBeginner, MusclesTargeted: pq.StringArray{"Biceps"}},
+		{Name: "Developpe Militaire", Type: domain.ExerciseTypeStrength, RequiredEquipment: domain.EquipmentDumbbells, Difficulty: domain.DifficultyIntermediate, MusclesTargeted: pq.StringArray{"Epaules", "Triceps"}},
+		{Name: "Rowing Haltere", Type: domain.ExerciseTypeStrength, RequiredEquipment: domain.EquipmentDumbbells, Difficulty: domain.DifficultyIntermediate, MusclesTargeted: pq.StringArray{"Dos", "Biceps"}},
+		{Name: "Squat Goblet", Type: domain.ExerciseTypeStrength, RequiredEquipment: domain.EquipmentDumbbells, Difficulty: domain.DifficultyBeginner, MusclesTargeted: pq.StringArray{"Quadriceps", "Fessiers"}},
+		{Name: "Etirements", Type: domain.ExerciseTypeFlexibility, RequiredEquipment: domain.EquipmentNone, Difficulty: domain.DifficultyBeginner, MusclesTargeted: pq.StringArray{"Corps entier"}},
+	}
+
+	for i := range exercises {
+		if err := db.Create(&exercises[i]).Error; err != nil {
+			fmt.Printf("[SEED] Warning: failed to seed exercise %s: %v\n", exercises[i].Name, err)
+		}
+	}
+	fmt.Printf("[SEED] Seeded %d exercises\n", len(exercises))
+}
+
 func main() {
 	if err := godotenv.Load(); err != nil {
 		fmt.Println("Warning: .env file not found, using system environment variables")
