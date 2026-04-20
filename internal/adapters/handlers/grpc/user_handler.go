@@ -113,6 +113,54 @@ func (m *Ack) Reset()         { *m = Ack{} }
 func (m *Ack) String() string { return fmt.Sprintf("%+v", *m) }
 func (*Ack) ProtoMessage()    {}
 
+// --- History types ---
+
+type HistoryRequest struct {
+	UserId string `protobuf:"bytes,1,opt,name=user_id" json:"user_id,omitempty"`
+	Days   int32  `protobuf:"varint,2,opt,name=days" json:"days,omitempty"`
+}
+
+func (m *HistoryRequest) Reset()         { *m = HistoryRequest{} }
+func (m *HistoryRequest) String() string { return fmt.Sprintf("%+v", *m) }
+func (*HistoryRequest) ProtoMessage()    {}
+
+type DailyLogEntry struct {
+	Date     string  `protobuf:"bytes,1,opt,name=date" json:"date,omitempty"`
+	Calories float64 `protobuf:"fixed64,2,opt,name=calories" json:"calories,omitempty"`
+	Protein  float64 `protobuf:"fixed64,3,opt,name=protein" json:"protein,omitempty"`
+	Carbs    float64 `protobuf:"fixed64,4,opt,name=carbs" json:"carbs,omitempty"`
+	Fat      float64 `protobuf:"fixed64,5,opt,name=fat" json:"fat,omitempty"`
+}
+
+func (m *DailyLogEntry) Reset()         { *m = DailyLogEntry{} }
+func (m *DailyLogEntry) String() string { return fmt.Sprintf("%+v", *m) }
+func (*DailyLogEntry) ProtoMessage()    {}
+
+type CaloriesHistoryResponse struct {
+	Entries []*DailyLogEntry `protobuf:"bytes,1,rep,name=entries" json:"entries,omitempty"`
+}
+
+func (m *CaloriesHistoryResponse) Reset()         { *m = CaloriesHistoryResponse{} }
+func (m *CaloriesHistoryResponse) String() string { return fmt.Sprintf("%+v", *m) }
+func (*CaloriesHistoryResponse) ProtoMessage()    {}
+
+type WeightEntry struct {
+	Date   string  `protobuf:"bytes,1,opt,name=date" json:"date,omitempty"`
+	Weight float64 `protobuf:"fixed64,2,opt,name=weight" json:"weight,omitempty"`
+}
+
+func (m *WeightEntry) Reset()         { *m = WeightEntry{} }
+func (m *WeightEntry) String() string { return fmt.Sprintf("%+v", *m) }
+func (*WeightEntry) ProtoMessage()    {}
+
+type WeightHistoryResponse struct {
+	Entries []*WeightEntry `protobuf:"bytes,1,rep,name=entries" json:"entries,omitempty"`
+}
+
+func (m *WeightHistoryResponse) Reset()         { *m = WeightHistoryResponse{} }
+func (m *WeightHistoryResponse) String() string { return fmt.Sprintf("%+v", *m) }
+func (*WeightHistoryResponse) ProtoMessage()    {}
+
 // UserServiceServer is the interface that defines the gRPC service methods.
 type UserServiceServer interface {
 	GetUserProfile(context.Context, *UserIdRequest) (*UserProfileResponse, error)

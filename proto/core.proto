@@ -18,6 +18,8 @@ service CoreService {
   rpc GetMealPlan(DateRequest) returns (MealPlanResponse);
   rpc GetFoodPreferences(UserIdRequest) returns (FoodPreferencesResponse);
   rpc GetWorkoutRecommendation(WorkoutConstraints) returns (WorkoutPlan);
+  rpc GetCaloriesHistory(HistoryRequest) returns (CaloriesHistoryResponse);
+  rpc GetWeightHistory(HistoryRequest) returns (WeightHistoryResponse);
 }
 
 // --- Messages ---
@@ -120,4 +122,32 @@ message Exercise {
   string name = 1;
   int32 duration = 2;
   string type = 3;
+}
+
+// --- History ---
+
+message HistoryRequest {
+  string user_id = 1;
+  int32 days = 2;
+}
+
+message DailyLogEntry {
+  string date = 1;
+  double calories = 2;
+  double protein = 3;
+  double carbs = 4;
+  double fat = 5;
+}
+
+message CaloriesHistoryResponse {
+  repeated DailyLogEntry entries = 1;
+}
+
+message WeightEntry {
+  string date = 1;
+  double weight = 2;
+}
+
+message WeightHistoryResponse {
+  repeated WeightEntry entries = 1;
 }

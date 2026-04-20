@@ -21,6 +21,14 @@ func (m *MockActivityRepository) GetDailyLogByDate(ctx context.Context, userID s
 	return args.Get(0).(*domain.DailyLog), args.Error(1)
 }
 
+func (m *MockActivityRepository) GetDailyLogHistory(ctx context.Context, userID string, days int) ([]domain.DailyLog, error) {
+	args := m.Called(ctx, userID, days)
+	if args.Get(0) == nil {
+		return nil, args.Error(1)
+	}
+	return args.Get(0).([]domain.DailyLog), args.Error(1)
+}
+
 func (m *MockActivityRepository) CreateDailyLog(ctx context.Context, log *domain.DailyLog) error {
 	args := m.Called(ctx, log)
 	return args.Error(0)

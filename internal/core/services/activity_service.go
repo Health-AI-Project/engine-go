@@ -57,6 +57,10 @@ func (s *ActivityService) GetDailyStats(ctx context.Context, userID string) (*do
 }
 
 
+func (s *ActivityService) GetCaloriesHistory(ctx context.Context, userID string, days int) ([]domain.DailyLog, error) {
+	return s.repo.GetDailyLogHistory(ctx, userID, days)
+}
+
 // calculateCalories helper: prefers specific calorie input, else estimates from macros
 // However, task says "Recalcule automatiquement le total calorique après chaque ajout."
 // This implies aggregation.

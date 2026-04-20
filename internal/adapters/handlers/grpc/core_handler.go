@@ -33,6 +33,8 @@ type CoreServiceServer interface {
 	GetMealPlan(context.Context, *GetMealPlanRequest) (*MealPlanResponse, error)
 	GetFoodPreferences(context.Context, *GetFoodPreferencesRequest) (*FoodPreferencesResponse, error)
 	GetWorkoutRecommendation(context.Context, *GetWorkoutRecommendationRequest) (*WorkoutPlanResponse, error)
+	GetCaloriesHistory(context.Context, *HistoryRequest) (*CaloriesHistoryResponse, error)
+	GetWeightHistory(context.Context, *HistoryRequest) (*WeightHistoryResponse, error)
 }
 
 // --- Handler Implementation ---
@@ -213,6 +215,52 @@ func (h *CoreHandler) GetWorkoutRecommendation(ctx context.Context, req *GetWork
 	return nil, status.Error(codes.Unimplemented, "GetWorkoutRecommendation unimplemented")
 }
 
+// 7. GetCaloriesHistory
+func (h *CoreHandler) GetCaloriesHistory(ctx context.Context, req *HistoryRequest) (*CaloriesHistoryResponse, error) {
+	if req.UserId == "" {
+		return nil, status.Error(codes.InvalidArgument, "user_id is required")
+	}
+	days := int(req.Days)
+	if days <= 0 {
+		days = 7
+	}
+	logs, err := h.activityService.GetCaloriesHistory(ctx, req.UserId, days)
+	if err != nil {
+		return nil, status.Error(codes.Internal, "failed to get calories history")
+	}
+	entries := make([]*DailyLogEntry, len(logs))
+	for i, log := range logs {
+		entries[i] = &DailyLogEntry{
+			Date:     log.Date.Format("2006-01-02"),
+			Calories: log.TotalCalories,
+			Protein:  log.TotalProtein,
+			Carbs:    log.TotalCarbs,
+			Fat:      log.TotalFat,
+		}
+	}
+	return &CaloriesHistoryResponse{Entries: entries}, nil
+}
+
+// 8. GetWeightHistory - returns the user's current weight as a single point (no weight log table yet)
+func (h *CoreHandler) GetWeightHistory(ctx context.Context, req *HistoryRequest) (*WeightHistoryResponse, error) {
+	if req.UserId == "" {
+		return nil, status.Error(codes.InvalidArgument, "user_id is required")
+	}
+	user, err := h.userService.GetUser(ctx, req.UserId)
+	if err != nil {
+		return nil, status.Error(codes.NotFound, "user not found")
+	}
+	// Since there is no weight log table, return the current weight as a single entry
+	entries := []*WeightEntry{}
+	if user.Weight > 0 {
+		entries = append(entries, &WeightEntry{
+			Date:   time.Now().Format("2006-01-02"),
+			Weight: user.Weight,
+		})
+	}
+	return &WeightHistoryResponse{Entries: entries}, nil
+}
+
 // --- Registration ---
 
 func RegisterCoreService(s *grpc.Server, srv *CoreHandler) {
@@ -231,6 +279,8 @@ func RegisterCoreService(s *grpc.Server, srv *CoreHandler) {
 			{MethodName: "GetMealPlan", Handler: _Core_GetMealPlan_Handler},
 			{MethodName: "GetFoodPreferences", Handler: _Core_GetFoodPreferences_Handler},
 			{MethodName: "GetWorkoutRecommendation", Handler: _Core_GetWorkoutRecommendation_Handler},
+			{MethodName: "GetCaloriesHistory", Handler: _Core_GetCaloriesHistory_Handler},
+			{MethodName: "GetWeightHistory", Handler: _Core_GetWeightHistory_Handler},
 		},
 		Streams:  []grpc.StreamDesc{},
 		Metadata: "core.proto",
@@ -317,15 +367,47 @@ func _Core_UpdateFoodPreferences_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
-// Simplified Stubs for the rest (runtime error if called but won't crash registration)
 func _Core_UpdateBiometrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	return nil, nil
+	in := new(BiometricsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(*CoreHandler).UpdateBiometrics(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{Server: srv, FullMethod: "/core.CoreService/UpdateBiometrics"}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(*CoreHandler).UpdateBiometrics(ctx, req.(*BiometricsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 func _Core_LogNutrition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	return nil, nil
+	in := new(NutritionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(*CoreHandler).LogNutrition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{Server: srv, FullMethod: "/core.CoreService/LogNutrition"}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(*CoreHandler).LogNutrition(ctx, req.(*NutritionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 func _Core_LogWorkout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	return nil, nil
+	in := new(WorkoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(*CoreHandler).LogWorkout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{Server: srv, FullMethod: "/core.CoreService/LogWorkout"}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(*CoreHandler).LogWorkout(ctx, req.(*WorkoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 func _Core_AnalyzeMeal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AnalyzeMealRequest)
@@ -366,6 +448,34 @@ func _Core_GetWorkoutRecommendation_Handler(srv interface{}, ctx context.Context
 	info := &grpc.UnaryServerInfo{Server: srv, FullMethod: "/core.CoreService/GetWorkoutRecommendation"}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(*CoreHandler).GetWorkoutRecommendation(ctx, req.(*GetWorkoutRecommendationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+func _Core_GetCaloriesHistory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HistoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(*CoreHandler).GetCaloriesHistory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{Server: srv, FullMethod: "/core.CoreService/GetCaloriesHistory"}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(*CoreHandler).GetCaloriesHistory(ctx, req.(*HistoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+func _Core_GetWeightHistory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HistoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(*CoreHandler).GetWeightHistory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{Server: srv, FullMethod: "/core.CoreService/GetWeightHistory"}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(*CoreHandler).GetWeightHistory(ctx, req.(*HistoryRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

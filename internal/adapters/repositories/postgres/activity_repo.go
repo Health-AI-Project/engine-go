@@ -42,6 +42,18 @@ func (r *ActivityRepository) UpdateDailyLog(ctx context.Context, log *domain.Dai
 	return r.db.WithContext(ctx).Save(log).Error
 }
 
+func (r *ActivityRepository) GetDailyLogHistory(ctx context.Context, userID string, days int) ([]domain.DailyLog, error) {
+	var logs []domain.DailyLog
+	since := time.Now().Truncate(24 * time.Hour).AddDate(0, 0, -days)
+	if err := r.db.WithContext(ctx).
+		Where("user_id = ? AND date >= ?", userID, since).
+		Order("date ASC").
+		Find(&logs).Error; err != nil {
+		return nil, err
+	}
+	return logs, nil
+}
+
 func (r *ActivityRepository) CreateWorkout(ctx context.Context, workout *domain.Workout) error {
 	return r.db.WithContext(ctx).Create(workout).Error
 }
